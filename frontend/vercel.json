@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/explorer.html", "destination": "/pages/explorer.html" },
+    { "source": "/quiz.html", "destination": "/pages/quiz.html" },
+    { "source": "/domain.html", "destination": "/pages/domain.html" },
+    { "source": "/roadmap.html", "destination": "/pages/roadmap.html" },
+    { "source": "/resources.html", "destination": "/pages/resources.html" },
+    { "source": "/dashboard.html", "destination": "/pages/dashboard.html" },
+    { "source": "/about.html", "destination": "/pages/about.html" },
+    { "source": "/contact.html", "destination": "/pages/contact.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

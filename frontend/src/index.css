@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glass{ backdrop-filter:blur(12px); background:rgba(255,255,255,0.8) }
+.dark .glass{ background:rgba(15,23,42,0.7) }
+.card-hover{ transition:all .3s }
+.card-hover:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -15px rgba(79,70,229,.25) }
+::-webkit-scrollbar{ width:8px; height:8px }
+::-webkit-scrollbar-thumb{ background:#CBD5E1; border-radius:99px }
+:focus-visible{ outline:2px solid #4F46E5; outline-offset:2px }
+:lang(te){font-family:'Noto Sans Telugu',Inter,system-ui,sans-serif; line-height:1.85; font-size:106%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none; text-rendering:optimizeLegibility}
+:lang(hi),:lang(mr){font-family:'Noto Sans Devanagari',Inter,system-ui,sans-serif; line-height:1.80; font-size:105%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none}
+:lang(ta){font-family:'Noto Sans Tamil',Inter,system-ui,sans-serif; line-height:1.85; font-size:106%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none}
+:lang(kn){font-family:'Noto Sans Kannada',Inter,system-ui,sans-serif; line-height:1.85; font-size:106%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none}
+:lang(ml){font-family:'Noto Sans Malayalam',Inter,system-ui,sans-serif; line-height:1.85; font-size:106%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none}
+:lang(bn){font-family:'Noto Sans Bengali',Inter,system-ui,sans-serif; line-height:1.80; font-size:105%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none}
+:lang(gu){font-family:'Noto Sans Gujarati',Inter,system-ui,sans-serif; line-height:1.80; font-size:105%; letter-spacing:0; overflow-wrap:break-word; word-break:normal; hyphens:none}
+:lang(ur){font-family:'Noto Nastaliq Urdu','Noto Sans Arabic',serif; direction:rtl; line-height:2.2; font-size:110%; letter-spacing:0}
+html[dir="rtl"] body{ direction:rtl }
+html:lang(te) .line-clamp-2, html:lang(ta) .line-clamp-2, html:lang(kn) .line-clamp-2, html:lang(ml) .line-clamp-2, html:lang(hi) .line-clamp-2, html:lang(mr) .line-clamp-2, html:lang(bn) .line-clamp-2, html:lang(gu) .line-clamp-2, html:lang(ur) .line-clamp-2{ -webkit-line-clamp:3; line-clamp:3; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden }
+.card-hover{ min-height:340px }
+@media (max-width:640px){ .card-hover{ min-height:320px } }
+#domainGrid{ min-height:400px }

@@ -1,0 +1,4 @@
+Best Model: RandomForest
+RandomForest: {'accuracy': 0.89, 'cv_score': np.float64(0.8200000000000001)}
+DecisionTree: {'accuracy': 0.64, 'cv_score': np.float64(0.688)}
+KNN: {'accuracy': 0.82, 'cv_score': np.float64(0.774)}

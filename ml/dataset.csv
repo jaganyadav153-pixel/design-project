@@ -1,0 +1,501 @@
+student_id,logic_score,math_aptitude,creativity,security_interest,cloud_interest,data_interest,os_interest,math_marks,physics_marks,programming_marks,english_marks,learning_style,personality,recommended_domain
+STU0001,3,4,2,3,4,3,3,75,61,88,95,Auditory,Social,Cloud Computing
+STU0002,5,4,3,2,2,4,3,78,82,86,76,Visual,Social,ML
+STU0003,3,3,2,3,5,4,3,75,84,75,77,Reading,Practical,Cloud Computing
+STU0004,4,4,3,2,2,4,3,97,74,92,80,Visual,Creative,AI
+STU0005,3,4,2,3,4,5,4,68,95,72,94,Kinesthetic,Social,DBMS
+STU0006,4,3,2,3,2,3,4,84,89,77,93,Kinesthetic,Analytical,Operating Systems
+STU0007,4,4,2,3,3,4,4,92,71,89,92,Visual,Practical,DBMS
+STU0008,5,4,3,3,2,3,4,75,75,66,65,Visual,Social,Operating Systems
+STU0009,4,4,3,2,3,4,4,83,93,79,88,Visual,Creative,DBMS
+STU0010,4,4,3,1,2,4,3,77,75,91,77,Reading,Creative,ML
+STU0011,3,3,2,4,5,4,4,81,63,86,66,Visual,Social,Cloud Computing
+STU0012,4,3,2,3,4,4,3,88,95,90,66,Visual,Analytical,DBMS
+STU0013,4,3,3,4,2,3,5,89,87,74,95,Reading,Creative,Operating Systems
+STU0014,4,4,4,3,2,4,2,80,64,77,75,Reading,Analytical,ML
+STU0015,5,4,2,4,2,3,4,76,68,77,79,Reading,Practical,Operating Systems
+STU0016,4,4,2,3,3,2,4,83,70,74,88,Kinesthetic,Analytical,Operating Systems
+STU0017,3,3,3,4,4,3,4,74,76,92,92,Reading,Practical,Cloud Computing
+STU0018,5,3,3,4,2,3,4,60,64,68,69,Visual,Practical,Operating Systems
+STU0019,4,3,2,3,4,4,4,87,75,76,70,Auditory,Social,Cloud Computing
+STU0020,4,5,3,2,1,3,2,86,74,84,74,Visual,Creative,AI
+STU0021,5,4,2,5,3,3,4,83,62,78,66,Reading,Practical,Cybersecurity
+STU0022,4,3,2,2,4,4,4,87,81,67,80,Visual,Practical,DBMS
+STU0023,3,4,3,4,3,3,5,82,79,70,78,Auditory,Social,Cybersecurity
+STU0024,5,4,3,2,3,4,4,65,75,89,79,Auditory,Creative,DBMS
+STU0025,4,5,4,2,1,3,3,97,66,75,87,Auditory,Creative,AI
+STU0026,4,3,3,3,4,4,4,88,90,70,88,Kinesthetic,Creative,DBMS
+STU0027,3,4,3,3,3,5,4,65,69,69,74,Reading,Creative,DBMS
+STU0028,3,3,2,3,4,5,4,90,82,65,79,Reading,Social,DBMS
+STU0029,4,4,2,4,5,4,4,73,68,86,94,Visual,Social,Cloud Computing
+STU0030,3,3,3,4,5,4,3,82,81,82,84,Kinesthetic,Social,Cloud Computing
+STU0031,4,4,3,1,2,4,2,94,75,79,68,Reading,Analytical,ML
+STU0032,3,4,2,3,4,4,4,80,64,78,75,Visual,Practical,Cloud Computing
+STU0033,5,3,3,4,2,3,5,66,83,78,89,Auditory,Social,Operating Systems
+STU0034,5,5,3,1,2,4,1,89,84,93,81,Visual,Social,AI
+STU0035,5,3,3,3,2,2,5,91,75,82,90,Reading,Social,Operating Systems
+STU0036,5,4,3,3,4,5,4,82,89,87,77,Kinesthetic,Practical,DBMS
+STU0037,4,4,4,2,3,4,2,84,83,82,71,Kinesthetic,Analytical,ML
+STU0038,5,4,3,2,3,4,4,90,81,79,71,Visual,Practical,DBMS
+STU0039,4,3,2,4,2,2,4,86,74,84,93,Reading,Social,Operating Systems
+STU0040,4,3,2,3,3,2,4,75,95,70,64,Auditory,Analytical,Operating Systems
+STU0041,5,4,3,5,3,2,5,85,72,88,87,Visual,Creative,Cybersecurity
+STU0042,4,3,3,4,5,4,4,84,91,89,88,Visual,Analytical,Cloud Computing
+STU0043,4,4,3,3,2,3,4,77,87,70,91,Visual,Social,Operating Systems
+STU0044,5,5,4,3,2,5,2,85,80,83,67,Reading,Analytical,ML
+STU0045,4,4,2,3,5,4,3,77,91,86,67,Visual,Creative,Cloud Computing
+STU0046,3,4,3,2,3,4,4,92,77,87,86,Reading,Social,DBMS
+STU0047,4,5,4,2,3,4,3,98,91,84,69,Reading,Social,ML
+STU0048,5,4,4,1,3,5,3,87,69,95,91,Visual,Creative,ML
+STU0049,3,3,3,5,3,2,5,73,85,80,65,Kinesthetic,Social,Cybersecurity
+STU0050,4,4,2,3,2,3,4,66,70,79,79,Visual,Analytical,Operating Systems
+STU0051,5,4,3,1,2,5,2,90,69,93,74,Reading,Practical,ML
+STU0052,3,4,3,4,4,3,5,79,72,79,84,Reading,Analytical,Cybersecurity
+STU0053,5,5,3,3,2,5,3,82,82,94,74,Auditory,Practical,ML
+STU0054,4,4,2,3,3,4,3,78,86,75,71,Auditory,Creative,DBMS
+STU0055,4,4,2,3,3,5,3,74,85,86,95,Kinesthetic,Analytical,DBMS
+STU0056,5,4,2,2,4,5,4,61,95,84,80,Auditory,Analytical,DBMS
+STU0057,3,3,3,4,4,3,3,75,68,89,84,Reading,Practical,Cloud Computing
+STU0058,4,3,3,3,4,4,3,83,88,71,88,Auditory,Practical,DBMS
+STU0059,4,4,4,1,3,3,3,95,61,94,63,Kinesthetic,Creative,AI
+STU0060,4,4,2,3,2,3,4,68,76,82,71,Visual,Analytical,Operating Systems
+STU0061,4,5,5,1,3,3,2,89,92,86,66,Reading,Creative,AI
+STU0062,4,4,3,4,3,2,4,88,65,67,80,Auditory,Analytical,Operating Systems
+STU0063,5,5,5,3,2,3,3,78,95,95,73,Reading,Social,AI
+STU0064,5,4,2,4,3,3,4,90,65,67,65,Visual,Social,Operating Systems
+STU0065,4,5,4,3,2,5,1,84,79,94,82,Visual,Creative,AI
+STU0066,4,5,5,3,3,5,3,92,77,75,61,Auditory,Practical,AI
+STU0067,3,3,2,2,3,5,4,86,81,79,70,Kinesthetic,Practical,DBMS
+STU0068,5,3,3,3,4,4,4,88,77,78,73,Visual,Practical,DBMS
+STU0069,3,3,3,5,3,2,4,74,68,76,76,Kinesthetic,Practical,Cybersecurity
+STU0070,5,4,4,3,1,4,1,89,80,77,87,Reading,Social,AI
+STU0071,4,5,3,1,3,5,2,87,81,84,74,Kinesthetic,Creative,ML
+STU0072,4,4,3,1,2,3,1,94,64,79,71,Reading,Social,AI
+STU0073,5,4,2,3,3,5,4,88,79,85,77,Visual,Practical,DBMS
+STU0074,3,3,3,5,4,2,5,83,72,90,80,Reading,Creative,Cybersecurity
+STU0075,4,3,3,4,3,2,4,83,84,74,86,Kinesthetic,Analytical,Operating Systems
+STU0076,4,4,2,3,3,5,3,82,85,74,68,Visual,Practical,DBMS
+STU0077,4,4,2,4,4,4,3,74,91,82,72,Auditory,Creative,Cloud Computing
+STU0078,5,4,5,2,1,3,1,97,70,94,88,Visual,Social,AI
+STU0079,3,3,3,5,4,2,5,86,88,88,89,Kinesthetic,Social,Cybersecurity
+STU0080,5,4,3,4,3,2,5,67,77,75,88,Auditory,Social,Cybersecurity
+STU0081,5,4,4,1,2,3,1,85,81,78,69,Auditory,Analytical,AI
+STU0082,4,4,4,1,2,5,2,84,79,82,67,Visual,Creative,ML
+STU0083,5,3,2,4,4,3,4,84,75,81,86,Auditory,Analytical,Cybersecurity
+STU0084,4,4,2,4,4,4,4,68,64,83,82,Auditory,Analytical,Cloud Computing
+STU0085,5,3,2,3,4,5,3,64,89,87,62,Kinesthetic,Creative,DBMS
+STU0086,4,4,4,2,1,5,2,83,83,78,87,Reading,Social,AI
+STU0087,5,3,2,4,2,3,5,78,66,75,65,Kinesthetic,Practical,Operating Systems
+STU0088,5,4,4,3,3,5,2,77,85,95,83,Auditory,Analytical,ML
+STU0089,5,5,4,3,1,5,1,96,83,89,83,Reading,Analytical,AI
+STU0090,3,3,2,4,4,4,3,76,88,80,73,Kinesthetic,Social,Cloud Computing
+STU0091,5,5,3,3,3,5,2,97,71,95,83,Auditory,Analytical,ML
+STU0092,5,3,3,3,2,3,5,90,86,81,86,Visual,Creative,Operating Systems
+STU0093,4,3,2,3,3,2,5,69,70,74,70,Kinesthetic,Creative,Operating Systems
+STU0094,4,5,3,3,2,4,2,96,81,94,62,Visual,Analytical,ML
+STU0095,4,5,5,3,2,5,2,90,85,82,79,Reading,Analytical,AI
+STU0096,5,3,3,3,4,5,4,68,83,89,92,Visual,Practical,DBMS
+STU0097,5,5,4,1,2,5,3,81,91,80,92,Reading,Social,ML
+STU0098,4,4,3,3,2,3,4,90,94,74,60,Visual,Social,Operating Systems
+STU0099,4,5,5,2,1,4,3,89,77,92,67,Auditory,Analytical,AI
+STU0100,5,3,2,5,3,2,5,80,89,86,69,Auditory,Practical,Cybersecurity
+STU0101,5,4,3,4,2,3,5,67,79,78,61,Reading,Practical,Operating Systems
+STU0102,4,4,2,3,2,2,5,72,88,65,80,Reading,Creative,Operating Systems
+STU0103,5,3,2,4,4,3,5,75,89,75,94,Kinesthetic,Practical,Cybersecurity
+STU0104,3,3,2,3,4,5,4,78,73,87,91,Kinesthetic,Social,DBMS
+STU0105,5,5,3,2,2,5,2,86,76,89,90,Auditory,Creative,ML
+STU0106,3,3,2,2,3,4,3,86,90,75,66,Auditory,Analytical,DBMS
+STU0107,5,4,2,4,2,2,4,62,86,70,71,Visual,Social,Operating Systems
+STU0108,4,4,2,3,4,4,4,77,67,71,81,Auditory,Social,DBMS
+STU0109,3,4,3,4,4,3,4,89,71,75,68,Reading,Practical,Cloud Computing
+STU0110,5,3,2,4,3,2,5,67,79,79,70,Reading,Practical,Operating Systems
+STU0111,4,3,3,3,4,4,4,73,75,89,65,Reading,Practical,DBMS
+STU0112,5,5,3,3,1,5,3,90,92,77,88,Visual,Social,AI
+STU0113,4,5,4,1,3,3,3,77,87,76,82,Visual,Analytical,AI
+STU0114,5,4,3,4,3,3,4,65,94,86,68,Kinesthetic,Analytical,Operating Systems
+STU0115,5,5,5,3,3,4,3,87,75,82,89,Kinesthetic,Creative,AI
+STU0116,4,4,3,1,2,5,2,82,85,76,88,Auditory,Creative,ML
+STU0117,5,4,2,3,3,5,3,86,77,74,63,Auditory,Social,DBMS
+STU0118,4,4,2,4,5,4,3,85,75,87,74,Kinesthetic,Creative,Cloud Computing
+STU0119,4,3,3,2,4,4,3,88,65,76,94,Auditory,Analytical,DBMS
+STU0120,5,4,4,2,2,4,2,98,90,78,75,Auditory,Social,ML
+STU0121,5,4,2,4,3,3,5,90,80,89,73,Kinesthetic,Practical,Operating Systems
+STU0122,4,3,2,5,4,2,5,83,91,77,95,Kinesthetic,Practical,Cybersecurity
+STU0123,5,4,3,2,3,4,3,63,62,81,64,Visual,Analytical,DBMS
+STU0124,5,4,3,4,3,3,5,65,94,70,95,Reading,Analytical,Cybersecurity
+STU0125,4,4,5,1,1,3,3,91,82,83,77,Reading,Analytical,AI
+STU0126,5,3,2,5,3,3,5,77,90,87,63,Visual,Creative,Cybersecurity
+STU0127,4,5,4,1,1,5,2,92,62,93,71,Kinesthetic,Analytical,AI
+STU0128,4,4,2,4,3,2,4,92,82,88,63,Visual,Social,Operating Systems
+STU0129,4,5,4,2,2,5,3,88,84,80,65,Kinesthetic,Creative,ML
+STU0130,5,4,2,3,4,4,3,60,88,74,83,Kinesthetic,Analytical,DBMS
+STU0131,4,4,4,3,1,5,3,85,60,87,78,Reading,Social,AI
+STU0132,3,3,3,3,4,5,4,69,70,67,87,Kinesthetic,Social,DBMS
+STU0133,4,5,3,1,3,4,3,85,84,94,81,Reading,Practical,ML
+STU0134,4,4,2,4,4,3,5,88,91,90,75,Kinesthetic,Social,Cybersecurity
+STU0135,4,5,3,2,3,4,3,96,68,90,79,Auditory,Practical,ML
+STU0136,4,4,2,4,5,3,3,75,70,83,62,Reading,Practical,Cloud Computing
+STU0137,5,4,3,4,3,2,4,61,66,80,78,Reading,Analytical,Operating Systems
+STU0138,5,5,4,1,2,5,3,89,64,85,79,Visual,Analytical,AI
+STU0139,4,4,4,3,2,4,1,87,71,95,71,Reading,Social,AI
+STU0140,4,4,4,3,1,5,1,92,83,80,80,Auditory,Social,AI
+STU0141,5,4,4,2,2,5,1,96,65,84,68,Kinesthetic,Analytical,AI
+STU0142,5,4,4,2,2,5,2,92,91,80,78,Auditory,Creative,ML
+STU0143,4,5,4,2,3,5,3,90,65,80,61,Auditory,Practical,ML
+STU0144,4,4,4,3,2,5,1,98,94,89,73,Reading,Analytical,AI
+STU0145,3,4,2,2,3,5,4,87,68,70,73,Auditory,Analytical,DBMS
+STU0146,4,4,2,3,5,4,3,76,68,92,68,Auditory,Creative,Cloud Computing
+STU0147,5,4,2,3,4,5,3,85,77,81,83,Reading,Social,DBMS
+STU0148,4,5,3,2,2,5,3,85,81,84,95,Auditory,Social,ML
+STU0149,3,3,2,3,4,4,4,72,68,87,79,Auditory,Practical,DBMS
+STU0150,5,5,5,3,1,4,3,77,60,78,73,Reading,Analytical,AI
+STU0151,5,4,4,1,1,4,1,98,66,78,80,Kinesthetic,Practical,AI
+STU0152,4,5,4,3,1,5,3,79,88,88,73,Visual,Analytical,AI
+STU0153,4,5,5,1,1,5,3,94,78,94,61,Kinesthetic,Creative,AI
+STU0154,3,4,3,3,4,3,4,88,64,91,93,Visual,Practical,Cloud Computing
+STU0155,5,3,3,3,2,2,4,73,63,66,85,Kinesthetic,Social,Operating Systems
+STU0156,4,3,3,4,3,2,4,82,85,80,64,Kinesthetic,Social,Cybersecurity
+STU0157,5,3,2,2,4,5,3,68,60,87,70,Reading,Practical,DBMS
+STU0158,3,3,3,4,5,4,3,76,64,90,91,Reading,Practical,Cloud Computing
+STU0159,4,4,3,1,1,4,2,87,71,79,62,Reading,Creative,AI
+STU0160,4,4,3,1,2,5,2,89,79,84,80,Visual,Social,ML
+STU0161,5,5,3,3,3,3,1,75,61,88,74,Kinesthetic,Analytical,AI
+STU0162,4,3,2,4,3,2,4,77,62,67,74,Reading,Practical,Operating Systems
+STU0163,3,3,3,5,3,2,5,73,85,80,80,Kinesthetic,Social,Cybersecurity
+STU0164,4,5,4,2,3,4,3,81,79,89,89,Kinesthetic,Analytical,ML
+STU0165,4,4,5,1,2,4,3,76,76,84,71,Visual,Social,AI
+STU0166,4,3,2,3,2,2,4,72,83,77,65,Kinesthetic,Analytical,Operating Systems
+STU0167,4,5,3,1,3,4,3,87,61,90,84,Reading,Creative,AI
+STU0168,5,4,3,4,4,3,4,67,84,78,68,Reading,Creative,Cybersecurity
+STU0169,4,4,3,4,5,4,4,73,80,72,74,Visual,Practical,Cloud Computing
+STU0170,4,5,5,3,1,3,3,87,71,86,71,Auditory,Practical,AI
+STU0171,5,3,3,3,3,5,3,91,65,66,63,Auditory,Creative,DBMS
+STU0172,4,5,3,1,1,5,3,79,93,78,83,Visual,Practical,AI
+STU0173,3,3,3,3,4,5,3,82,71,72,84,Kinesthetic,Practical,DBMS
+STU0174,5,4,5,3,1,4,1,85,75,77,82,Kinesthetic,Creative,AI
+STU0175,3,4,2,3,5,3,4,76,60,75,63,Reading,Social,Cloud Computing
+STU0176,3,4,3,2,3,5,3,62,61,74,80,Kinesthetic,Analytical,DBMS
+STU0177,5,4,4,3,1,5,2,80,66,76,81,Auditory,Creative,AI
+STU0178,4,3,2,5,3,3,5,69,83,71,60,Reading,Analytical,Cybersecurity
+STU0179,4,4,4,1,3,4,3,87,91,90,76,Visual,Social,ML
+STU0180,5,5,3,2,2,4,2,77,94,86,86,Auditory,Analytical,ML
+STU0181,5,4,2,3,3,2,4,67,88,89,71,Auditory,Creative,Operating Systems
+STU0182,5,3,2,3,4,4,3,84,85,82,95,Kinesthetic,Practical,DBMS
+STU0183,4,3,2,3,4,3,3,77,82,89,86,Kinesthetic,Social,Cloud Computing
+STU0184,3,4,2,4,5,4,3,69,77,87,83,Visual,Practical,Cloud Computing
+STU0185,3,3,3,3,4,4,4,86,65,84,72,Reading,Creative,DBMS
+STU0186,4,4,2,4,2,2,4,72,63,71,75,Visual,Social,Operating Systems
+STU0187,4,4,3,2,2,5,2,80,95,90,82,Kinesthetic,Creative,AI
+STU0188,3,3,2,2,3,5,3,77,86,85,92,Visual,Analytical,DBMS
+STU0189,5,4,3,5,4,3,5,79,73,78,89,Kinesthetic,Social,Cybersecurity
+STU0190,4,3,3,3,5,4,4,88,77,82,76,Kinesthetic,Creative,Cloud Computing
+STU0191,4,5,4,2,2,4,2,98,72,76,81,Auditory,Social,AI
+STU0192,5,3,2,4,2,3,4,81,65,85,74,Kinesthetic,Creative,Operating Systems
+STU0193,4,3,2,2,4,5,4,72,67,81,84,Kinesthetic,Social,DBMS
+STU0194,5,4,3,2,2,5,1,85,63,95,60,Reading,Practical,AI
+STU0195,5,5,4,2,3,4,2,92,83,81,60,Kinesthetic,Creative,ML
+STU0196,4,4,4,3,3,4,1,77,79,76,78,Reading,Practical,AI
+STU0197,4,3,2,4,3,2,4,88,92,70,70,Visual,Practical,Cybersecurity
+STU0198,5,3,2,2,3,4,3,86,84,79,67,Kinesthetic,Social,DBMS
+STU0199,5,3,3,2,4,5,3,92,67,88,78,Visual,Analytical,DBMS
+STU0200,4,3,2,5,4,2,5,75,60,77,60,Visual,Analytical,Cybersecurity
+STU0201,4,3,3,3,4,4,4,63,71,68,62,Kinesthetic,Practical,DBMS
+STU0202,3,3,3,3,4,4,4,65,81,76,71,Visual,Social,DBMS
+STU0203,3,3,2,4,3,2,5,83,88,85,71,Reading,Practical,Cybersecurity
+STU0204,4,3,2,4,5,4,3,90,74,88,81,Visual,Social,Cloud Computing
+STU0205,3,3,2,3,5,4,4,73,91,74,80,Auditory,Practical,Cloud Computing
+STU0206,4,3,2,4,3,3,5,91,80,79,67,Reading,Analytical,Operating Systems
+STU0207,4,5,4,2,1,3,2,85,90,92,83,Reading,Analytical,AI
+STU0208,5,4,3,1,2,3,3,98,66,88,76,Auditory,Creative,AI
+STU0209,4,4,4,2,3,5,3,79,60,90,93,Visual,Social,AI
+STU0210,3,4,3,3,4,4,3,77,81,77,78,Reading,Creative,DBMS
+STU0211,4,4,3,3,3,4,3,86,71,79,92,Kinesthetic,Analytical,AI
+STU0212,5,4,2,2,4,5,3,84,63,69,63,Auditory,Practical,DBMS
+STU0213,3,3,2,3,4,5,3,84,92,72,78,Visual,Social,DBMS
+STU0214,3,4,2,5,4,2,4,74,71,84,64,Auditory,Creative,Cybersecurity
+STU0215,3,3,3,2,4,5,4,69,69,66,80,Visual,Practical,DBMS
+STU0216,3,3,2,4,4,3,4,76,73,77,81,Kinesthetic,Practical,Cybersecurity
+STU0217,5,5,3,3,2,4,3,87,84,78,76,Kinesthetic,Analytical,ML
+STU0218,4,4,2,3,2,2,5,64,73,71,87,Visual,Creative,Operating Systems
+STU0219,3,4,3,3,4,3,3,69,76,77,95,Visual,Creative,Cloud Computing
+STU0220,4,4,2,3,2,2,5,64,92,76,66,Kinesthetic,Practical,Operating Systems
+STU0221,3,3,2,4,5,4,3,77,83,92,60,Auditory,Analytical,Cloud Computing
+STU0222,5,4,4,3,3,3,1,80,76,82,72,Visual,Creative,AI
+STU0223,4,3,2,2,4,4,4,81,68,76,75,Visual,Practical,DBMS
+STU0224,3,4,3,4,5,3,3,78,74,79,87,Kinesthetic,Practical,Cloud Computing
+STU0225,4,4,5,3,1,4,1,92,76,81,64,Visual,Analytical,AI
+STU0226,4,4,3,4,2,3,4,74,78,89,68,Reading,Analytical,Operating Systems
+STU0227,5,3,3,4,3,2,4,88,82,85,62,Auditory,Social,Cybersecurity
+STU0228,5,5,4,1,2,5,2,97,77,91,76,Auditory,Social,ML
+STU0229,3,4,3,4,5,4,4,87,92,72,68,Reading,Creative,Cloud Computing
+STU0230,5,4,3,2,3,4,3,96,90,90,73,Auditory,Social,ML
+STU0231,4,4,3,2,1,5,2,94,61,93,78,Visual,Creative,AI
+STU0232,5,3,3,4,3,3,5,84,64,88,74,Reading,Social,Cybersecurity
+STU0233,4,4,4,3,3,3,3,91,65,78,90,Auditory,Analytical,AI
+STU0234,5,3,2,4,3,3,4,87,76,69,90,Auditory,Analytical,Operating Systems
+STU0235,4,4,4,3,2,5,3,86,69,78,87,Kinesthetic,Practical,ML
+STU0236,4,4,3,4,2,3,5,76,82,74,85,Auditory,Analytical,Operating Systems
+STU0237,4,3,2,3,3,5,3,69,87,80,65,Visual,Practical,DBMS
+STU0238,4,4,4,2,2,4,3,81,92,76,93,Auditory,Creative,ML
+STU0239,4,4,2,3,4,5,3,64,95,67,78,Kinesthetic,Practical,DBMS
+STU0240,5,3,3,4,2,2,4,81,92,68,76,Kinesthetic,Social,Operating Systems
+STU0241,4,4,3,3,3,2,5,74,74,86,80,Reading,Practical,Operating Systems
+STU0242,4,3,2,4,5,4,4,74,77,90,71,Auditory,Social,Cloud Computing
+STU0243,3,4,2,2,3,4,3,91,60,84,94,Visual,Social,DBMS
+STU0244,4,3,2,5,3,3,5,82,92,71,82,Reading,Creative,Cybersecurity
+STU0245,3,3,3,4,3,3,5,84,71,78,95,Kinesthetic,Creative,Cybersecurity
+STU0246,5,5,4,2,3,5,2,93,74,79,66,Kinesthetic,Creative,ML
+STU0247,3,4,3,3,4,4,4,77,95,80,63,Reading,Analytical,Cloud Computing
+STU0248,5,4,3,3,4,5,4,82,86,65,67,Kinesthetic,Creative,DBMS
+STU0249,4,4,2,4,5,4,4,88,70,76,81,Reading,Social,Cloud Computing
+STU0250,5,4,3,4,3,3,5,88,70,78,71,Visual,Creative,Operating Systems
+STU0251,3,4,2,2,3,4,4,63,85,65,93,Visual,Analytical,DBMS
+STU0252,5,5,3,1,2,4,2,96,80,86,90,Reading,Practical,ML
+STU0253,4,4,3,4,5,3,3,82,83,81,86,Kinesthetic,Creative,Cloud Computing
+STU0254,5,5,4,1,3,5,2,75,83,92,72,Reading,Social,ML
+STU0255,4,3,3,4,3,3,5,85,77,87,86,Auditory,Analytical,Cybersecurity
+STU0256,5,4,4,1,2,4,2,80,78,78,77,Auditory,Social,ML
+STU0257,4,4,3,3,4,5,3,81,69,67,63,Kinesthetic,Social,DBMS
+STU0258,4,5,4,1,3,3,1,89,93,78,73,Reading,Social,AI
+STU0259,4,4,3,2,4,4,3,73,75,68,87,Kinesthetic,Analytical,DBMS
+STU0260,5,4,4,1,1,3,2,77,81,94,63,Visual,Practical,AI
+STU0261,4,4,2,3,5,4,4,72,62,80,91,Reading,Practical,Cloud Computing
+STU0262,4,4,2,3,5,3,4,77,94,80,83,Reading,Analytical,Cloud Computing
+STU0263,5,3,3,2,4,5,3,91,95,89,69,Kinesthetic,Practical,DBMS
+STU0264,3,3,2,4,3,2,5,71,62,73,84,Reading,Practical,Cybersecurity
+STU0265,5,4,4,3,3,4,2,97,77,76,93,Visual,Analytical,AI
+STU0266,5,4,2,2,3,4,3,86,66,88,82,Reading,Social,DBMS
+STU0267,5,4,3,4,3,3,4,87,80,88,75,Auditory,Social,Operating Systems
+STU0268,5,3,2,2,4,4,4,60,74,74,73,Kinesthetic,Analytical,DBMS
+STU0269,3,3,2,3,4,4,3,76,75,76,74,Kinesthetic,Practical,DBMS
+STU0270,4,5,5,3,3,3,3,95,62,84,84,Visual,Analytical,AI
+STU0271,5,3,2,4,2,3,4,80,74,81,69,Visual,Social,Operating Systems
+STU0272,5,3,3,3,3,2,5,63,85,82,76,Visual,Social,Operating Systems
+STU0273,4,3,2,5,3,2,5,78,65,80,67,Reading,Social,Cybersecurity
+STU0274,3,4,3,5,3,3,4,72,83,76,69,Visual,Analytical,Cybersecurity
+STU0275,4,4,3,2,4,4,3,73,94,71,93,Kinesthetic,Social,DBMS
+STU0276,4,3,2,4,4,3,4,69,60,86,64,Reading,Practical,Cloud Computing
+STU0277,3,4,2,4,5,4,3,73,92,78,89,Visual,Analytical,Cloud Computing
+STU0278,4,5,4,2,3,4,3,76,76,95,84,Visual,Practical,ML
+STU0279,4,5,3,3,2,5,3,94,88,85,94,Auditory,Creative,ML
+STU0280,4,3,2,4,4,3,3,73,69,82,61,Kinesthetic,Social,Cloud Computing
+STU0281,4,3,3,3,2,2,4,74,74,84,74,Visual,Practical,Operating Systems
+STU0282,5,5,4,1,1,3,1,76,60,88,77,Reading,Creative,AI
+STU0283,5,4,3,2,4,5,4,62,84,84,80,Reading,Analytical,DBMS
+STU0284,3,4,2,3,5,4,4,80,78,81,89,Auditory,Social,Cloud Computing
+STU0285,4,4,3,3,2,5,3,85,61,89,71,Reading,Creative,ML
+STU0286,4,3,2,3,3,3,4,84,92,88,70,Reading,Social,Operating Systems
+STU0287,4,5,4,2,3,4,2,95,67,80,68,Auditory,Analytical,AI
+STU0288,4,3,2,4,4,4,4,82,60,74,75,Kinesthetic,Creative,Cloud Computing
+STU0289,5,5,3,1,1,4,1,80,95,84,71,Reading,Practical,AI
+STU0290,4,4,3,4,2,2,5,81,86,81,93,Auditory,Creative,Operating Systems
+STU0291,4,4,3,4,5,4,3,87,91,90,93,Reading,Social,Cloud Computing
+STU0292,3,4,3,2,3,4,4,62,82,75,95,Auditory,Analytical,DBMS
+STU0293,3,3,3,4,5,4,3,73,81,78,81,Reading,Social,Cloud Computing
+STU0294,4,4,3,3,3,5,3,73,81,83,82,Visual,Creative,DBMS
+STU0295,4,4,4,3,3,4,3,88,91,77,75,Kinesthetic,Social,ML
+STU0296,3,3,2,3,3,5,4,92,72,69,81,Reading,Practical,DBMS
+STU0297,4,4,3,2,3,4,3,65,89,75,62,Visual,Practical,DBMS
+STU0298,5,5,5,1,2,3,1,83,60,78,95,Visual,Creative,AI
+STU0299,3,3,3,4,4,4,3,72,90,72,63,Visual,Social,Cloud Computing
+STU0300,5,5,4,1,3,5,3,77,68,89,65,Reading,Analytical,AI
+STU0301,3,4,3,4,4,2,5,75,91,84,61,Visual,Social,Cybersecurity
+STU0302,4,5,5,1,2,5,3,77,94,84,89,Reading,Social,AI
+STU0303,4,5,4,3,3,4,2,96,91,77,67,Reading,Practical,ML
+STU0304,4,4,3,3,4,3,3,72,60,90,69,Auditory,Social,Cloud Computing
+STU0305,4,4,3,4,5,3,3,87,85,88,68,Kinesthetic,Analytical,Cloud Computing
+STU0306,4,3,2,4,4,3,5,87,85,82,84,Reading,Creative,Cybersecurity
+STU0307,3,4,2,3,5,3,3,88,69,72,91,Reading,Creative,Cloud Computing
+STU0308,5,5,4,2,1,3,2,94,91,75,75,Kinesthetic,Social,AI
+STU0309,4,4,3,3,2,3,5,65,65,81,75,Reading,Analytical,Operating Systems
+STU0310,4,4,3,3,4,4,4,78,70,74,62,Kinesthetic,Practical,DBMS
+STU0311,4,5,4,1,1,5,1,83,68,83,77,Kinesthetic,Practical,AI
+STU0312,4,5,5,1,2,3,3,76,65,85,69,Auditory,Social,AI
+STU0313,3,4,2,3,3,4,3,70,85,79,90,Kinesthetic,Social,DBMS
+STU0314,4,3,3,2,4,5,4,84,80,86,93,Visual,Analytical,DBMS
+STU0315,5,4,3,3,3,3,5,75,72,88,93,Kinesthetic,Creative,Operating Systems
+STU0316,4,5,4,1,3,5,2,76,65,75,63,Auditory,Analytical,ML
+STU0317,3,3,3,3,4,4,3,89,87,73,80,Kinesthetic,Creative,DBMS
+STU0318,4,3,3,2,4,5,3,85,91,70,66,Auditory,Social,DBMS
+STU0319,4,4,4,2,2,5,2,95,60,95,62,Reading,Practical,ML
+STU0320,5,5,5,1,3,3,1,87,67,90,94,Kinesthetic,Practical,AI
+STU0321,3,4,2,2,4,5,3,84,72,86,79,Reading,Analytical,DBMS
+STU0322,3,3,2,3,4,3,4,80,94,74,79,Reading,Social,Cloud Computing
+STU0323,5,3,2,3,3,2,4,64,69,66,91,Visual,Social,Operating Systems
+STU0324,4,3,2,4,2,3,4,64,67,68,91,Auditory,Analytical,Operating Systems
+STU0325,5,3,2,2,4,4,3,81,67,67,77,Auditory,Social,DBMS
+STU0326,4,5,3,1,2,3,1,75,65,80,78,Reading,Social,AI
+STU0327,3,3,3,2,3,5,3,79,86,76,60,Auditory,Creative,DBMS
+STU0328,4,5,3,1,1,3,3,90,71,90,70,Visual,Analytical,AI
+STU0329,3,3,2,3,5,3,3,83,67,88,64,Auditory,Social,Cloud Computing
+STU0330,3,4,2,3,4,3,4,74,74,84,64,Reading,Social,Cloud Computing
+STU0331,4,5,5,1,3,4,2,81,68,85,62,Visual,Practical,AI
+STU0332,4,4,5,3,1,3,2,91,73,90,90,Reading,Practical,AI
+STU0333,4,4,4,1,1,4,3,91,87,76,93,Reading,Social,AI
+STU0334,5,4,3,2,3,4,4,75,65,85,61,Reading,Practical,DBMS
+STU0335,5,4,4,3,2,5,3,75,64,95,84,Kinesthetic,Analytical,AI
+STU0336,5,4,4,1,2,5,3,89,62,94,83,Kinesthetic,Creative,ML
+STU0337,3,3,3,3,5,3,4,79,92,80,87,Kinesthetic,Analytical,Cloud Computing
+STU0338,5,5,5,2,3,5,1,81,65,89,65,Reading,Creative,AI
+STU0339,5,4,3,3,2,5,3,96,68,92,90,Kinesthetic,Social,ML
+STU0340,5,4,3,4,4,3,5,83,95,86,88,Reading,Practical,Cybersecurity
+STU0341,3,3,3,4,5,4,3,87,94,77,78,Auditory,Creative,Cloud Computing
+STU0342,4,3,3,3,4,4,3,73,62,82,80,Kinesthetic,Creative,DBMS
+STU0343,4,3,3,5,4,2,4,88,92,87,81,Kinesthetic,Social,Cybersecurity
+STU0344,4,4,3,3,2,2,5,61,74,77,88,Kinesthetic,Analytical,Operating Systems
+STU0345,4,4,3,3,3,4,3,81,80,90,92,Visual,Practical,ML
+STU0346,4,4,3,5,4,2,4,88,86,84,88,Kinesthetic,Creative,Cybersecurity
+STU0347,3,3,3,3,4,4,3,84,60,67,86,Kinesthetic,Social,DBMS
+STU0348,5,4,4,3,2,4,3,98,74,89,61,Visual,Creative,AI
+STU0349,5,4,4,3,2,4,2,83,64,90,83,Reading,Social,ML
+STU0350,5,3,3,3,2,3,4,68,70,76,63,Kinesthetic,Practical,Operating Systems
+STU0351,5,3,2,4,3,2,5,75,77,79,83,Visual,Practical,Cybersecurity
+STU0352,4,3,2,2,3,5,3,72,95,90,93,Visual,Social,DBMS
+STU0353,5,4,2,5,4,3,4,87,61,79,67,Auditory,Creative,Cybersecurity
+STU0354,4,4,3,3,2,2,4,87,72,66,66,Visual,Analytical,Operating Systems
+STU0355,3,3,2,4,3,3,4,67,77,74,82,Kinesthetic,Creative,Cybersecurity
+STU0356,4,3,2,3,3,2,4,66,92,71,90,Kinesthetic,Creative,Operating Systems
+STU0357,4,3,3,4,3,3,4,81,91,74,83,Kinesthetic,Analytical,Cybersecurity
+STU0358,5,4,5,2,2,4,1,77,83,90,71,Visual,Social,AI
+STU0359,3,4,2,2,4,4,3,83,81,71,72,Reading,Analytical,DBMS
+STU0360,5,5,4,3,3,5,3,79,66,89,67,Kinesthetic,Social,ML
+STU0361,4,3,2,4,4,3,4,74,66,89,64,Reading,Social,Cybersecurity
+STU0362,4,4,4,1,3,5,3,87,89,89,62,Visual,Creative,ML
+STU0363,4,4,2,4,5,4,4,85,92,77,63,Reading,Practical,Cloud Computing
+STU0364,3,3,2,4,4,3,4,85,84,80,66,Reading,Practical,Cybersecurity
+STU0365,5,3,3,3,3,2,4,70,94,65,80,Visual,Social,Operating Systems
+STU0366,3,4,3,4,5,4,3,83,73,75,81,Reading,Practical,Cloud Computing
+STU0367,4,5,4,1,2,5,2,82,65,94,66,Kinesthetic,Practical,AI
+STU0368,5,5,5,3,2,3,2,87,92,83,89,Auditory,Analytical,AI
+STU0369,4,4,2,3,5,4,4,72,69,79,79,Reading,Social,Cloud Computing
+STU0370,5,4,4,1,2,4,2,75,79,82,89,Reading,Social,ML
+STU0371,4,3,2,5,4,2,4,67,79,80,64,Reading,Practical,Cybersecurity
+STU0372,5,4,2,2,4,4,3,80,84,75,75,Reading,Creative,DBMS
+STU0373,5,4,4,3,2,4,3,82,69,83,83,Reading,Practical,AI
+STU0374,5,3,3,3,4,4,4,67,75,82,88,Reading,Analytical,DBMS
+STU0375,4,4,3,4,3,2,4,65,91,89,90,Reading,Practical,Operating Systems
+STU0376,4,4,2,2,4,5,3,88,68,90,60,Reading,Creative,DBMS
+STU0377,4,4,3,4,4,3,4,73,80,90,78,Auditory,Analytical,Cloud Computing
+STU0378,5,3,2,4,4,2,5,87,63,75,85,Reading,Practical,Cybersecurity
+STU0379,5,4,3,3,1,3,2,84,84,90,68,Reading,Creative,AI
+STU0380,3,3,3,4,5,3,4,75,89,83,65,Visual,Social,Cloud Computing
+STU0381,5,5,3,1,3,3,1,85,90,82,82,Visual,Analytical,AI
+STU0382,4,4,4,1,3,5,3,79,80,77,93,Reading,Creative,ML
+STU0383,5,5,4,3,3,5,3,80,91,85,69,Reading,Analytical,ML
+STU0384,5,5,3,2,2,5,3,97,91,92,89,Reading,Analytical,ML
+STU0385,4,4,3,3,2,2,4,64,91,72,66,Kinesthetic,Analytical,Operating Systems
+STU0386,4,4,3,2,3,5,3,94,81,75,62,Reading,Practical,ML
+STU0387,5,3,3,3,3,2,5,76,75,70,85,Visual,Analytical,Operating Systems
+STU0388,4,4,2,4,3,3,4,82,66,86,83,Auditory,Social,Operating Systems
+STU0389,4,4,2,4,4,3,4,66,81,86,89,Auditory,Creative,Cybersecurity
+STU0390,5,3,2,4,3,2,5,79,93,72,87,Kinesthetic,Analytical,Operating Systems
+STU0391,4,4,3,4,4,3,3,71,71,86,71,Reading,Analytical,Cloud Computing
+STU0392,5,5,3,1,1,3,3,94,66,83,87,Visual,Analytical,AI
+STU0393,5,4,3,5,4,3,5,67,68,74,60,Auditory,Analytical,Cybersecurity
+STU0394,5,3,2,2,4,4,4,89,90,69,87,Visual,Analytical,DBMS
+STU0395,4,4,4,3,2,3,2,75,87,78,86,Reading,Practical,AI
+STU0396,4,4,4,3,2,5,1,83,86,95,90,Visual,Social,AI
+STU0397,4,3,3,4,4,4,3,84,81,79,89,Auditory,Practical,Cloud Computing
+STU0398,3,3,3,2,4,5,3,71,70,71,91,Visual,Social,DBMS
+STU0399,5,4,2,4,2,2,4,64,87,75,67,Auditory,Analytical,Operating Systems
+STU0400,3,3,2,4,5,4,3,71,66,91,95,Visual,Analytical,Cloud Computing
+STU0401,5,4,3,3,2,4,1,78,88,81,86,Visual,Creative,AI
+STU0402,4,4,2,2,4,5,4,74,87,69,86,Reading,Social,DBMS
+STU0403,4,3,2,4,3,3,4,87,85,66,62,Auditory,Analytical,Operating Systems
+STU0404,5,4,3,3,3,2,5,88,73,85,94,Reading,Practical,Operating Systems
+STU0405,5,3,3,4,2,2,5,81,70,89,61,Visual,Practical,Operating Systems
+STU0406,5,5,4,1,2,4,3,84,60,93,89,Kinesthetic,Creative,ML
+STU0407,4,4,3,2,4,4,3,66,93,75,72,Kinesthetic,Social,DBMS
+STU0408,5,4,4,1,2,5,3,87,95,93,93,Reading,Practical,AI
+STU0409,3,3,2,4,5,4,3,90,93,88,67,Auditory,Social,Cloud Computing
+STU0410,3,3,3,5,4,2,4,68,79,81,83,Kinesthetic,Practical,Cybersecurity
+STU0411,3,3,3,5,3,2,5,67,86,71,90,Kinesthetic,Social,Cybersecurity
+STU0412,5,4,3,3,3,2,5,84,85,72,81,Visual,Social,Operating Systems
+STU0413,5,3,2,2,3,5,3,90,61,81,67,Auditory,Analytical,DBMS
+STU0414,5,4,4,1,3,5,2,88,93,75,80,Reading,Practical,ML
+STU0415,4,5,4,3,1,3,3,85,61,80,63,Kinesthetic,Social,AI
+STU0416,4,4,4,3,3,4,1,83,80,76,89,Reading,Analytical,AI
+STU0417,3,3,3,4,4,3,4,85,73,86,69,Kinesthetic,Creative,Cybersecurity
+STU0418,5,4,2,2,3,5,4,77,76,84,84,Kinesthetic,Creative,DBMS
+STU0419,4,3,3,3,4,3,4,81,92,78,80,Kinesthetic,Practical,Cloud Computing
+STU0420,4,4,2,4,2,2,5,90,60,65,71,Reading,Social,Operating Systems
+STU0421,5,4,3,3,3,4,4,84,60,70,67,Reading,Practical,DBMS
+STU0422,4,3,3,4,2,2,5,83,77,66,91,Auditory,Analytical,Operating Systems
+STU0423,4,4,3,1,2,4,2,83,74,93,93,Kinesthetic,Creative,ML
+STU0424,4,4,3,3,3,3,5,77,93,68,89,Reading,Practical,Operating Systems
+STU0425,4,3,3,3,5,4,3,86,74,72,87,Visual,Creative,Cloud Computing
+STU0426,5,5,3,3,3,5,2,78,75,90,81,Visual,Practical,ML
+STU0427,3,3,2,3,5,4,4,90,68,74,63,Reading,Analytical,Cloud Computing
+STU0428,5,5,4,1,3,4,2,89,89,87,87,Visual,Practical,ML
+STU0429,3,3,2,3,4,3,3,88,76,88,82,Reading,Social,Cloud Computing
+STU0430,4,4,2,3,4,4,3,90,81,74,78,Kinesthetic,Analytical,DBMS
+STU0431,4,4,2,3,4,3,3,78,90,78,89,Kinesthetic,Practical,Cloud Computing
+STU0432,3,3,2,3,5,4,3,75,81,87,84,Auditory,Social,Cloud Computing
+STU0433,4,5,4,1,3,4,2,81,78,81,71,Auditory,Practical,ML
+STU0434,4,3,3,2,3,4,3,81,79,71,89,Auditory,Practical,DBMS
+STU0435,3,3,2,2,3,4,4,83,87,75,75,Visual,Creative,DBMS
+STU0436,4,4,2,3,2,3,5,70,84,81,92,Kinesthetic,Social,Operating Systems
+STU0437,4,4,3,4,5,3,3,75,88,78,75,Reading,Creative,Cloud Computing
+STU0438,4,4,4,2,3,4,2,89,81,91,87,Reading,Social,ML
+STU0439,4,3,3,4,3,3,4,74,92,86,94,Visual,Practical,Cybersecurity
+STU0440,5,3,3,4,3,3,4,72,68,87,94,Kinesthetic,Analytical,Operating Systems
+STU0441,4,3,2,2,4,4,3,90,93,72,95,Reading,Social,DBMS
+STU0442,5,5,3,2,2,4,3,98,91,75,82,Kinesthetic,Creative,ML
+STU0443,5,3,2,4,3,3,5,77,85,76,64,Reading,Creative,Cybersecurity
+STU0444,3,3,2,4,4,2,4,71,84,72,78,Auditory,Creative,Cybersecurity
+STU0445,4,5,4,2,2,4,2,92,90,88,64,Reading,Creative,ML
+STU0446,5,4,5,3,3,4,2,81,69,75,88,Visual,Social,AI
+STU0447,3,3,3,4,5,4,4,80,71,91,86,Auditory,Creative,Cloud Computing
+STU0448,5,3,3,3,2,3,4,64,73,87,91,Reading,Analytical,Operating Systems
+STU0449,5,3,2,3,3,2,4,89,81,77,85,Auditory,Social,Operating Systems
+STU0450,5,4,3,3,3,3,3,89,90,79,77,Auditory,Creative,AI
+STU0451,3,3,2,3,3,5,4,82,73,70,62,Auditory,Social,DBMS
+STU0452,4,4,2,2,4,4,3,84,72,89,75,Kinesthetic,Creative,DBMS
+STU0453,4,4,3,3,2,4,3,91,80,78,80,Auditory,Creative,ML
+STU0454,5,3,2,3,3,3,5,84,89,71,74,Visual,Practical,Operating Systems
+STU0455,3,3,3,3,5,4,4,89,81,76,71,Kinesthetic,Social,Cloud Computing
+STU0456,4,4,3,3,1,4,1,98,75,88,65,Visual,Creative,AI
+STU0457,3,4,3,4,3,3,5,85,93,71,86,Kinesthetic,Analytical,Cybersecurity
+STU0458,4,4,4,3,3,4,3,95,64,75,91,Visual,Creative,ML
+STU0459,4,5,5,2,2,3,3,81,87,82,71,Auditory,Practical,AI
+STU0460,5,5,3,2,3,5,3,79,61,90,84,Reading,Analytical,ML
+STU0461,4,4,3,3,4,4,4,84,90,82,64,Kinesthetic,Creative,DBMS
+STU0462,4,4,3,3,4,5,4,91,64,74,86,Visual,Analytical,DBMS
+STU0463,5,4,3,5,3,3,5,88,75,77,90,Visual,Practical,Cybersecurity
+STU0464,4,3,3,3,5,3,3,71,84,74,85,Visual,Creative,Cloud Computing
+STU0465,5,4,2,3,2,3,5,77,73,88,85,Kinesthetic,Analytical,Operating Systems
+STU0466,5,4,2,3,2,3,5,68,91,71,71,Visual,Social,Operating Systems
+STU0467,4,4,3,3,4,3,3,77,84,74,67,Kinesthetic,Analytical,Cloud Computing
+STU0468,4,5,3,3,2,4,2,91,84,75,93,Kinesthetic,Social,ML
+STU0469,4,3,3,5,4,3,4,76,66,80,60,Reading,Social,Cybersecurity
+STU0470,4,4,2,3,4,4,3,80,83,65,62,Kinesthetic,Social,DBMS
+STU0471,5,4,4,2,2,4,2,79,65,90,79,Reading,Creative,ML
+STU0472,4,3,2,3,3,2,4,80,77,77,74,Kinesthetic,Social,Operating Systems
+STU0473,4,4,3,3,2,3,5,84,95,85,87,Auditory,Creative,Operating Systems
+STU0474,4,5,3,2,3,4,3,76,94,93,72,Reading,Social,ML
+STU0475,4,5,3,3,3,5,2,84,91,82,89,Auditory,Practical,ML
+STU0476,5,4,4,2,3,4,1,85,73,79,74,Visual,Creative,AI
+STU0477,5,4,3,4,3,3,5,64,78,81,78,Auditory,Social,Operating Systems
+STU0478,4,5,5,2,2,3,1,81,60,81,83,Visual,Creative,AI
+STU0479,3,3,2,5,4,3,4,85,75,82,62,Visual,Creative,Cybersecurity
+STU0480,5,3,3,5,4,3,5,76,67,70,67,Visual,Analytical,Cybersecurity
+STU0481,4,3,2,5,4,3,5,74,68,88,66,Kinesthetic,Analytical,Cybersecurity
+STU0482,3,3,2,2,3,5,3,60,88,82,80,Visual,Analytical,DBMS
+STU0483,4,5,4,3,1,4,3,75,79,82,62,Kinesthetic,Social,AI
+STU0484,4,4,3,1,1,3,2,81,95,79,73,Kinesthetic,Practical,AI
+STU0485,4,5,4,1,2,5,2,97,94,79,73,Visual,Practical,AI
+STU0486,5,3,2,4,3,3,4,75,77,67,67,Visual,Social,Operating Systems
+STU0487,4,4,4,1,2,3,1,80,79,91,91,Visual,Practical,AI
+STU0488,4,4,3,3,3,4,4,68,60,73,92,Auditory,Creative,DBMS
+STU0489,4,5,5,2,1,4,2,89,78,91,77,Reading,Creative,AI
+STU0490,4,4,3,1,2,4,3,92,60,90,87,Auditory,Social,ML
+STU0491,5,3,2,4,4,3,4,88,62,86,88,Auditory,Creative,Cybersecurity
+STU0492,4,5,3,2,3,3,3,78,79,84,90,Kinesthetic,Practical,AI
+STU0493,5,5,3,2,2,5,3,84,66,86,60,Kinesthetic,Creative,ML
+STU0494,4,3,3,4,3,2,5,72,85,85,83,Kinesthetic,Practical,Cybersecurity
+STU0495,3,3,3,5,4,2,5,87,67,76,72,Kinesthetic,Analytical,Cybersecurity
+STU0496,5,4,4,2,3,4,3,97,80,79,85,Reading,Creative,AI
+STU0497,4,4,5,2,2,5,3,75,90,88,78,Kinesthetic,Social,AI
+STU0498,5,4,4,3,1,5,2,81,66,90,92,Auditory,Creative,AI
+STU0499,5,3,3,4,2,2,4,61,72,84,65,Visual,Social,Operating Systems
+STU0500,4,3,3,5,3,3,4,73,77,81,82,Reading,Creative,Cybersecurity

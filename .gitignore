@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+!backend/ml_service/model.pkl
+db.sqlite3
+*.sqlite3
+.env
+venv/
+.venv/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/node_modules/
+dist/
+build/
+.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Uploads (keep structure but ignore user files - keep .gitkeep + README.md + index.json)
+uploads/domains/*/*/*
+!uploads/domains/*/*/.gitkeep
+!uploads/domains/*/*/README.md
+!uploads/domains/*/index.json
+!uploads/domains/*/README.md
+public/vault/*/*/*
+!public/vault/*/*/.gitkeep
+!public/vault/*/*/README.md
+!public/vault/*/index.json
+!public/vault/*/README.md
+
+# Logs
+*.log
+npm-debug.log*

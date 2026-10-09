@@ -1,0 +1,52 @@
+{
+ "name": "GuidanceAI — Student Guidance & Domain Recommender",
+ "short_name": "GuidanceAI",
+ "description": "AI-powered virtual counsellor for 1st-year CSE students — 25 domains Atlas + Vault, 10 languages, 89% accuracy",
+ "start_url": "/",
+ "display": "standalone",
+ "background_color": "#4F46E5",
+ "theme_color": "#4F46E5",
+ "orientation": "any",
+ "lang": "en",
+ "scope": "/",
+ "categories": [
+  "education",
+  "productivity"
+ ],
+ "icons": [
+  {
+   "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='48' fill='%234F46E5'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='88' font-weight='800' fill='white'>G</text></svg>",
+   "sizes": "192x192",
+   "type": "image/svg+xml",
+   "purpose": "any maskable"
+  },
+  {
+   "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='128' fill='%234F46E5'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='240' font-weight='800' fill='white'>G</text></svg>",
+   "sizes": "512x512",
+   "type": "image/svg+xml",
+   "purpose": "any maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Take Quiz",
+   "url": "/quiz.html",
+   "description": "Find your perfect CSE domain in 3 minutes — Top-3 across 25 tracks"
+  },
+  {
+   "name": "Explore Atlas",
+   "url": "/explorer.html",
+   "description": "Browse 25 CSE domains — Atlas + Vault"
+  },
+  {
+   "name": "Domain Handbook",
+   "url": "/domain.html?id=AI",
+   "description": "Immersive handbook — 3D + live graphs"
+  },
+  {
+   "name": "Dashboard Vault",
+   "url": "/dashboard.html",
+   "description": "Student / Parent / Teacher dashboards"
+  }
+ ]
+}

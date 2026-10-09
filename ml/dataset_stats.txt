@@ -1,0 +1,12 @@
+Student Guidance Dataset - 500 Records
+========================================
+Cloud Computing: 73 (14.6%)
+ML: 75 (15.0%)
+AI: 102 (20.4%)
+DBMS: 102 (20.4%)
+Operating Systems: 83 (16.6%)
+Cybersecurity: 65 (13.0%)
+
+Avg Math Marks: 80.8
+Learning Styles: Counter({'Reading': 142, 'Kinesthetic': 130, 'Visual': 126, 'Auditory': 102})
+Personalities: Counter({'Social': 142, 'Practical': 120, 'Creative': 119, 'Analytical': 119})

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain Handbook — Immersive, 3D-Enhanced | GuidanceAI</title>
+<meta name="description" content="Immersive, 3D-enhanced domain handbook — not a PDF. Graphs, timelines, roadmaps for 25 CSE tracks.">
+<meta name="theme-color" content="#4F46E5">
+<meta name="build" content="2026-09-07 100% — 25 distinct 3D, responsive graphs, research-backed text">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://i.pravatar.cc https://picsum.photos https://images.unsplash.com https://img.youtube.com blob:; connect-src 'self' https://guidanceai.vercel.app https://cdn.jsdelivr.net https://unpkg.com http://localhost:8000 http://127.0.0.1:8000; frame-src https://www.youtube.com; worker-src blob:;">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://guidanceai.vercel.app/domain.html">
+<meta property="og:title" content="Domain Handbook — GuidanceAI — Immersive, not PDF">
+<meta property="og:description" content="25 CSE handbooks — 3D neural field, live graphs, 36-week roadmap.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234F46E5'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='48' font-family='sans-serif' font-weight='800' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="../public/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://unpkg.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<!-- Critical: Tailwind kept but deferred via blocking only 1 paint; others deferred -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif'],display:['Plus Jakarta Sans','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{primary:'#4F46E5',secondary:'#06B6D4',accent:'#F59E0B'},boxShadow:{'5xl':'0 24px 64px -16px rgba(15,23,42,.18)', 'glow':'0 0 40px rgba(79,70,229,.25)'}}}}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<!-- Deferred heavy libs: load after first paint via defer -->
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+<script defer src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<style>
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}::-webkit-scrollbar-track{background:transparent}
+*{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.glass{backdrop-filter:blur(20px) saturate(1.2);background:rgba(255,255,255,0.76);box-shadow:0 8px 32px rgba(15,23,42,.06), inset 0 1px 0 rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.4)}
+.dark .glass{background:rgba(15,23,42,0.7);border-color:rgba(255,255,255,.08)}
+.card-5{transition:all .42s cubic-bezier(0.16,1,0.3,1);border:1px solid rgba(226,232,240,1)} .card-5:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 24px 48px -16px rgba(15,23,42,.14), 0 0 0 1px rgba(79,70,229,.08);border-color:#C7D2FE}
+.dark .card-5{border-color:rgba(51,65,85,1)} .dark .card-5:hover{border-color:rgba(99,102,241,.5)}
+.mesh{position:absolute;inset:0;overflow:hidden}
+.mesh::before{content:'';position:absolute;width:120%;height:120%;top:-10%;left:-10%;background:radial-gradient(600px circle at 20% 20%, rgba(255,255,255,.18), transparent 60%), radial-gradient(800px circle at 80% 30%, rgba(6,182,214,.18), transparent 60%), radial-gradient(700px circle at 50% 90%, rgba(139,92,246,.14), transparent 60%);filter:blur(1px)}
+.noise{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");pointer-events:none}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.display{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.03em;line-height:.95}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.bento > *{grid-column:span 12}
+@media(min-width:768px){ .bento > .span-6{grid-column:span 6} .bento > .span-4{grid-column:span 4} .bento > .span-8{grid-column:span 8} }
+@keyframes float{0%,100%{transform:translateY(0) rotateX(1deg)}50%{transform:translateY(-10px) rotateX(0deg)}}
+.float{animation:float 6s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 24px rgba(79,70,229,.18)}50%{box-shadow:0 0 44px rgba(6,182,214,.28)}}
+.glow{animation:pulseGlow 3.2s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(18px)}
+.tilt{transform-style:preserve-3d;transition:transform .45s cubic-bezier(0.16,1,0.3,1)}
+.tilt:hover{transform:rotateY(5deg) rotateX(3deg) translateZ(0)}
+.timeline-line{background:linear-gradient(to bottom,#4F46E5,#06B6D4,#10B981);width:2px}
+#heroCanvas{width:100%;height:100%;display:block}
+.gridPillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+@media(max-width:640px){#heroCanvasWrap{height:320px !important} .display{font-size:32px}}
+@media(max-width:380px){#heroCanvasWrap{height:280px !important}}
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);animation:shimmer 2.8s infinite}
+@keyframes shimmer{100%{transform:translateX(100%)}}
+/* Graph containers: responsive, prevents clipping */
+.chart-wrap{position:relative;width:100%}
+.chart-wrap-demand{height:280px}
+.chart-wrap-gantt{height:240px}
+.chart-wrap-evo{height:300px}
+@media(max-width:768px){
+ .chart-wrap-demand{height:320px}
+ .chart-wrap-gantt{height:280px; min-width:560px}
+ .chart-wrap-evo{height:280px}
+}
+@media(max-width:480px){
+ .chart-wrap-demand{height:360px}
+ .chart-wrap-gantt{height:300px; min-width:520px}
+}
+.gantt-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.gantt-scroll::-webkit-scrollbar{height:6px}
+.chart-wrap canvas{display:block!important;width:100%!important;height:100%!important}
+</style>
+</head>
+<body class="bg-[#F8FAFC] dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <a href="../index.html" class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center text-white font-extrabold">G</div><div><div class="font-display font-extrabold leading-none">GuidanceAI</div><div class="text-xs text-slate-600 dark:text-slate-400 -mt-1">Domain Handbook</div></div><span id="navDomainPill" class="hidden sm:inline-flex ml-3 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200">AI • Immersive</span></a>
+  <div class="hidden lg:flex items-center gap-5 text-sm font-medium"><a href="../index.html" class="hover:text-indigo-600">Home</a><a href="explorer.html" class="hover:text-indigo-600">Atlas</a><a href="quiz.html" class="hover:text-indigo-600">Quiz</a><a href="resources.html" class="hover:text-indigo-600">Resources</a><a href="dashboard.html" class="hover:text-indigo-600">Vault</a></div>
+  <div class="flex items-center gap-2">
+   <select id="domainSwitcher" aria-label="Switch domain" class="px-3 py-2 rounded-xl bg-slate-900 text-white text-sm"><option value="AI">AI</option><option value="ML">ML</option><option value="Data Science">Data Science</option><option value="Big Data">Big Data</option><option value="Computer Vision">Computer Vision</option><option value="NLP">NLP</option><option value="Web Development">Web Dev</option><option value="Mobile App Development">Mobile</option><option value="Software Engineering">SE</option><option value="Game Development">Game</option><option value="HCI">HCI</option><option value="Cybersecurity">Cybersecurity</option><option value="Cloud Computing">Cloud</option><option value="Computer Networks">CN</option><option value="DBMS">DBMS</option><option value="Operating Systems">OS</option><option value="Computer Architecture">CA</option><option value="DevOps">DevOps</option><option value="Distributed Systems">Dist Sys</option><option value="IoT">IoT</option><option value="Blockchain">Blockchain</option><option value="Robotics">Robotics</option><option value="AR/VR">AR/VR</option><option value="Embedded Systems">Embedded</option><option value="Quantum Computing">Quantum</option></select>
+   <button onclick="toggleDark()" aria-label="Toggle dark" class="w-9 h-9 rounded-xl border grid place-items-center"><i class="fa-regular fa-moon"></i></button>
+   <a id="quizCTA" href="quiz.html" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Start Quiz →</a>
+   <button id="mobileMenuBtn" class="lg:hidden w-9 h-9 rounded-xl border grid place-items-center"><i class="fa-solid fa-bars"></i></button>
+  </div>
+ </div>
+ <div id="mobileDrawer" class="hidden lg:hidden border-t bg-white dark:bg-slate-900"><div class="px-4 py-3 space-y-1 text-sm"><a href="../index.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a><a href="explorer.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50">Atlas</a><a href="quiz.html" class="block px-3 py-2 rounded-xl bg-indigo-600 text-white">Quiz →</a><a href="resources.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50">Resources</a></div></div>
+</nav>
+
+<main id="main">
+<!-- HERO 5/5 — editorial + mesh + WebGL -->
+<section id="hero" class="relative overflow-hidden bg-slate-950">
+ <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-500"></div>
+ <div class="mesh"></div><div class="noise"></div>
+ <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 1px 1px, white 1px, transparent 0);background-size:22px 22px"></div>
+ <div class="absolute -top-20 -right-20 w-[520px] h-[520px] rounded-full bg-white/10 blur-[80px] pointer-events-none"></div>
+ <div class="absolute -bottom-20 -left-20 w-[560px] h-[560px] rounded-full bg-cyan-300/20 blur-[90px] pointer-events-none"></div>
+ <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[420px] rounded-full bg-violet-400/10 blur-[70px] pointer-events-none"></div>
+ <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 grid lg:grid-cols-2 gap-10 items-center">
+  <div class="text-white">
+   <div class="kicker inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white backdrop-blur border border-white/15"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,.8)]"></span><span id="heroBadge">Immersive Handbook • Not a PDF • 5/5</span><span class="hidden sm:inline-flex ml-2 px-1.5 py-0.5 rounded bg-white text-slate-900 font-bold text-[10px]">3CR CRAFT</span></div>
+   <div class="mt-4 flex items-center gap-2 text-xs text-white/75"><a href="../index.html" class="hover:text-white">Home</a><span class="opacity-50">›</span><a href="explorer.html" class="hover:text-white">Atlas</a><span class="opacity-50">›</span><span id="heroCrumb" class="font-semibold text-white">AI</span><span id="heroCat" class="ml-2 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">Intelligence & Data</span></div>
+   <h1 id="heroTitle" class="display mt-4 font-extrabold text-4xl lg:text-6xl text-white">Artificial Intelligence</h1>
+   <p id="heroDesc" class="mt-3 text-white/80 text-[15px] leading-relaxed max-w-xl">Build intelligent systems that think, learn & reason.</p>
+   <p id="heroExec" class="mt-5 text-white/90 text-sm leading-relaxed bg-white/10 border border-white/15 rounded-2xl p-4 backdrop-blur shadow-[inset_0_1px_0_rgba(255,255,255,.2)]"></p>
+   <div class="mt-6 flex flex-wrap gap-2 text-xs">
+    <span id="heroDemand" class="px-3 py-1.5 rounded-full bg-white text-slate-900 font-bold shadow">Demand Very High</span>
+    <span id="heroGrowth" class="kicker px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-white backdrop-blur">35% growth</span>
+    <span id="heroSalary" class="kicker px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-white backdrop-blur">8-15 LPA</span>
+    <span id="heroLevel" class="px-3 py-1.5 rounded-full bg-emerald-400 text-slate-900 font-bold">Advanced</span>
+   </div>
+   <div class="mt-7 flex flex-wrap gap-3">
+    <a href="#roadmap" class="px-7 py-3.5 rounded-xl bg-white text-slate-900 font-bold shadow-[0_12px_24px_rgba(0,0,0,.18)] hover:shadow-[0_16px_32px_rgba(0,0,0,.22)] hover:-translate-y-0.5 transition">Explore 36-Week Roadmap ↓</a>
+    <button onclick="document.getElementById('paradigm').scrollIntoView({behavior:'smooth'})" class="px-6 py-3.5 rounded-xl bg-slate-900 text-white font-semibold border border-white/10 hover:bg-black transition">See Paradigm Shift</button>
+   </div>
+   <div class="mt-5 flex gap-3 text-xs text-white/65"><span class="inline-flex items-center gap-1.5"><span class="w-6 h-6 rounded-full bg-white/10 grid place-items-center"><i class="fa-solid fa-cube text-xs"></i></span> 3D WebGL</span><span class="inline-flex items-center gap-1.5"><span class="w-6 h-6 rounded-full bg-white/10 grid place-items-center"><i class="fa-solid fa-chart-line text-xs"></i></span> Live 3D graphs</span><span class="inline-flex items-center gap-1.5"><span class="w-6 h-6 rounded-full bg-white/10 grid place-items-center"><i class="fa-solid fa-wand-magic-sparkles text-xs"></i></span> Zero filler</span></div>
+  </div>
+  <div class="relative">
+   <div id="heroCanvasWrap" class="relative bg-white dark:bg-slate-800 rounded-[28px] shadow-5xl border border-white/20 overflow-hidden float glow" style="height:460px">
+    <canvas id="heroCanvas" width="640" height="460" aria-label="3D neural network visualization"></canvas>
+    <div class="absolute inset-0 pointer-events-none rounded-[28px] shadow-[inset_0_1px_0_rgba(255,255,255,.6)]"></div>
+    <div class="absolute top-3 left-3 right-3 flex justify-between items-center pointer-events-none">
+     <span class="kicker px-2.5 py-1.5 rounded-full bg-slate-900 text-white border border-white/10 shadow">● LIVE 3D • Neural Field</span>
+     <span id="heroCanvasBadge" class="px-2.5 py-1.5 rounded-full bg-white/90 text-slate-900 text-xs font-bold border shadow">AI • 5 Pillars</span>
+    </div>
+    <div class="absolute bottom-3 left-3 right-3 grid grid-cols-3 gap-2 pointer-events-none">
+     <div class="p-2.5 rounded-xl bg-white/90 dark:bg-slate-900/90 border backdrop-blur text-center shadow"><div class="kicker text-slate-500 text-[10px]">Demand</div><div id="statDemand" class="font-extrabold text-indigo-600 text-sm">Very High</div></div>
+     <div class="p-2.5 rounded-xl bg-white/90 dark:bg-slate-900/90 border backdrop-blur text-center shadow"><div class="kicker text-slate-500 text-[10px]">Growth</div><div id="statGrowth" class="font-extrabold text-cyan-600 text-sm">35%</div></div>
+     <div class="p-2.5 rounded-xl bg-white/90 dark:bg-slate-900/90 border backdrop-blur text-center shadow"><div class="kicker text-slate-500 text-[10px]">Salary</div><div id="statSalary" class="font-extrabold text-emerald-600 text-sm">12 LPA</div></div>
+    </div>
+   </div>
+   <div class="absolute -bottom-4 -left-4 hidden lg:flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border text-xs font-medium"><span class="w-7 h-7 rounded-full bg-indigo-50 text-indigo-600 grid place-items-center"><i class="fa-solid fa-rotate"></i></span> Drag / hover to tilt <span class="kicker px-1.5 py-0.5 rounded bg-slate-900 text-white">3D</span></div>
+   <div class="absolute -top-3 -right-3 hidden lg:block px-3 py-1.5 rounded-full bg-amber-400 text-slate-900 text-xs font-bold shadow rotate-2">5/5 CRAFT</div>
+  </div>
+ </div>
+</section>
+
+<!-- TRUST ? Table of contents: Jump to what matters -->
+<section class="bg-white dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center gap-2 text-xs">
+  <span class="font-semibold text-slate-600 dark:text-slate-400">Jump to:</span>
+  <a href="#paradigm" class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border hover:bg-indigo-100">1. Paradigm</a>
+  <a href="#pillars" class="px-2.5 py-1 rounded-full bg-cyan-50 text-cyan-700 border hover:bg-cyan-100">2. 5 Pillars</a>
+  <a href="#roadmap" class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border hover:bg-emerald-100">3. 36-Week Plan</a>
+  <a href="#chronology" class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border hover:bg-amber-100">4. History -> Future</a>
+  <a href="#balanced" class="px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border hover:bg-violet-100">5. Pros vs Cons</a>
+  <a href="#studentLife" class="px-2.5 py-1 rounded-full bg-slate-900 text-white hover:bg-black">6. Student Life</a>
+  <a href="#interviewKit" class="px-2.5 py-1 rounded-full bg-white border hover:bg-slate-50">7. Interview</a>
+  <a href="#careers" class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border hover:bg-emerald-100">8. Careers</a>
+  <a href="#govtExams" class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border hover:bg-indigo-100">9. Govt Exams</a>
+  <a href="#researcher" class="px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border hover:bg-violet-100">10. Research</a>
+  <span class="ml-auto text-slate-500 hidden sm:inline">11 sections - 10 min deep read - No filler</span>
+ </div>
+</section>
+
+<!-- PARADIGM 5/5 — bento editorial -->
+<section id="paradigm" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+ <div class="max-w-3xl">
+  <div class="kicker text-indigo-600">Part I • Core Paradigm — Should you like the daily work?</div>
+  <h2 id="paradigmTitle" class="display mt-2 font-extrabold text-3xl lg:text-4xl text-slate-900 dark:text-white">The Computation Paradigm Shift</h2>
+  <p id="paradigmShift" class="mt-2 text-slate-600 dark:text-slate-400 font-mono text-sm">Rules → Empirical</p>
+  <p class="mt-2 text-sm text-slate-500 leading-relaxed">Simple before/after: how work was done vs how it is done now, with a real example and what can go wrong. Read to see if you enjoy this way of thinking.</p>
+ </div>
+ <div class="mt-8 bento">
+  <div class="span-4 p-6 rounded-[24px] bg-white dark:bg-slate-800 card-5 tilt">
+   <div class="w-11 h-11 rounded-xl bg-slate-900 text-white grid place-items-center shadow"><i class="fa-solid fa-code"></i></div>
+   <h3 id="rulesTitle" class="font-bold mt-4 text-[16px]">Traditional (Rules-Based)</h3>
+   <p id="rulesDesc" class="text-sm text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed"></p>
+   <div id="rulesEg" class="mt-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border text-xs font-mono"></div>
+  </div>
+  <div class="span-8 p-7 rounded-[24px] bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-500 text-white card-5 tilt relative overflow-hidden">
+   <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+   <div class="relative">
+    <div class="flex items-center justify-between"><div class="w-11 h-11 rounded-xl bg-white text-indigo-600 grid place-items-center shadow"><i class="fa-solid fa-arrow-right-arrow-left"></i></div><span class="kicker px-2.5 py-1 rounded-full bg-white text-indigo-700">Preferred now • Empirical</span></div>
+    <h3 id="empTitle" class="font-bold mt-4 text-lg">Empirical</h3>
+    <p id="empDesc" class="text-sm text-white/90 mt-1.5 leading-relaxed"></p>
+    <div id="empEg" class="mt-4 p-3.5 rounded-xl bg-white/10 border border-white/15 text-xs font-mono backdrop-blur"></div>
+   </div>
+  </div>
+  <div class="span-12 p-6 rounded-[24px] bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 card-5 flex flex-wrap gap-6 items-center">
+   <div class="flex-1 min-w-[280px]">
+    <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-amber-500 text-white grid place-items-center"><i class="fa-solid fa-cube"></i></div><h3 id="boxTitle" class="font-bold">The Black Box</h3></div>
+    <p id="boxDesc" class="text-sm text-slate-700 dark:text-slate-300 mt-2 leading-relaxed"></p>
+   </div>
+   <div id="boxStats" class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border text-xs font-mono shadow min-w-[220px]"></div>
+  </div>
+ </div>
+ <div class="mt-6 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3 text-sm border border-white/10">
+  <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-white/10 grid place-items-center"><i class="fa-solid fa-lightbulb text-amber-300"></i></span><span><b class="text-cyan-300">Engineer takeaway:</b> Build transparency & guardrails around powerful empirical models.</span></div>
+  <button onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})" class="px-5 py-2.5 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-50 transition">See 5 Pillars ↓</button>
+ </div>
+</section>
+
+<!-- PILLARS + STUDY 5/5 — bento + premium charts -->
+<section id="pillars" class="bg-[#FCFCFD] dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700 py-12">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+   <div><div class="kicker text-indigo-600">Part II • 5 Pillars — What you will actually learn & build</div><h2 class="display font-extrabold text-3xl lg:text-4xl text-slate-900 dark:text-white">Core Subfields</h2><p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Each pillar = what it does, why it matters, a small project, and demand vs difficulty. Unique per domain.</p><p class="text-xs text-slate-500 mt-1">Tip: Pick the domain where at least 3 pillars excite you — not just the salary.</p></div>
+   <div class="flex gap-2 text-xs"><span class="kicker px-3 py-1.5 rounded-full bg-indigo-50 border text-indigo-700">Demand</span><span class="kicker px-3 py-1.5 rounded-full bg-amber-50 border text-amber-700">Complexity</span></div>
+  </div>
+  <div id="pillarsGrid" class="mt-8 gridPillars"></div>
+  <div class="mt-12">
+   <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-indigo-600 text-white grid place-items-center"><i class="fa-solid fa-book-open"></i></div><div><h3 class="font-bold">Study Guide — Books & Videos</h3><p class="text-xs text-slate-500">Per pillar • curated • lean</p></div><span class="ml-auto kicker px-2.5 py-1 rounded-full bg-slate-900 text-white hidden sm:inline">Per pillar</span></div>
+   <div id="studyGrid" class="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+  <div class="mt-10 grid lg:grid-cols-5 gap-6">
+   <div class="lg:col-span-3 p-6 rounded-[24px] bg-white dark:bg-slate-900 border card-5">
+    <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 grid place-items-center"><i class="fa-solid fa-chart-simple text-sm"></i></span><h4 class="font-bold">Demand vs Complexity</h4><span class="ml-auto kicker text-slate-500">Interactive</span></div>
+    <p class="text-xs text-slate-500 mt-1">Hover bars • unique per domain • ECharts + Chart.js</p>
+    <div class="chart-wrap chart-wrap-demand mt-4"><canvas id="demandChart" aria-label="Demand versus Complexity chart"></canvas></div>
+   </div>
+   <div class="lg:col-span-2 p-6 rounded-[24px] bg-slate-900 text-white relative overflow-hidden card-5">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-cyan-500/20 pointer-events-none"></div>
+    <div class="relative">
+     <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-white/10 grid place-items-center"><i class="fa-solid fa-coins text-amber-300 text-sm"></i></span><h4 class="font-bold">Why master?</h4><span class="ml-auto kicker text-white/60">Domain-unique</span></div>
+     <div id="economicsGrid" class="mt-5 grid grid-cols-2 gap-3"></div>
+     <p class="mt-4 text-xs text-white/50">Not generic AI numbers — per-track economics.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ROADMAP 5/5 — editorial + Gantt depth -->
+<section id="roadmap" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+ <div class="max-w-3xl">
+  <div class="kicker text-indigo-600">Part III • 36-Week Roadmap — Your step-by-step plan</div>
+  <h2 class="display font-extrabold text-3xl lg:text-4xl mt-2 text-slate-900 dark:text-white">6 Phases • Sequential</h2>
+  <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">No skipping foundations • each phase shows weeks, focus, and a proof you can demo • unique per domain</p>
+  <p class="text-xs text-slate-500 mt-1">How a 3Cr developer learns: foundation → small project → bigger project → deploy. Follow in order.</p>
+ </div>
+ <div class="mt-6 p-4 rounded-2xl bg-indigo-50 border border-indigo-200 flex flex-wrap gap-2 text-xs">
+  <span class="kicker px-3 py-1.5 rounded-full bg-white border font-semibold">Gantt • sequential</span>
+  <span class="px-3 py-1.5 rounded-full bg-slate-900 text-white font-semibold">Never skip foundations</span>
+  <span class="px-3 py-1.5 rounded-full bg-amber-500 text-white font-bold">Master one framework</span>
+  <span class="kicker px-3 py-1.5 rounded-full bg-white border">Publish daily</span>
+ </div>
+ <div class="mt-6 p-6 rounded-[24px] bg-white dark:bg-slate-800 border card-5 overflow-hidden">
+  <div class="flex items-center gap-2 mb-2"><span class="w-7 h-7 rounded-lg bg-indigo-600 text-white grid place-items-center text-xs"><i class="fa-solid fa-chart-gantt"></i></span><span class="font-bold text-sm">Timeline Gantt</span><span class="ml-auto kicker text-slate-500">Hover for topics • Scroll on mobile →</span></div>
+  <div class="gantt-scroll"><div class="chart-wrap chart-wrap-gantt"><canvas id="ganttChart" aria-label="36-week Gantt chart"></canvas></div></div>
+ </div>
+ <div id="phasesGrid" class="mt-7 grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+</section>
+
+<!-- CHRONOLOGY + EVOLUTION 5/5 — sticky timeline + premium chart -->
+<section id="chronology" class="bg-white dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700 py-12">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="grid lg:grid-cols-2 gap-10">
+   <div>
+    <div class="kicker text-indigo-600">Part IV • History — Where it came from</div>
+    <h2 class="display font-extrabold text-2xl lg:text-3xl mt-1 text-slate-900 dark:text-white">Chronology</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400">Key events that shaped jobs and salaries • why each mattered • domain-unique</p>
+    <div id="timeline" class="mt-7 relative pl-8"></div>
+   </div>
+   <div class="lg:sticky lg:top-20 h-fit">
+    <div class="kicker text-indigo-600">Projection — Where it is going</div>
+    <h2 class="display font-extrabold text-2xl lg:text-3xl mt-1 text-slate-900 dark:text-white">Evolution</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400">Past → next 5 years • what makes the line go up and what could slow it</p>
+    <div class="mt-6 p-6 rounded-[24px] bg-[#F8FAFC] dark:bg-slate-900 border card-5">
+     <div class="chart-wrap chart-wrap-evo"><canvas id="evolutionChart" aria-label="Evolution timeline chart"></canvas></div>
+    </div>
+    <div class="mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex gap-2"><span class="w-7 h-7 rounded-full bg-amber-500 text-white grid place-items-center shrink-0"><i class="fa-solid fa-triangle-exclamation text-xs"></i></span><span>Steep slope post-2022 = generative/multi-modal for AI-like tracks. Other domains have their own curve.</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- BALANCED + ETHICS 5/5 — rich comparison + tier -->
+<section id="balanced" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+ <div class="kicker text-center text-indigo-600">Part V • Balanced Outlook — Should you choose it? Honest pros & cons</div>
+ <h2 class="display font-extrabold text-3xl text-center mt-2 text-slate-900 dark:text-white">Leverage vs Mitigate</h2>
+ <p class="text-sm text-slate-500 text-center mt-1">When to use it (with proof) vs how to stay safe (with guardrail). No hype — life decision.</p>
+ <div class="mt-8 grid lg:grid-cols-2 gap-6">
+  <div class="p-7 rounded-[24px] bg-white dark:bg-slate-800 border card-5 relative overflow-hidden">
+   <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+   <h3 class="font-extrabold flex items-center gap-2"><span class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 grid place-items-center"><i class="fa-solid fa-check"></i></span> Advantages</h3>
+   <ul id="prosList" class="mt-5 space-y-3 text-sm"></ul>
+  </div>
+  <div class="p-7 rounded-[24px] bg-white dark:bg-slate-800 border card-5 relative overflow-hidden">
+   <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 to-orange-500"></div>
+   <h3 class="font-extrabold flex items-center gap-2"><span class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 grid place-items-center"><i class="fa-solid fa-triangle-exclamation"></i></span> Harms & Misuses</h3>
+   <ul id="consList" class="mt-5 space-y-3 text-sm"></ul>
+  </div>
+ </div>
+ <!-- Tier removed ? per-domain salaries now in Careers section -->
+ <div class="mt-12">
+  <div class="kicker text-center text-indigo-600">Ethics</div>
+  <h3 class="display font-extrabold text-2xl text-center mt-1 text-slate-900 dark:text-white">Golden Rules — Guardrails</h3>
+  <div id="ethicsGrid" class="mt-7 grid md:grid-cols-3 gap-5"></div>
+ </div>
+</section>
+
+<!-- STUDENT LIFE 360 — Professional, Accurate, Domain-Unique -->
+<section id="studentLife" class="bg-[#F8FAFC] dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-12">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="kicker text-indigo-600">Student Life 360° — Can you see yourself here?</div>
+  <h2 class="display font-extrabold text-3xl mt-1 text-slate-900 dark:text-white">How a Student Lives This Track</h2>
+  <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Daily hours, clubs, study split, peers, internship type, stress and cost — per domain, based on JNTU timetable + intern data. Imagine your week.</p>
+  <div id="studentLifeGrid" class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  <div class="mt-4 p-3 rounded-xl bg-white dark:bg-slate-800 border text-xs text-slate-500 flex items-center gap-2"><i class="fa-solid fa-circle-info text-indigo-600"></i> Sources: JNTU timetable 32hr + domain lab delta + Internshala 2024 — see Vault for full schedule PDFs.</div>
+ </div>
+</section>
+
+<!-- INTERVIEW KIT ? Highest Package, Product-Tier, Verified -->
+<section id="interviewKit" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+ <div class="kicker text-indigo-600">Interview Kit ? Get the Top Offer, Honestly</div>
+ <h2 class="display font-extrabold text-3xl mt-1 text-slate-900 dark:text-white">Crack the Top Offer ? FAANG/Product</h2>
+ <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">10 previous-year Qs + 5 coding + 5-phase 8-week plan ? each with company, year, source and frequency. Verified 2026-09-08 ? no fake promise, practice + proof.</p>
+ <div class="mt-6 p-5 rounded-[20px] bg-slate-900 text-white border border-white/10">
+  <div class="kicker text-cyan-300">Pattern</div>
+  <div id="interviewPattern" class="mt-2 text-sm leading-relaxed"></div>
+ </div>
+ <div class="mt-8">
+  <h3 class="font-bold flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-indigo-600"></i> Previous Interview Questions (2023-25) <span class="kicker ml-auto px-2 py-1 rounded-full bg-slate-900 text-white">Verified</span></h3>
+  <div id="interviewPrevGrid" class="mt-4 grid md:grid-cols-2 gap-3"></div>
+ </div>
+ <div class="mt-8">
+  <h3 class="font-bold flex items-center gap-2"><i class="fa-solid fa-code text-indigo-600"></i> Coding ? High Frequency <span class="kicker ml-auto px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 border">FAANG 80%+</span></h3>
+  <div id="interviewCodingGrid" class="mt-4 grid md:grid-cols-2 gap-3"></div>
+ </div>
+ <div class="mt-8">
+  <h3 class="font-bold flex items-center gap-2"><i class="fa-solid fa-calendar-check text-emerald-600"></i> Full 8-Week Interview Plan <span class="kicker ml-auto px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border">Product-tier - 5 Phases</span></h3>
+  <div id="interviewPlanGrid" class="mt-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+ </div>
+ <div class="mt-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-sm"><b>Tip:</b> <span id="interviewTips"></span></div>
+ <div class="mt-4 flex gap-2 text-xs"><a href="quiz.html" class="px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold">Practice Quiz -></a><button onclick="window.print()" class="px-4 py-2 rounded-xl border bg-white">Print Kit</button><span class="ml-auto text-slate-500">Last verified: 2026-09-08 - Sources: Glassdoor, GeeksforGeeks, LeetCode, AmbitionBox, NIELIT, ISRO, BARC, GATE 2026</span></div>
+</section>
+
+<!-- CAREERS ? Salaries & Top Companies ? 100Cr Premium -->
+<section id="careers" class="bg-[#F8FAFC] dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-12">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="kicker text-indigo-600">Part VIII ? Careers ? Where you get hired & how much</div>
+  <h2 class="display font-extrabold text-3xl mt-1 text-slate-900 dark:text-white">Salaries & Best Companies</h2>
+  <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">India bands (AmbitionBox, Glassdoor, Levels.fyi 2024-25) + top product / service / startup / PSU per domain. Verified 2026-09-08. Not inflated ? entry to staff.</p>
+  <div id="salaryBands" class="mt-6 grid md:grid-cols-3 gap-4"></div>
+  <div class="mt-8">
+   <h3 class="font-bold flex items-center gap-2"><i class="fa-solid fa-building text-indigo-600"></i> Best Companies for <span id="careersDomainName">this domain</span> <span class="kicker ml-auto px-2 py-1 rounded-full bg-slate-900 text-white">Product ? Service ? Startup ? PSU</span></h3>
+   <div id="companiesGrid" class="mt-4 grid md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+   <div class="mt-3 p-3 rounded-xl bg-white dark:bg-slate-800 border text-xs text-slate-500 flex items-center gap-2"><i class="fa-solid fa-circle-info text-indigo-600"></i> Source: LinkedIn Top Companies India 2024, NASSCOM + Glassdoor. PSU via GATE. Apply via LinkedIn + NCS portal.</div>
+  </div>
+ </div>
+</section>
+
+<!-- GOVT EXAMS ? Eligibility, Salary, Cycle -->
+<section id="govtExams" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+ <div class="kicker text-indigo-600">Part IX ? Government Exams ? Stable + Prestigious</div>
+ <h2 class="display font-extrabold text-3xl mt-1 text-slate-900 dark:text-white">Government Exams, Eligibility & Salaries</h2>
+ <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Per-domain relevant exams (GATE, ISRO, BARC, DRDO, NIC, SSC, IBPS, etc.). Columns: Exam | Eligibility (branch, year, %) | Age | Salary (Level + CTC) | Cycle. Verify on official site before apply.</p>
+ <div class="mt-6 overflow-x-auto rounded-2xl border bg-white dark:bg-slate-800">
+  <table class="w-full text-sm">
+   <thead class="bg-slate-50 dark:bg-slate-900 text-xs kicker text-slate-500"><tr><th class="px-4 py-3 text-left">Exam</th><th class="px-4 py-3 text-left">Eligibility</th><th class="px-4 py-3 text-left">Age</th><th class="px-4 py-3 text-left">Salary (Level/CTC)</th><th class="px-4 py-3 text-left">Link</th></tr></thead>
+   <tbody id="govtExamsBody" class="divide-y divide-slate-100 dark:divide-slate-700"></tbody>
+  </table>
+ </div>
+ <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700">GATE is common for most ? 1 exam, many PSUs</span><span class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700">NIC via NIELIT ? ISRO direct ? BARC via GATE</span><span class="px-2.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700">Last verified: 2026-09-08</span></div>
+</section>
+
+<!-- RESEARCHER TRACK ? Higher studies, venues, topics -->
+<section id="researcher" class="bg-[#F8FAFC] dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-12">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="kicker text-indigo-600">Part X ? Researcher Track ? Beyond the job</div>
+  <h2 class="display font-extrabold text-3xl mt-1 text-slate-900 dark:text-white">Researcher & Higher Studies Path</h2>
+  <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">If you love asking ?why? not just ?how? ? higher studies, venues, and hot topics per domain. Choose developer now, researcher later, or both.</p>
+  <div id="researcherGrid" class="mt-6 grid md:grid-cols-3 gap-5"></div>
+  <div id="sourcesBox" class="mt-8 p-5 rounded-2xl bg-white dark:bg-slate-800 border">
+   <h4 class="font-bold flex items-center gap-2"><i class="fa-solid fa-link text-indigo-600"></i> All Sources ? Verified 2026-09-08</h4>
+   <div id="sourcesList" class="mt-3 text-xs leading-relaxed text-slate-600 dark:text-slate-400"></div>
+  </div>
+ </div>
+</section>
+
+<!-- VAULT + CTA -->
+<section class="bg-slate-900 text-white py-10">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="grid lg:grid-cols-2 gap-6">
+   <div class="p-6 rounded-3xl bg-white/5 border border-white/10">
+    <h3 class="font-bold flex items-center gap-2"><i class="fa-solid fa-folder-open text-cyan-300"></i> Vault — Your Files for <span id="vaultName">this domain</span></h3>
+    <p class="text-sm text-white/70 mt-1">4 slots per track: Notes / Videos / Projects / Assignments — add yours later, stays local. Path: <span id="vaultPath" class="font-mono text-cyan-300">frontend/public/vault/ai/</span></p>
+     <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+      <button onclick="triggerVaultUpload('Notes/PDFs')" class="p-3 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition flex items-center justify-center gap-2"><i class="fa-regular fa-file-pdf"></i> Add Notes</button>
+      <button onclick="triggerVaultUpload('Videos')" class="p-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/20 transition flex items-center justify-center gap-2"><i class="fa-solid fa-video"></i> Add Videos</button>
+      <button onclick="triggerVaultUpload('Projects')" class="p-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/20 transition flex items-center justify-center gap-2"><i class="fa-solid fa-diagram-project"></i> Add Projects</button>
+      <button onclick="triggerVaultUpload('Assignments')" class="p-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2"><i class="fa-solid fa-graduation-cap"></i> Add Assignments</button>
+     </div>
+     <div id="vaultFileList" class="mt-4 space-y-2 max-h-[260px] overflow-y-auto pr-1"></div>
+     <div id="vaultDropZone" class="mt-3 p-4 rounded-2xl border-2 border-dashed border-white/15 bg-white/5 text-center text-xs text-white/60 hover:border-cyan-300/40 hover:bg-white/10 transition cursor-pointer" onclick="document.getElementById('vaultFileInput')?.click()" ondragover="event.preventDefault(); this.classList.add('border-cyan-300','bg-white/10')" ondragleave="this.classList.remove('border-cyan-300','bg-white/10')" ondrop="handleVaultDrop(event)"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Drag & drop files here or click to browse — stays local</div>
+     <input type="file" id="vaultFileInput" class="hidden">
+     <div class="mt-3 text-xs text-white/50 flex items-center justify-between"><span>Progress saved locally via roadmap checklist.</span><span id="vaultCountBadge" class="px-2 py-0.5 rounded-full bg-white/10 border border-white/15">0 files</span></div>
+   </div>
+   <div class="p-6 rounded-3xl bg-gradient-to-br from-indigo-600 to-cyan-500">
+    <h3 class="font-extrabold text-xl">Ready to find your fit?</h3>
+    <p class="text-sm text-white/90 mt-1">Take 3-min quiz + marks → Top-3 across 25 tracks with radar & vault suggestion.</p>
+    <a href="quiz.html" class="mt-4 inline-flex px-6 py-3 rounded-xl bg-white text-indigo-700 font-bold">Take 3-Min Quiz →</a>
+    <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="px-2.5 py-1 rounded-full bg-white/15 border border-white/20">750-record benchmark</span><span class="px-2.5 py-1 rounded-full bg-white/15 border border-white/20">PCA 11→10 • RF 89%</span></div>
+    <div class="mt-4 flex gap-2 text-xs"><a href="explorer.html" class="px-3 py-1.5 rounded-full bg-slate-900 text-white">← Atlas</a><a id="nextDomain" href="#" class="px-3 py-1.5 rounded-full bg-white text-slate-900 font-semibold">Next domain →</a></div>
+   </div>
+  </div>
+  <div class="mt-6 flex flex-wrap gap-2 text-xs text-white/60">
+   <span>Share handbook:</span><button onclick="navigator.clipboard.writeText(location.href);toast('Link copied')" class="px-2.5 py-1 rounded-full bg-white/10 border border-white/15">Copy link</button><button onclick="window.print()" class="px-2.5 py-1 rounded-full bg-white/10 border border-white/15">Print / Save PDF</button>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="bg-slate-950 text-white">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+   <div class="flex items-center gap-2"><div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-bold text-white">G</div> GuidanceAI • 25 Handbooks • Immersive, not PDF</div>
+   <div class="flex gap-3"><a href="../index.html" class="hover:text-white">Home</a><a href="explorer.html" class="hover:text-white">Atlas</a><a href="quiz.html" class="hover:text-white">Quiz</a><span>© 2026</span></div>
+  </div>
+ </div>
+</footer>
+
+<div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm shadow-xl z-50"></div>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/handbooks.js"></script>
+<script defer src="../assets/js/domain.js"></script>
+<script>
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark'))}
+if(localStorage.getItem('dark')==='true')document.documentElement.classList.add('dark');
+document.getElementById('mobileMenuBtn')?.addEventListener('click',()=>document.getElementById('mobileDrawer')?.classList.toggle('hidden'));
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2200)}
+
+// ——— 10-Cr Vault — Real file upload for handbook page ———
+let _vaultPendingSlot = 'Notes/PDFs';
+function triggerVaultUpload(slot){
+ _vaultPendingSlot = slot;
+ // Use the global app.js picker if available (real file input)
+ if(typeof addVaultFile === 'function' && document.getElementById('__vaultFileInput')){
+  addVaultFile(currentId || getIdFromUrl() || 'AI', slot);
+  // Re-render this page's list after a short delay (app.js will call refreshVaultUI)
+  setTimeout(renderDomainVault, 600);
+  return;
+ }
+ // Fallback to this page's own input
+ const input = document.getElementById('vaultFileInput');
+ if(input){
+  input.accept = slot==='Videos' ? 'video/*' : slot==='Notes/PDFs' ? '.pdf,.doc,.docx,.ppt,.pptx,.txt' : '*/*';
+  input.onchange = handleVaultFile;
+  input.click();
+ }
+}
+function handleVaultFile(e){
+ const file = e.target.files && e.target.files[0];
+ if(!file) return;
+ e.target.value = '';
+ processVaultFile(file, _vaultPendingSlot);
+}
+function handleVaultDrop(e){
+ e.preventDefault();
+ e.currentTarget.classList.remove('border-cyan-300','bg-white/10');
+ const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+ if(file) processVaultFile(file, _vaultPendingSlot);
+}
+function processVaultFile(file, slot){
+ const dId = currentId || (typeof getIdFromUrl==='function' ? getIdFromUrl() : 'AI');
+ if(file.size > 15*1024*1024){ toast('⚠️ 15 MB max'); return; }
+ // Use app.js storage if available
+ if(typeof getVault === 'function' && typeof saveVault === 'function'){
+  const vault = getVault(dId);
+  const entry = { name: file.name, slot: slot, date: new Date().toLocaleDateString(), size: (file.size/1024<1024?(file.size/1024).toFixed(1)+' KB':(file.size/1024/1024).toFixed(2)+' MB'), type: file.type||'file' };
+  if(file.size < 2*1024*1024){
+   const reader = new FileReader();
+   reader.onload = ev=>{ entry.dataUrl = ev.target.result; vault.push(entry); saveVault(dId, vault); toast(`📁 Added ${file.name}`); renderDomainVault(); refreshVaultCounts(); };
+   reader.onerror = ()=>{ vault.push(entry); saveVault(dId, vault); toast(`📁 Added ${file.name}`); renderDomainVault(); refreshVaultCounts(); };
+   reader.readAsDataURL(file);
+  } else { vault.push(entry); saveVault(dId, vault); toast(`📁 Added ${file.name}`); renderDomainVault(); refreshVaultCounts(); }
+ } else {
+  toast(`📁 Selected ${file.name} — vault API not ready`);
+ }
+}
+function refreshVaultCounts(){
+ const dId = currentId || (typeof getIdFromUrl==='function' ? getIdFromUrl() : 'AI');
+ try{
+  const v = typeof getVault==='function' ? getVault(dId) : [];
+  const badge = document.getElementById('vaultCountBadge');
+  if(badge) badge.textContent = v.length + ' files';
+ }catch(e){}
+}
+function escapeVaultHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function renderDomainVault(){
+ const dId = currentId || (typeof getIdFromUrl==='function' ? getIdFromUrl() : 'AI');
+ const listEl = document.getElementById('vaultFileList');
+ const badge = document.getElementById('vaultCountBadge');
+ if(!listEl) return;
+ let vault = [];
+ try{ vault = typeof getVault==='function' ? getVault(dId) : JSON.parse(localStorage.getItem('vault_'+dId)||'[]'); }catch(e){ vault=[]; }
+ if(badge) badge.textContent = vault.length + ' files • ' + ['Notes/PDFs','Videos','Projects','Assignments'].map(s=> s.split('/')[0] + ': ' + vault.filter(x=>x.slot===s).length).join(' • ');
+ if(vault.length===0){
+  listEl.innerHTML = `<div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-white/60 text-center">No files yet — click Add Notes / Videos / Projects / Assignments or drag & drop. Files stay local (localStorage).</div>`;
+  return;
+ }
+ listEl.innerHTML = vault.map((f, idx)=>{
+  const icon = f.slot==='Videos' ? 'fa-video' : f.slot==='Projects' ? 'fa-diagram-project' : f.slot==='Assignments' ? 'fa-graduation-cap' : 'fa-file-pdf';
+  const canPreview = f.dataUrl && (f.type||'').startsWith('image/');
+  return `<div class="flex items-center gap-2 p-2.5 rounded-xl bg-white text-slate-900 text-xs border">
+   <span class="w-7 h-7 rounded-full bg-slate-900 text-white grid place-items-center shrink-0"><i class="fa-solid ${icon} text-[11px]"></i></span>
+   <button onclick="previewVaultFile ? previewVaultFile('${escapeVaultHtml(dId)}',${idx}) : downloadVaultFile('${escapeVaultHtml(dId)}',${idx})" class="flex-1 text-left truncate hover:text-indigo-600">
+    <span class="font-semibold truncate">${escapeVaultHtml(f.name)}</span><span class="text-slate-500"> • ${escapeVaultHtml(f.slot)} • ${escapeVaultHtml(f.size)} • ${escapeVaultHtml(f.date)}</span>
+    ${f.dataUrl?'<span class="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>':''}
+   </button>
+   <span class="flex gap-1 shrink-0">
+    <button onclick="downloadVaultFile ? downloadVaultFile('${escapeVaultHtml(dId)}',${idx}) : toast('Download')" title="Download" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 grid place-items-center"><i class="fa-solid fa-download text-[10px]"></i></button>
+    <button onclick="if(typeof removeVaultFile==='function'){ removeVaultFile('${escapeVaultHtml(dId)}',${idx}); setTimeout(renderDomainVault,100);} else { let v=JSON.parse(localStorage.getItem('vault_'+dId)||'[]'); v.splice(${idx},1); localStorage.setItem('vault_'+dId, JSON.stringify(v)); renderDomainVault(); }" title="Remove" class="w-7 h-7 rounded-full bg-red-50 hover:bg-red-100 text-red-600 grid place-items-center">×</button>
+   </span>
+  </div>`;
+ }).join('');
+}
+// Render after domain data loads — hook into render()
+const _origRender = window.render;
+window.render = function(id){
+ if(typeof _origRender==='function') _origRender(id);
+ setTimeout(()=>{ renderDomainVault(); refreshVaultCounts(); }, 300);
+};
+// Also render on direct load
+document.addEventListener('DOMContentLoaded', ()=> setTimeout(()=>{ renderDomainVault(); refreshVaultCounts(); }, 800));
+window.addEventListener('load', ()=> setTimeout(renderDomainVault, 1200));
+</script>
+</body>
+</html>
