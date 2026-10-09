@@ -32,6 +32,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif'],display:['Plus Jakarta Sans','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{primary:'#4F46E5',secondary:'#06B6D4',accent:'#F59E0B'},boxShadow:{'5xl':'0 24px 64px -16px rgba(15,23,42,.18)', 'glow':'0 0 40px rgba(79,70,229,.25)'}}}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/theme-contrast.css">
 <!-- Deferred heavy libs: load after first paint via defer -->
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
@@ -393,7 +394,7 @@
   <div class="grid lg:grid-cols-2 gap-6">
    <div class="p-6 rounded-3xl bg-white/5 border border-white/10">
     <h3 class="font-bold flex items-center gap-2"><i class="fa-solid fa-folder-open text-cyan-300"></i> Vault — Your Files for <span id="vaultName">this domain</span></h3>
-    <p class="text-sm text-white/70 mt-1">4 slots per track: Notes / Videos / Projects / Assignments — add yours later, stays local. Path: <span id="vaultPath" class="font-mono text-cyan-300">frontend/public/vault/ai/</span></p>
+    <p class="text-sm text-white/70 mt-1">4 slots per track: Notes / Videos / Projects / Assignments — add yours later, stays local. Path: <span id="vaultPath" class="font-mono text-cyan-300">public/vault/ai/</span></p>
      <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
       <button onclick="triggerVaultUpload('Notes/PDFs')" class="p-3 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition flex items-center justify-center gap-2"><i class="fa-regular fa-file-pdf"></i> Add Notes</button>
       <button onclick="triggerVaultUpload('Videos')" class="p-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/20 transition flex items-center justify-center gap-2"><i class="fa-solid fa-video"></i> Add Videos</button>
@@ -435,7 +436,7 @@
 <script src="../assets/js/handbooks.js"></script>
 <script defer src="../assets/js/domain.js"></script>
 <script>
-function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark'))}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark'));try{document.dispatchEvent(new CustomEvent('themechange',{detail:{dark:document.documentElement.classList.contains('dark')}}))}catch(e){}}
 if(localStorage.getItem('dark')==='true')document.documentElement.classList.add('dark');
 document.getElementById('mobileMenuBtn')?.addEventListener('click',()=>document.getElementById('mobileDrawer')?.classList.toggle('hidden'));
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2200)}

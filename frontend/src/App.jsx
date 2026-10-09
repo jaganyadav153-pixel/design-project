@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import DomainCard from './components/DomainCard.jsx'
 import QuizEngine from './components/QuizEngine.jsx'
 import RadarChart from './components/RadarChart.jsx'
@@ -33,9 +34,18 @@ const domains = [
 ]
 
 export default function App(){
+  const { t, i18n } = useTranslation()
   const [category, setCategory]=useState('All')
   const [search, setSearch]=useState('')
   const [result, setResult]=useState(null)
+  const setLang = (lng)=> {
+    i18n.changeLanguage(lng)
+    try {
+      localStorage.setItem('lang', lng)
+      document.documentElement.lang = lng
+      document.documentElement.dir = lng==='ur' ? 'rtl' : 'ltr'
+    } catch {}
+  }
   const filtered = domains.filter(d=> (category==='All'|| d.category===category || d.id===category) && (d.name.toLowerCase().includes(search.toLowerCase())|| d.desc.toLowerCase().includes(search.toLowerCase()) || d.category.toLowerCase().includes(search.toLowerCase())))
 
   useEffect(()=>{ document.title='GuidanceAI — Atlas 25 • CSE Domain Recommender' },[])
@@ -49,7 +59,10 @@ export default function App(){
             <span className="font-display font-bold">GuidanceAI</span>
             <span className="hidden md:inline-flex ml-2 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200">Atlas 25 • 89%</span>
           </div>
-          <a href="#quiz" className="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">Start Quiz →</a>
+          <select value={i18n.language} onChange={e=> setLang(e.target.value)} aria-label="Language" className="px-2 py-2 rounded-lg border text-xs bg-white">
+            <option value="en">English</option><option value="te">తెలుగు</option><option value="hi">हिन्दी</option><option value="ta">தமிழ்</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="mr">मराठी</option><option value="bn">বাংলা</option><option value="gu">ગુજરાતી</option><option value="ur">اردو</option>
+          </select>
+          <a href="#quiz" className="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">{t('hero_cta_quiz')}</a>
         </div>
       </nav>
 

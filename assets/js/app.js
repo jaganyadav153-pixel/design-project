@@ -3655,6 +3655,40 @@ function computePrediction(){
  }, 900);
 }
 
+/* Contrast-theme chart palette — reads CSS vars, AA-safe in light + dark */
+function cssVar(name, fallback){
+  try{ const v=getComputedStyle(document.documentElement).getPropertyValue(name).trim(); return v||fallback; }catch(e){ return fallback; }
+}
+function contrastChartPalette(){
+  const dark=document.documentElement.classList.contains('dark');
+  if(dark) return { c1:cssVar('--chart-1','#A5B4FC'), c2:cssVar('--chart-2','#22D3EE'), c3:cssVar('--chart-3','#34D399'), tick:cssVar('--chart-tick','#CBD5E1'), grid:cssVar('--chart-grid','#475569'), fill1:'rgba(165,180,252,0.35)', fill2:'rgba(34,211,238,0.28)', bar:['#A5B4FC','#22D3EE','#34D399','#FBBF24'] };
+  return { c1:cssVar('--chart-1','#4338CA'), c2:cssVar('--chart-2','#0E7490'), c3:cssVar('--chart-3','#047857'), tick:cssVar('--chart-tick','#334155'), grid:cssVar('--chart-grid','#CBD5E1'), fill1:'rgba(67,56,202,0.28)', fill2:'rgba(14,116,144,0.22)', bar:['#4338CA','#0E7490','#047857','#B45309'] };
+}
+function applyPaletteToChart(chart, pal){
+  try{
+    if(!chart) return;
+    if(chart.config.type==='radar'){
+      const ds=chart.data.datasets;
+      if(ds[0]){ ds[0].borderColor=pal.c1; ds[0].backgroundColor=pal.fill1; ds[0].pointBackgroundColor=pal.c1; ds[0].borderWidth=2.5; }
+      if(ds[1]){ ds[1].borderColor=pal.c2; ds[1].backgroundColor=pal.fill2; ds[1].borderWidth=2.5; }
+      const r=chart.options.scales && chart.options.scales.r;
+      if(r){ r.ticks=r.ticks||{}; r.ticks.color=pal.tick; r.grid=r.grid||{}; r.grid.color=pal.grid; r.angleLines=r.angleLines||{}; r.angleLines.color=pal.grid; r.pointLabels=r.pointLabels||{}; r.pointLabels.color=pal.tick; }
+    } else {
+      if(chart.data.datasets && chart.data.datasets[0] && pal.bar) chart.data.datasets[0].backgroundColor=pal.bar;
+      const sc=chart.options.scales||{};
+      ['x','y'].forEach(k=>{ if(sc[k]){ sc[k].ticks=sc[k].ticks||{}; sc[k].ticks.color=pal.tick; sc[k].grid=sc[k].grid||{}; sc[k].grid.color=pal.grid; } });
+    }
+    if(chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) chart.options.plugins.legend.labels.color=pal.tick;
+    chart.update();
+  }catch(e){}
+}
+function refreshChartsForTheme(){
+  const pal=contrastChartPalette();
+  try{ if(typeof Chart!=='undefined'){ Chart.defaults.color=pal.tick; Chart.defaults.borderColor=pal.grid; } }catch(e){}
+  try{ applyPaletteToChart(radarChart, pal); }catch(e){}
+  try{ applyPaletteToChart(teacherChart, pal); }catch(e){}
+  try{ applyPaletteToChart(window._heroChart, pal); }catch(e){}
+}
 let radarChart, teacherChart;
 function fireConfetti(){
  try{
@@ -3689,7 +3723,7 @@ function showResults(sorted, scores, marks){
  const radarDom=document.getElementById('radarDomain'); if(radarDom) radarDom.textContent=sorted[0][0];
  const radarEl=document.getElementById('resultRadar'); if(!radarEl) return; const ctx=radarEl.getContext('2d');
  if(radarChart) radarChart.destroy();
- radarChart=new Chart(ctx,{type:'radar', data:{labels:['Logic','Math','Creativity','Security','Cloud','Data','OS'], datasets:[{label:'You', data: answers.slice(0,7), fill:true, backgroundColor:'rgba(79,70,229,0.2)', borderColor:'#4F46E5', pointBackgroundColor:'#4F46E5'}, {label:'Req for '+sorted[0][0], data: weightsForRadar(sorted[0][0]), fill:true, backgroundColor:'rgba(6,182,214,0.12)', borderColor:'#06B6D4', borderDash:[5,5]}]}, options:{scales:{r:{min:0,max:5,ticks:{stepSize:1}}}, plugins:{legend:{position:'bottom'}}}});
+  radarChart=new Chart(ctx,{type:'radar', data:{labels:['Logic','Math','Creativity','Security','Cloud','Data','OS'], datasets:[{label:'You', data: answers.slice(0,7), fill:true, backgroundColor:contrastChartPalette().fill1, borderColor:contrastChartPalette().c1, pointBackgroundColor:contrastChartPalette().c1, borderWidth:2.5, pointRadius:4}, {label:'Req for '+sorted[0][0], data: weightsForRadar(sorted[0][0]), fill:true, backgroundColor:contrastChartPalette().fill2, borderColor:contrastChartPalette().c2, borderDash:[5,5], borderWidth:2.5}]}, options:{scales:{r:{min:0,max:5,ticks:{stepSize:1, color:contrastChartPalette().tick}, grid:{color:contrastChartPalette().grid}, angleLines:{color:contrastChartPalette().grid}, pointLabels:{color:contrastChartPalette().tick}}}, plugins:{legend:{position:'bottom', labels:{color:contrastChartPalette().tick}}}}});
  const gaps=document.getElementById('skillGaps'); if(!gaps) return;
  const req=weightsForRadar(sorted[0][0]);
  const labels=['Logic','Math','Creativity','Security','Cloud','Data','OS'];
@@ -4140,7 +4174,7 @@ try {
  if(saved.length && body){
   // Keep initial greeting if exists, append saved
   saved.forEach(m=>{
-   const cls = m.role==='user' ? 'p-3 rounded-2xl bg-indigo-600 text-white ml-8' : 'p-3 rounded-2xl bg-slate-100';
+   const cls = m.role==='user' ? 'p-3 rounded-2xl bg-indigo-600 text-white ml-8' : 'p-3 rounded-2xl bg-slate-100 dark:bg-slate-700 dark:text-slate-100 text-slate-800';
    body.insertAdjacentHTML('beforeend', `<div class="${cls}">${escapeHtml(m.content)}</div>`);
   });
   body.scrollTop=body.scrollHeight;
@@ -4193,7 +4227,7 @@ function sendChat(){
  inp.value='';
  body.scrollTop=body.scrollHeight;
  const typingId = 'typing-'+Date.now();
- body.insertAdjacentHTML('beforeend', `<div id="${typingId}" class="p-3 rounded-2xl bg-slate-100 text-slate-500 text-sm">Thinking...</div>`);
+  body.insertAdjacentHTML('beforeend', `<div id="${typingId}" class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-700 dark:text-slate-200 text-slate-500 text-sm">Thinking...</div>`);
  body.scrollTop=body.scrollHeight;
  // ML fallback — TF-IDF-like cosine over 25 domains (solves any website query offline)
  const mlFallback = (q)=>{
@@ -4351,7 +4385,7 @@ function switchDashboard(which){
    const cvs=document.getElementById('teacherChart');
    if(cvs){
     const ctx=cvs.getContext('2d');
-    const cats=['Intelligence & Data','Build & Experience','Core Systems','Frontier Tech']; const counts=cats.map(c=> domains.filter(d=>d.category===c).length*30); teacherChart=new Chart(ctx, {type:'bar', data:{labels:cats, datasets:[{label:'Students guided', data:counts, backgroundColor:['#4F46E5','#06B6D4','#0F172A','#10B981']}]}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}}});
+     const cats=['Intelligence & Data','Build & Experience','Core Systems','Frontier Tech']; const counts=cats.map(c=> domains.filter(d=>d.category===c).length*30); const _pal=contrastChartPalette(); teacherChart=new Chart(ctx, {type:'bar', data:{labels:cats, datasets:[{label:'Students guided', data:counts, backgroundColor:_pal.bar, borderWidth:0, borderRadius:8}]}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, ticks:{color:_pal.tick}, grid:{color:_pal.grid}}, x:{ticks:{color:_pal.tick}, grid:{color:_pal.grid}}}}});
    }
   }
  }catch(e){ console.warn('dashboard switch failed',e); }
@@ -4462,6 +4496,8 @@ if('serviceWorker' in navigator){
 function toggleDark(){
  document.documentElement.classList.toggle('dark');
  try{ localStorage.setItem('theme', document.documentElement.classList.contains('dark')?'dark':'light'); }catch(e){}
+ try{ document.dispatchEvent(new CustomEvent('themechange', {detail:{dark:document.documentElement.classList.contains('dark')}})); }catch(e){}
+ try{ refreshChartsForTheme(); }catch(e){}
 }
 (function initTheme(){
  try{
@@ -4568,8 +4604,17 @@ function toast(msg){
 }
 try{
  const heroCanvas=document.getElementById('heroRadar');
- if(heroCanvas) new Chart(heroCanvas, {type:'radar', data:{labels:['Logic','Math','Data','Cloud','Security'], datasets:[{data:[5,4,4,2,3], fill:true, backgroundColor:'rgba(79,70,229,0.15)', borderColor:'#4F46E5'}]}, options:{responsive:true, scales:{r:{min:0,max:5,ticks:{display:false}}}, plugins:{legend:{display:false}} }});
+ if(heroCanvas){
+  const _hp=contrastChartPalette();
+  try{ if(typeof Chart!=='undefined'){ Chart.defaults.color=_hp.tick; Chart.defaults.borderColor=_hp.grid; } }catch(err){}
+  window._heroChart=new Chart(heroCanvas, {
+   type:'radar',
+   data:{labels:['Logic','Math','Data','Cloud','Security'], datasets:[{data:[5,4,4,2,3], fill:true, backgroundColor:_hp.fill1, borderColor:_hp.c1, borderWidth:2.5, pointBackgroundColor:_hp.c1, pointRadius:4}]},
+   options:{responsive:true, scales:{r:{min:0,max:5,ticks:{display:false}, grid:{color:_hp.grid}, angleLines:{color:_hp.grid}, pointLabels:{color:_hp.tick}}}, plugins:{legend:{display:false}}}
+  });
+ }
 }catch(e){ console.warn('Chart init failed', e); }
+try{ document.addEventListener('themechange', function(){ try{ refreshChartsForTheme(); }catch(e){} }); }catch(e){}
 const roleSel=document.getElementById('roleSwitcher');
 if(roleSel) roleSel.value='student';
 try{ const top=safeGet('guidance_top'); if(top){} }catch(e){}

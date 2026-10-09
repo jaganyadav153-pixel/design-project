@@ -18,8 +18,12 @@ DOMAINS = ["AI", "ML", "Data Science", "Big Data", "Computer Vision", "NLP", "We
 # Marks: math_marks, physics_marks, programming_marks, english_marks (0-100)
 
 def generate_student(i):
-    # Bias domain distribution slightly
-    domain = random.choices(DOMAINS, weights=[18, 17, 16, 16, 17, 16])[0]
+    # Legacy dataset is 6-domain (500 rows) — Atlas UI is 25-way via rules/weights.
+    # Do NOT expand to 25 here without retraining (keeps existing dataset.csv/model.pkl stable).
+    LEGACY_DOMAINS = ["AI", "ML", "DBMS", "Operating Systems", "Cloud Computing", "Cybersecurity"]
+    LEGACY_WEIGHTS = [18, 17, 16, 16, 17, 16]
+    assert len(LEGACY_DOMAINS) == len(LEGACY_WEIGHTS), "weights must match domains"
+    domain = random.choices(LEGACY_DOMAINS, weights=LEGACY_WEIGHTS)[0]
 
     # Generate quiz scores (1-5)
     base = {d: random.randint(1,3) for d in DOMAINS}

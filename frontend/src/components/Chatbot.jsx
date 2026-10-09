@@ -36,7 +36,7 @@ export default function Chatbot(){
     // ML fallback — TF-IDF-like Jaccard over 25 domains (solves any website query offline)
     const low=txt.toLowerCase()
     const mlFallback=(q)=>{
-      if(/\bai\b/.test(q.toLowerCase()) && !/(robotics|blockchain|quantum|cloud|cyber|security|game|hci)/.test(q.toLowerCase())) return "AI fits \u2192 Python \u2192 Math \u2192 ML \u2192 Deep Learning \u2192 Projects (36 weeks). Salary 8-15 LPA. Vault: /frontend/public/vault/ai/";
+      if(/\bai\b/.test(q.toLowerCase()) && !/(robotics|blockchain|quantum|cloud|cyber|security|game|hci)/.test(q.toLowerCase())) return "AI fits \u2192 Python \u2192 Math \u2192 ML \u2192 Deep Learning \u2192 Projects (36 weeks). Salary 8-15 LPA. Vault: /public/vault/ai/";
       const corpus={
         'AI':"ai artificial intelligence build intelligent systems think learn reason python math logic ml basics roadmap python math ml deep learning projects salary 8-15 trending",
         'Data Science':"data science extract insights massive data python statistics sql visualization roadmap python stats sql visualization projects salary 8-18",
@@ -63,23 +63,23 @@ export default function Chatbot(){
       }
       if(bestScore<0.04) return "I can help with any of the 25 tracks (Atlas). Try: 'Which domain for low math but high creativity?' → I suggest HCI/Game/Web, or 'Roadmap for DBMS?' or 'Vault for AI?'"
       const map={
-        'AI':"AI fits → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA. Vault: /frontend/public/vault/ai/",
-        'Data Science':"Data Science fits → Python → Stats → SQL → Visualization. Salary 8-18 LPA. Vault: /frontend/public/vault/data-science/",
-        'Web Development':"Web Development fits (low math, high creativity) → HTML/CSS → JS → React → Node → Deploy. Salary 5-10 LPA. Vault: /frontend/public/vault/web-development/",
-        'HCI':"HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /frontend/public/vault/hci/",
-        'Game Development':"Game Development fits (creativity) → C# → Unity → Graphics → Publish. Salary 5-11 LPA. Vault: /frontend/public/vault/game-development/",
-        'Cybersecurity':"Cybersecurity fits → Networking → Linux → Ethical Hacking → SOC. Salary 6-12 LPA. Vault: /frontend/public/vault/cybersecurity/",
-        'Quantum Computing':"Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA. Frontier. Vault: /frontend/public/vault/quantum-computing/",
-        'Cloud Computing':"Cloud fits → Linux → Cloud Fundamentals → AWS → Kubernetes. Salary 7-13 LPA. Vault: /frontend/public/vault/cloud-computing/",
-        'DBMS':"DBMS fits → SQL → Normalization → NoSQL → Distributed DB. Salary 6-11 LPA. Vault: /frontend/public/vault/dbms/",
-        'Vault':"Vault — 4 slots per domain (notes/videos/projects/assignments) at /frontend/public/vault/<slug>/ — e.g., /vault/ai/notes/ — stays local.",
+        'AI':"AI fits → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA. Vault: /public/vault/ai/",
+        'Data Science':"Data Science fits → Python → Stats → SQL → Visualization. Salary 8-18 LPA. Vault: /public/vault/data-science/",
+        'Web Development':"Web Development fits (low math, high creativity) → HTML/CSS → JS → React → Node → Deploy. Salary 5-10 LPA. Vault: /public/vault/web-development/",
+        'HCI':"HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /public/vault/hci/",
+        'Game Development':"Game Development fits (creativity) → C# → Unity → Graphics → Publish. Salary 5-11 LPA. Vault: /public/vault/game-development/",
+        'Cybersecurity':"Cybersecurity fits → Networking → Linux → Ethical Hacking → SOC. Salary 6-12 LPA. Vault: /public/vault/cybersecurity/",
+        'Quantum Computing':"Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA. Frontier. Vault: /public/vault/quantum-computing/",
+        'Cloud Computing':"Cloud fits → Linux → Cloud Fundamentals → AWS → Kubernetes. Salary 7-13 LPA. Vault: /public/vault/cloud-computing/",
+        'DBMS':"DBMS fits → SQL → Normalization → NoSQL → Distributed DB. Salary 6-11 LPA. Vault: /public/vault/dbms/",
+        'Vault':"Vault — 4 slots per domain (notes/videos/projects/assignments) at /public/vault/<slug>/ — e.g., /vault/ai/notes/ — stays local.",
         'Quiz':"Quiz: 15 Qs ×4 + marks → Top-3 via RandomForest 89% (PCA 11→10) with radar. 3 min at quiz.html.",
         'Compare':"Compare: Tick Compare on up to 3 cards → bottom bar → Compare side-by-side."
       }
       return map[best] || map['AI']
     }
     let reply
-    if(low.includes('vault')||low.includes('file')) reply="Vault — 4 slots per domain (notes/videos/projects/assignments) at /frontend/public/vault/<slug>/ — e.g., /vault/ai/notes/ — stays local."
+    if(low.includes('vault')||low.includes('file')) reply="Vault — 4 slots per domain (notes/videos/projects/assignments) at /public/vault/<slug>/ — e.g., /vault/ai/notes/ — stays local."
     else if(low.includes('compare')) reply="Compare: Tick Compare on up to 3 cards → bottom bar → Compare side-by-side. Press ⌘K."
     else reply=mlFallback(txt)
     setTimeout(()=> setMsgs(m=> [...m, {from:'bot', text:reply}]), 300)
@@ -91,8 +91,8 @@ export default function Chatbot(){
       {open && (
         <div className="fixed bottom-24 right-6 w-96 max-w-[92vw] bg-white rounded-3xl shadow-2xl border overflow-hidden z-40 flex flex-col" style={{height:480}}>
           <div className="p-4 bg-slate-900 text-white flex justify-between"><div><div className="font-bold">GuidanceAI Assistant</div><div className="text-xs opacity-70">Multilingual • Voice</div></div><button onClick={()=> setOpen(false)} className="w-8 h-8 rounded-full bg-white/15 grid place-items-center"><i className="fa-solid fa-xmark"></i></button></div>
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm">
-            {msgs.map((m,i)=> <div key={i} className={`p-3 rounded-2xl ${m.from==='user'?'bg-indigo-600 text-white ml-8':'bg-slate-100'}`}>{m.text}</div>)}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm dark:bg-slate-900">
+            {msgs.map((m,i)=> <div key={i} className={`p-3 rounded-2xl ${m.from==='user'?'bg-indigo-600 text-white ml-8':'bg-slate-100 dark:bg-slate-700 dark:text-slate-100 text-slate-800'}`}>{m.text}</div>)}
           </div>
           {/* Quick chips — Claude-like suggestions, website-connected */}
           <div className="px-3 py-2 flex flex-wrap gap-2 border-t bg-slate-50 text-xs">

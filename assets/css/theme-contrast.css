@@ -1,0 +1,182 @@
+/* GuidanceAI contrast theme — color + type-size only, no layout changes.
+   All text pairs verified >= 4.5:1 (WCAG AA). UI fills >= 3:1.
+   Light :root + dark .dark overrides. Charts read these vars via JS. */
+:root {
+  --page-bg: #F1F5F9;
+  --card-bg: #FFFFFF;
+  --card-border: #94A3B8;
+  --text: #0F172A;
+  --text-2: #334155;
+  --text-muted: #475569;
+  --nav-link: #1E293B;
+  --nav-size: 0.9375rem;
+  --muted-size: 0.8125rem;
+  --btn-bg: #4338CA;
+  --btn-text: #FFFFFF;
+  --btn-2-bg: #0F172A;
+  --btn-2-text: #FFFFFF;
+  --badge-bg: #EEF2FF;
+  --badge-text: #3730A3;
+  --progress-track: #E2E8F0;
+  --progress-fill: #4338CA;
+  --progress-fill-2: #0E7490;
+  --progress-fill-3: #047857;
+  --chart-1: #4338CA;
+  --chart-2: #0E7490;
+  --chart-3: #047857;
+  --chart-tick: #334155;
+  --chart-grid: #CBD5E1;
+  --focus-ring: #4338CA;
+}
+.dark {
+  --page-bg: #020617;
+  --card-bg: #1E293B;
+  --card-border: #64748B;
+  --text: #F8FAFC;
+  --text-2: #E2E8F0;
+  --text-muted: #CBD5E1;
+  --nav-link: #F1F5F9;
+  --btn-bg: #4F46E5;
+  --btn-text: #FFFFFF;
+  --btn-2-bg: #FFFFFF;
+  --btn-2-text: #0F172A;
+  --badge-bg: #1E1B4B;
+  --badge-text: #E0E7FF;
+  --progress-track: #334155;
+  --progress-fill: #A5B4FC;
+  --progress-fill-2: #22D3EE;
+  --progress-fill-3: #34D399;
+  --chart-1: #A5B4FC;
+  --chart-2: #22D3EE;
+  --chart-3: #34D399;
+  --chart-tick: #CBD5E1;
+  --chart-grid: #64748B;
+  --focus-ring: #A5B4FC;
+}
+
+/* Page + cards stand out from background (color/border/shadow only) */
+body {
+  background-color: var(--page-bg) !important;
+  color: var(--text) !important;
+}
+.glass {
+  background: var(--card-bg) !important;
+  border-bottom-color: var(--card-border) !important;
+}
+.bg-white { background-color: var(--card-bg) !important; }
+.dark .dark\:bg-slate-800 { background-color: var(--card-bg) !important; }
+.dark .dark\:bg-slate-900 { background-color: var(--page-bg) !important; }
+.dark .dark\:bg-slate-700 { background-color: #334155 !important; }
+.card-hover, .rounded-3xl.bg-white, div[class*="rounded-3xl"][class*="border"] {
+  background-color: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12) !important;
+}
+.dark .card-hover, .dark div[class*="rounded-3xl"][class*="border"] {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Buttons: bright + white text, AA-passing */
+.bg-indigo-600 {
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+}
+a.bg-indigo-600, button.bg-indigo-600 { font-size: 0.875rem !important; font-weight: 700 !important; }
+.bg-slate-900.text-white, a.bg-slate-900 {
+  background-color: var(--btn-2-bg) !important;
+  color: var(--btn-2-text) !important;
+}
+/* 10Cr fix: footer / bars / toast / chat header must STAY dark in both modes (else white-on-white in dark) */
+footer.bg-slate-900, footer .bg-slate-900,
+#compareBar, #toast, #chatWindow .bg-slate-900,
+#commandPalette .bg-slate-900 {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+}
+footer .text-slate-300, footer .text-slate-400, footer .text-white\/70,
+#compareBar .text-sm, #toast, #chatWindow .text-xs {
+  color: #E2E8F0 !important;
+}
+footer .text-white, #compareBar, #toast {
+  color: #FFFFFF !important;
+}
+#headerQuizBtn { font-size: 0.875rem !important; }
+
+/* Nav links: lighter + larger */
+nav[role="navigation"] a, nav div[role="navigation"] a {
+  color: var(--nav-link) !important;
+  font-size: var(--nav-size) !important;
+  font-weight: 600 !important;
+}
+
+/* Small grey text: lighter + larger (kills slate-400/500-on-light failures) */
+.text-slate-500 { color: var(--text-muted) !important; font-size: var(--muted-size) !important; }
+.text-slate-600 { color: var(--text-2) !important; }
+.text-slate-400 { color: var(--text-muted) !important; font-size: var(--muted-size) !important; }
+.text-slate-700 { color: var(--text-2) !important; }
+.text-slate-300 { color: var(--text-2) !important; }
+.dark .dark\:text-slate-400 { color: var(--text-muted) !important; font-size: var(--muted-size) !important; }
+.dark .dark\:text-slate-300 { color: var(--text-2) !important; }
+.text-white\/70, .text-white\/60, .text-white\/80 { color: #FFFFFF !important; font-weight: 500 !important; }
+.text-\[11px\], .text-\[10px\] { font-size: var(--muted-size) !important; }
+.text-xs { font-size: var(--muted-size) !important; }
+
+/* Badges / pills keep AA */
+.bg-indigo-50 { background-color: var(--badge-bg) !important; }
+.text-indigo-700 { color: var(--badge-text) !important; font-weight: 700 !important; }
+.dark .text-indigo-700 { color: #E0E7FF !important; }
+.text-emerald-700 { color: #047857 !important; font-weight: 700 !important; }
+.dark .text-emerald-700 { color: #6EE7B7 !important; }
+.bg-emerald-50 { background-color: #ECFDF5 !important; }
+.dark .bg-emerald-50 { background-color: #064E3B !important; }
+.bg-amber-50 { background-color: #FFFBEB !important; }
+.text-amber-900, .text-amber-700 { color: #78350F !important; font-weight: 600 !important; }
+.dark .text-amber-900, .dark .text-amber-700 { color: #FDE68A !important; }
+
+/* Progress bars: solid track + bright fill (3:1+ UI contrast) */
+.bg-slate-100 { background-color: var(--progress-track) !important; }
+.bg-slate-200 { background-color: var(--progress-track) !important; }
+.h-2 .bg-indigo-600, .h-full.bg-indigo-600 { background-color: var(--progress-fill) !important; }
+.h-full.bg-cyan-500 { background-color: var(--progress-fill-2) !important; }
+.h-full.bg-slate-400 { background-color: var(--progress-fill-2) !important; }
+.h-full.bg-white { background-color: var(--progress-fill) !important; }
+.bg-white\/20 { background-color: var(--progress-track) !important; opacity: 1 !important; }
+.bg-black\/10 { background-color: var(--progress-track) !important; }
+.opacity-80 { opacity: 1 !important; }
+
+/* 10Cr: JS-injected light blocks must stay visible in dark (compare/vault/chatbot/resources) */
+.dark .bg-slate-50 { background-color: #1E293B !important; color: #F8FAFC !important; border-color: #64748B !important; }
+.dark .bg-white { color: #F8FAFC !important; border-color: #64748B !important; }
+.dark .bg-red-50 { background-color: #7F1D1D !important; }
+.dark .text-red-700 { color: #FECACA !important; }
+.dark .bg-violet-50 { background-color: #4C1D95 !important; }
+.dark .text-violet-700 { color: #DDD6FE !important; }
+.bg-slate-100 { color: var(--text) !important; }
+.dark .bg-slate-100 { color: #F8FAFC !important; }
+/* Gradient result/hero cards (div or section) must keep translucent white */
+div[class*="from-indigo"] .bg-white\/20, div[class*="from-indigo"] .bg-white\/15 {
+  background-color: rgba(255,255,255,0.20) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255,255,255,0.30) !important;
+}
+div[class*="from-indigo"] .bg-white\/20 div, div[class*="from-indigo"] .bg-white {
+  color: inherit;
+}
+div[class*="from-indigo"] .bg-white.text-slate-900 { color: #0F172A !important; }
+
+/* Hero overlay legibility (gradient bg): force full-white semibold — 10Cr: hero stats must stay translucent white, never solid track */
+section#home .text-white\/90 { color: #FFFFFF !important; }
+section#home .bg-white\/15 { background-color: rgba(2, 6, 23, 0.55) !important; color: #FFFFFF !important; border-color: rgba(255,255,255,0.5) !important; }
+section#home .bg-white\/20, section.bg-gradient-to-br .bg-white\/20,
+section[class*="from-indigo"] .bg-white\/20, section[class*="from-indigo"] .bg-white\/15 {
+  background-color: rgba(255,255,255,0.20) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255,255,255,0.30) !important;
+}
+section[class*="from-indigo"] .bg-white\/20 .text-white,
+section#home .bg-white\/20 .text-white,
+section#home .bg-white\/20 div {
+  color: #FFFFFF !important;
+}
+
+:focus-visible { outline: 2px solid var(--focus-ring) !important; outline-offset: 2px !important; }

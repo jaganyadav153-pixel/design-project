@@ -71,6 +71,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR.parent / 'staticfiles'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.parent / 'uploads' / 'domains'
+VAULT_ROOT = BASE_DIR.parent / 'public' / 'vault'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS — restricted (no allow all)

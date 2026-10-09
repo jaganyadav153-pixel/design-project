@@ -224,10 +224,15 @@ def resources_view(request):
 @api_view(['GET'])
 def vault_view(request):
     slug = request.GET.get('domain','').lower().replace(' ','-')
-    # return vault manifest if exists
+    # return vault manifest if exists (authoritative public/vault, legacy fallback)
     from pathlib import Path as P
     import json
-    base = P(__file__).parent.parent.parent / "frontend" / "public" / "vault" / slug
+    root = P(__file__).parent.parent.parent
+    base = root / "public" / "vault" / slug
+    if not base.exists():
+        legacy = root / "frontend" / "public" / "vault" / slug
+        if legacy.exists():
+            base = legacy
     if base.exists():
         idx = base / "index.json"
         if idx.exists():
@@ -319,7 +324,7 @@ def _build_guidance_context(q_lower: str, history=None) -> str:
         # No specific domain → include Atlas overview
         matched = [
             "GuidanceAI covers 25 tracks: Intelligence & Data (AI, ML, Data Science, Big Data, Computer Vision, NLP), Build & Experience (Web, Mobile, SE, Game, HCI), Core Systems (Cybersecurity, Cloud, CN, DBMS, OS, CA, DevOps, Distributed), Frontier (IoT, Blockchain, Robotics, AR/VR, Embedded, Quantum).",
-            "Each domain has: 36-week roadmap, 5 pillars, interview kit (10 prev Qs + 5 coding), govt exams, salary bands (AmbitionBox 2024-25), top companies, researcher track, vault at /frontend/public/vault/<slug>/ (notes/videos/projects/assignments).",
+            "Each domain has: 36-week roadmap, 5 pillars, interview kit (10 prev Qs + 5 coding), govt exams, salary bands (AmbitionBox 2024-25), top companies, researcher track, vault at /public/vault/<slug>/ (notes/videos/projects/assignments).",
             "Quiz: 15 Qs ×4 + marks (math/prog/phy/eng) → RandomForest 89% (PCA 11→10) Top-3 with radar & what-if simulator. Resources: NPTEL/Coursera/YouTube bookmarkable."
         ]
     # Enrich vault queries with live file listing (connected to website data)
@@ -334,18 +339,21 @@ def _build_guidance_context(q_lower: str, history=None) -> str:
         if detected:
             try:
                 from pathlib import Path as _P
-                vault_base = _P(__file__).parent.parent.parent / "frontend" / "public" / "vault" / detected
+                _root = _P(__file__).parent.parent.parent
+                vault_base = _root / "public" / "vault" / detected
+                if not vault_base.exists():
+                    vault_base = _root / "frontend" / "public" / "vault" / detected
                 if vault_base.exists():
                     files = []
                     for f in vault_base.rglob("*"):
                         if f.is_file() and f.name not in ['.gitkeep','README.md','index.json']:
                             files.append(f"{f.parent.name}/{f.name}")
                     if files:
-                        matched.append(f"Vault {detected} live files: " + ", ".join(files[:6]) + " (frontend/public/vault/{}/)".format(detected))
+                        matched.append(f"Vault {detected} live files: " + ", ".join(files[:6]) + " (public/vault/{}/)".format(detected))
                     else:
-                        matched.append(f"Vault {detected} is ready but empty — 4 slots (notes/videos/projects/assignments) at frontend/public/vault/{detected}/ — add your PDFs. Backend mirror uploads/domains/{detected}/")
+                        matched.append(f"Vault {detected} is ready but empty — 4 slots (notes/videos/projects/assignments) at public/vault/{detected}/ — add your PDFs. Backend mirror uploads/domains/{detected}/")
                     # Also include vault tip
-                    matched.append(f"How to add: drop files into frontend/public/vault/{detected}/<slot>/ or use UI + Add Files. See docs/VAULT_MAP.md")
+                    matched.append(f"How to add: drop files into public/vault/{detected}/<slot>/ or use UI + Add Files. See docs/VAULT_MAP.md")
             except:
                 pass
     # Limit to 4 blurbs to keep tokens <1500 (but allow vault extra)
@@ -356,7 +364,7 @@ def _ml_fallback_answer(q_lower: str, lang: str = "en") -> str:
     """ML fallback when Claude key missing — TF-IDF similarity over 25 domains, solves any website query."""
     # Exact shortcut for single-domain queries like "what is ai?"
     if re.search(r'\bai\b', q_lower) and not any(x in q_lower for x in ['robotics','blockchain','quantum','cloud','cyber','security','game','hci','web','mobile','data science','big data','vision','nlp']):
-        return "AI fits you → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA, Very High demand. Vault: /frontend/public/vault/ai/. NPTEL Intro to AI 8 weeks."
+        return "AI fits you → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA, Very High demand. Vault: /public/vault/ai/. NPTEL Intro to AI 8 weeks."
     try:
         from sklearn.feature_extraction.text import TfidfVectorizer
         from sklearn.metrics.pairwise import cosine_similarity
@@ -399,11 +407,11 @@ def _ml_fallback_answer(q_lower: str, lang: str = "en") -> str:
                 if k not in ['__VAULT__','__QUIZ__','__COMPARE__']:
                     # Return immediately for exact match
                     domain_map_early = {
-                        'AI': "AI fits you → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA, Very High demand. Vault: /frontend/public/vault/ai/. NPTEL Intro to AI 8 weeks.",
-                        'HCI': "HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /frontend/public/vault/hci/ — perfect for design lovers.",
-                        'Data Science': "Data Science fits → Python → Stats → SQL → Visualization. Salary 8-18 LPA. Vault: /frontend/public/vault/data-science/",
-                        'Blockchain': "Blockchain fits → Crypto → Solidity → DApps → Web3. Salary 7-14 LPA. Vault: /frontend/public/vault/blockchain/",
-                        'Quantum Computing': "Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA (highest). Frontier. Vault: /frontend/public/vault/quantum-computing/",
+                        'AI': "AI fits you → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA, Very High demand. Vault: /public/vault/ai/. NPTEL Intro to AI 8 weeks.",
+                        'HCI': "HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /public/vault/hci/ — perfect for design lovers.",
+                        'Data Science': "Data Science fits → Python → Stats → SQL → Visualization. Salary 8-18 LPA. Vault: /public/vault/data-science/",
+                        'Blockchain': "Blockchain fits → Crypto → Solidity → DApps → Web3. Salary 7-14 LPA. Vault: /public/vault/blockchain/",
+                        'Quantum Computing': "Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA (highest). Frontier. Vault: /public/vault/quantum-computing/",
                     }
                     if k in domain_map_early:
                         return domain_map_early[k]
@@ -425,38 +433,38 @@ def _ml_fallback_answer(q_lower: str, lang: str = "en") -> str:
         if best_score < 0.08:
             return "I can help with any of the 25 tracks (Atlas). Try: 'Which domain for low math but high creativity?' → I suggest HCI/Game/Web, or 'Roadmap for DBMS?' or 'Vault for AI?' — tell me your interest, marks, or skills and I'll map to Top-3."
         if best_key == "__VAULT__":
-            return "Vault — Your Files: 4 slots per domain (notes/videos/projects/assignments) at /frontend/public/vault/<slug>/ — e.g., /vault/ai/notes/. Add PDFs/PPTs/videos per track; stays local. See docs/VAULT_MAP.md."
+            return "Vault — Your Files: 4 slots per domain (notes/videos/projects/assignments) at /public/vault/<slug>/ — e.g., /vault/ai/notes/. Add PDFs/PPTs/videos per track; stays local. See docs/VAULT_MAP.md."
         if best_key == "__QUIZ__":
             return "Quiz: 15 Qs ×4 + marks (math/prog/phy/eng) → Top-3 across 25 tracks via RandomForest 89% (PCA 11→10) with radar & vault suggestion. 3 minutes at quiz.html."
         if best_key == "__COMPARE__":
             return "Compare: Tick Compare on up to 3 cards → bottom bar → Compare button shows side-by-side salary/skills/roadmap. Also press ⌘K to search."
         # For domain match, build concise website-grounded answer
         domain_map = {
-            'AI': "AI fits you → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA, Very High demand. Vault: /frontend/public/vault/ai/. NPTEL Intro to AI 8 weeks.",
-            'ML': "ML fits → Stats → Python → Supervised/Unsupervised → MLOps. Salary 7-14 LPA. Vault: /frontend/public/vault/ml/. Start NPTEL ML 12 weeks.",
-            'Data Science': "Data Science fits → Python → Stats → SQL → Visualization → Projects. Salary 8-18 LPA. Vault: /frontend/public/vault/data-science/",
-            'Big Data': "Big Data fits → Hadoop → Spark → NoSQL → Cloud Scale. Salary 8-16 LPA. Vault: /frontend/public/vault/big-data/",
-            'Computer Vision': "Computer Vision fits → Python → Image Proc → CNN → Projects. Salary 8-15 LPA. Vault: /frontend/public/vault/computer-vision/",
-            'NLP': "NLP fits → Python → NLP Basics → Transformers → LLM Projects. Salary 8-14 LPA. Vault: /frontend/public/vault/nlp/",
-            'Web Development': "Web Development fits (low math, high creativity) → HTML/CSS → JS → React → Node → Deploy. Salary 5-10 LPA. Vault: /frontend/public/vault/web-development/. Good if you like UI/UX.",
-            'Mobile App Development': "Mobile fits → Java/Kotlin → Flutter → API → Publish. Salary 6-12 LPA. Vault: /frontend/public/vault/mobile-app-development/",
-            'Software Engineering': "Software Engineering fits → DSA → System Design → Testing → Projects. Salary 7-13 LPA. Vault: /frontend/public/vault/software-engineering/",
-            'Game Development': "Game Development fits (creativity) → C# → Unity → Graphics → Publish. Salary 5-11 LPA. Vault: /frontend/public/vault/game-development/",
-            'HCI': "HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /frontend/public/vault/hci/ — perfect for design lovers.",
-            'Cybersecurity': "Cybersecurity fits → Networking → Linux → Ethical Hacking → SOC. Salary 6-12 LPA. Vault: /frontend/public/vault/cybersecurity/",
-            'Cloud Computing': "Cloud fits → Linux → Cloud Fundamentals → AWS → Kubernetes. Salary 7-13 LPA. Vault: /frontend/public/vault/cloud-computing/",
-            'Computer Networks': "Computer Networks fits → OSI → TCP/IP → Routing → Security. Salary 6-11 LPA. Vault: /frontend/public/vault/computer-networks/",
-            'DBMS': "DBMS fits → SQL → Normalization → NoSQL → Distributed DB. Salary 6-11 LPA. Vault: /frontend/public/vault/dbms/",
-            'Operating Systems': "Operating Systems fits → C → Processes → Memory → Kernel. Salary 6-10 LPA. Vault: /frontend/public/vault/operating-systems/",
-            'Computer Architecture': "Computer Architecture fits → Digital Logic → COA → Pipelining → Verilog. Salary 7-12 LPA. Vault: /frontend/public/vault/computer-architecture/",
-            'DevOps': "DevOps fits → Linux → Docker → K8s → CI/CD → SRE. Salary 7-14 LPA. Vault: /frontend/public/vault/devops/",
-            'Distributed Systems': "Distributed Systems fits → OS → Networks → Consensus → Kafka → Scale. Salary 8-15 LPA. Vault: /frontend/public/vault/distributed-systems/",
-            'IoT': "IoT fits → Embedded C → Sensors → MQTT → Cloud. Salary 6-12 LPA. Vault: /frontend/public/vault/iot/",
-            'Blockchain': "Blockchain fits → Crypto → Solidity → DApps → Web3. Salary 7-14 LPA. Vault: /frontend/public/vault/blockchain/",
-            'Robotics': "Robotics fits → Mechanics → ROS → AI → Control. Salary 7-12 LPA. Vault: /frontend/public/vault/robotics/",
-            'AR/VR': "AR/VR fits → Unity → 3D → ARCore → XR Projects. Salary 7-13 LPA. Vault: /frontend/public/vault/ar-vr/",
-            'Embedded Systems': "Embedded Systems fits → C → ARM → RTOS → Projects. Salary 6-11 LPA. Vault: /frontend/public/vault/embedded-systems/",
-            'Quantum Computing': "Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA (highest). Frontier. Vault: /frontend/public/vault/quantum-computing/",
+            'AI': "AI fits you → Python → Math → ML → Deep Learning → Projects (36 weeks). Salary 8-15 LPA, Very High demand. Vault: /public/vault/ai/. NPTEL Intro to AI 8 weeks.",
+            'ML': "ML fits → Stats → Python → Supervised/Unsupervised → MLOps. Salary 7-14 LPA. Vault: /public/vault/ml/. Start NPTEL ML 12 weeks.",
+            'Data Science': "Data Science fits → Python → Stats → SQL → Visualization → Projects. Salary 8-18 LPA. Vault: /public/vault/data-science/",
+            'Big Data': "Big Data fits → Hadoop → Spark → NoSQL → Cloud Scale. Salary 8-16 LPA. Vault: /public/vault/big-data/",
+            'Computer Vision': "Computer Vision fits → Python → Image Proc → CNN → Projects. Salary 8-15 LPA. Vault: /public/vault/computer-vision/",
+            'NLP': "NLP fits → Python → NLP Basics → Transformers → LLM Projects. Salary 8-14 LPA. Vault: /public/vault/nlp/",
+            'Web Development': "Web Development fits (low math, high creativity) → HTML/CSS → JS → React → Node → Deploy. Salary 5-10 LPA. Vault: /public/vault/web-development/. Good if you like UI/UX.",
+            'Mobile App Development': "Mobile fits → Java/Kotlin → Flutter → API → Publish. Salary 6-12 LPA. Vault: /public/vault/mobile-app-development/",
+            'Software Engineering': "Software Engineering fits → DSA → System Design → Testing → Projects. Salary 7-13 LPA. Vault: /public/vault/software-engineering/",
+            'Game Development': "Game Development fits (creativity) → C# → Unity → Graphics → Publish. Salary 5-11 LPA. Vault: /public/vault/game-development/",
+            'HCI': "HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /public/vault/hci/ — perfect for design lovers.",
+            'Cybersecurity': "Cybersecurity fits → Networking → Linux → Ethical Hacking → SOC. Salary 6-12 LPA. Vault: /public/vault/cybersecurity/",
+            'Cloud Computing': "Cloud fits → Linux → Cloud Fundamentals → AWS → Kubernetes. Salary 7-13 LPA. Vault: /public/vault/cloud-computing/",
+            'Computer Networks': "Computer Networks fits → OSI → TCP/IP → Routing → Security. Salary 6-11 LPA. Vault: /public/vault/computer-networks/",
+            'DBMS': "DBMS fits → SQL → Normalization → NoSQL → Distributed DB. Salary 6-11 LPA. Vault: /public/vault/dbms/",
+            'Operating Systems': "Operating Systems fits → C → Processes → Memory → Kernel. Salary 6-10 LPA. Vault: /public/vault/operating-systems/",
+            'Computer Architecture': "Computer Architecture fits → Digital Logic → COA → Pipelining → Verilog. Salary 7-12 LPA. Vault: /public/vault/computer-architecture/",
+            'DevOps': "DevOps fits → Linux → Docker → K8s → CI/CD → SRE. Salary 7-14 LPA. Vault: /public/vault/devops/",
+            'Distributed Systems': "Distributed Systems fits → OS → Networks → Consensus → Kafka → Scale. Salary 8-15 LPA. Vault: /public/vault/distributed-systems/",
+            'IoT': "IoT fits → Embedded C → Sensors → MQTT → Cloud. Salary 6-12 LPA. Vault: /public/vault/iot/",
+            'Blockchain': "Blockchain fits → Crypto → Solidity → DApps → Web3. Salary 7-14 LPA. Vault: /public/vault/blockchain/",
+            'Robotics': "Robotics fits → Mechanics → ROS → AI → Control. Salary 7-12 LPA. Vault: /public/vault/robotics/",
+            'AR/VR': "AR/VR fits → Unity → 3D → ARCore → XR Projects. Salary 7-13 LPA. Vault: /public/vault/ar-vr/",
+            'Embedded Systems': "Embedded Systems fits → C → ARM → RTOS → Projects. Salary 6-11 LPA. Vault: /public/vault/embedded-systems/",
+            'Quantum Computing': "Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA (highest). Frontier. Vault: /public/vault/quantum-computing/",
         }
         return domain_map.get(best_key, domain_map['AI'])
     except Exception:
@@ -514,7 +522,7 @@ def chat(request):
             context = _build_guidance_context(q, clean_history)
             system_prompt = (
                 f"You are GuidanceAI — a warm, friendly assistant for daily conversation AND an expert CSE domain counsellor for 1st-year students in India (JNTU-style, 750-record benchmark, RandomForest 89%, PCA 11→10). "
-                f"Handle BOTH: 1) Daily chat (greetings, how are you, jokes, general knowledge, small talk) — respond naturally, helpfully, warmly in user's language='{lang}'. 2) Website expertise — when user asks about 25 tracks, roadmap, vault, quiz, resources, use grounded context below; cite handbook section like #pillars or #roadmap if relevant and include vault tip (/frontend/public/vault/<slug>/) when suggesting files. "
+                f"Handle BOTH: 1) Daily chat (greetings, how are you, jokes, general knowledge, small talk) — respond naturally, helpfully, warmly in user's language='{lang}'. 2) Website expertise — when user asks about 25 tracks, roadmap, vault, quiz, resources, use grounded context below; cite handbook section like #pillars or #roadmap if relevant and include vault tip (/public/vault/<slug>/) when suggesting files. "
                 f"Do NOT force website redirect for daily conversation; be conversational. For daily chat, be brief and friendly (1-3 sentences unless user wants more). For website queries, be detailed (2-4 paragraphs, bullet helpful). "
                 f"Context (site knowledge):\n{context}"
             )
@@ -614,27 +622,27 @@ def chat(request):
         for _dk, _blurb in [('blockchain','blockchain'),('quantum','quantum'),('cybersecurity','cybersecurity'),('cloud','cloud'),('dbms','dbms'),('data science','data science'),('computer vision','computer vision'),('nlp','nlp'),('web','web development'),('mobile','mobile'),('hci','hci'),('game','game'),('iot','iot'),('robotics','robotics'),('devops','devops')]:
             if _dk in q:
                 # Map short to proper
-                _map = {'blockchain':"Blockchain fits → Crypto → Solidity → DApps → Web3. Salary 7-14 LPA. Vault: /frontend/public/vault/blockchain/. Roadmap: Crypto → Solidity → DApps → Web3 (36 weeks).",'quantum':"Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA. Frontier. Vault: /frontend/public/vault/quantum-computing/",'cybersecurity':"Cybersecurity fits → Networking → Linux → Ethical Hacking → SOC. Salary 6-12 LPA. Vault: /frontend/public/vault/cybersecurity/",'cloud':"Cloud fits → Linux → Cloud Fundamentals → AWS → Kubernetes. Salary 7-13 LPA. Vault: /frontend/public/vault/cloud-computing/",'dbms':"DBMS fits → SQL → Normalization → NoSQL → Distributed DB. Salary 6-11 LPA. Vault: /frontend/public/vault/dbms/",'data science':"Data Science fits → Python → Stats → SQL → Visualization. Salary 8-18 LPA. Vault: /frontend/public/vault/data-science/",'computer vision':"Computer Vision fits → Python → Image Proc → CNN → Projects. Salary 8-15 LPA. Vault: /frontend/public/vault/computer-vision/",'nlp':"NLP fits → Python → NLP Basics → Transformers → LLM. Salary 8-14 LPA. Vault: /frontend/public/vault/nlp/",'web':"Web Development fits (low math, high creativity) → HTML/CSS → JS → React → Node → Deploy. Salary 5-10 LPA. Vault: /frontend/public/vault/web-development/",'mobile':"Mobile fits → Java/Kotlin → Flutter → API → Publish. Salary 6-12 LPA. Vault: /frontend/public/vault/mobile-app-development/",'hci':"HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /frontend/public/vault/hci/",'game':"Game Development fits (creativity) → C# → Unity → Graphics → Publish. Salary 5-11 LPA. Vault: /frontend/public/vault/game-development/",'iot':"IoT fits → Embedded C → Sensors → MQTT → Cloud. Salary 6-12 LPA. Vault: /frontend/public/vault/iot/",'robotics':"Robotics fits → Mechanics → ROS → AI → Control. Salary 7-12 LPA. Vault: /frontend/public/vault/robotics/",'devops':"DevOps fits → Linux → Docker → K8s → CI/CD → SRE. Salary 7-14 LPA. Vault: /frontend/public/vault/devops/"}
+                _map = {'blockchain':"Blockchain fits → Crypto → Solidity → DApps → Web3. Salary 7-14 LPA. Vault: /public/vault/blockchain/. Roadmap: Crypto → Solidity → DApps → Web3 (36 weeks).",'quantum':"Quantum Computing fits (high math/logic) → Math → QM → Qiskit → Algorithms. Salary 10-20 LPA. Frontier. Vault: /public/vault/quantum-computing/",'cybersecurity':"Cybersecurity fits → Networking → Linux → Ethical Hacking → SOC. Salary 6-12 LPA. Vault: /public/vault/cybersecurity/",'cloud':"Cloud fits → Linux → Cloud Fundamentals → AWS → Kubernetes. Salary 7-13 LPA. Vault: /public/vault/cloud-computing/",'dbms':"DBMS fits → SQL → Normalization → NoSQL → Distributed DB. Salary 6-11 LPA. Vault: /public/vault/dbms/",'data science':"Data Science fits → Python → Stats → SQL → Visualization. Salary 8-18 LPA. Vault: /public/vault/data-science/",'computer vision':"Computer Vision fits → Python → Image Proc → CNN → Projects. Salary 8-15 LPA. Vault: /public/vault/computer-vision/",'nlp':"NLP fits → Python → NLP Basics → Transformers → LLM. Salary 8-14 LPA. Vault: /public/vault/nlp/",'web':"Web Development fits (low math, high creativity) → HTML/CSS → JS → React → Node → Deploy. Salary 5-10 LPA. Vault: /public/vault/web-development/",'mobile':"Mobile fits → Java/Kotlin → Flutter → API → Publish. Salary 6-12 LPA. Vault: /public/vault/mobile-app-development/",'hci':"HCI fits (high creativity, low math) → UX Basics → Figma → User Research → Prototype. Salary 6-12 LPA. Vault: /public/vault/hci/",'game':"Game Development fits (creativity) → C# → Unity → Graphics → Publish. Salary 5-11 LPA. Vault: /public/vault/game-development/",'iot':"IoT fits → Embedded C → Sensors → MQTT → Cloud. Salary 6-12 LPA. Vault: /public/vault/iot/",'robotics':"Robotics fits → Mechanics → ROS → AI → Control. Salary 7-12 LPA. Vault: /public/vault/robotics/",'devops':"DevOps fits → Linux → Docker → K8s → CI/CD → SRE. Salary 7-14 LPA. Vault: /public/vault/devops/"}
                 if _dk in _map:
                     return Response({"answer": _map[_dk], "lang": lang, "source": "fallback"})
     if 'compare' in q:
         a = "Compare: Tick Compare on cards → bottom bar (Compare 0/3) → Compare button shows side-by-side salary/skills/roadmap for up to 3 tracks. Also try ⌘K palette."
     elif 'vault' in q or 'file' in q:
-        a = "Vault — Your Files: 4 slots per domain (notes/videos/projects/assignments) at /frontend/public/vault/<slug>/ — e.g., /vault/ai/notes/. Frontend vault is at frontend/public/vault/ , backend mirrors uploads/domains/<slug>/."
+        a = "Vault — Your Files: 4 slots per domain (notes/videos/projects/assignments) at /public/vault/<slug>/ — e.g., /vault/ai/notes/. Frontend vault is at frontend/public/vault/ , backend mirrors uploads/domains/<slug>/."
     elif (re.search(r'\bai\b', q) or 'artificial intelligence' in q) and 'roadmap' in q:
-        a = "AI Roadmap: Python → Math → ML → Deep Learning → Projects (see Roadmap section or /api/domains/AI). Vault: /frontend/public/vault/ai/ — add your PDFs. Start NPTEL Intro to AI (8 weeks)."
+        a = "AI Roadmap: Python → Math → ML → Deep Learning → Projects (see Roadmap section or /api/domains/AI). Vault: /public/vault/ai/ — add your PDFs. Start NPTEL Intro to AI (8 weeks)."
     elif 'cyber' in q or 'security' in q:
-        a = "Cybersecurity fits if security_interest ≥4, OS ≥4. Roadmap: Networking → Linux → Ethical Hacking → SOC. Vault: /frontend/public/vault/cybersecurity/ — add CTF notes. Try NPTEL Cyber 12 weeks."
+        a = "Cybersecurity fits if security_interest ≥4, OS ≥4. Roadmap: Networking → Linux → Ethical Hacking → SOC. Vault: /public/vault/cybersecurity/ — add CTF notes. Try NPTEL Cyber 12 weeks."
     elif 'quantum' in q:
-        a = "Quantum Computing: High math + logic → Avg 10-20 LPA. Roadmap: Math → QM → Qiskit → Algorithms. Frontier track, verify demand. Vault: /frontend/public/vault/quantum-computing/"
+        a = "Quantum Computing: High math + logic → Avg 10-20 LPA. Roadmap: Math → QM → Qiskit → Algorithms. Frontier track, verify demand. Vault: /public/vault/quantum-computing/"
     elif 'cloud' in q:
-        a = "Cloud if you like servers & scale. Learn Linux → AWS → Docker → K8s. Avg 7-13 LPA. Vault: /frontend/public/vault/cloud-computing/"
+        a = "Cloud if you like servers & scale. Learn Linux → AWS → Docker → K8s. Avg 7-13 LPA. Vault: /public/vault/cloud-computing/"
     elif 'dbms' in q or 'database' in q:
-        a = "DBMS for data lovers: SQL → Normalization → NoSQL → Distributed DB. Avg 6-11 LPA. Vault: /frontend/public/vault/dbms/"
+        a = "DBMS for data lovers: SQL → Normalization → NoSQL → Distributed DB. Avg 6-11 LPA. Vault: /public/vault/dbms/"
     elif 'os' in q or 'operating' in q:
-        a = "OS is core: C → Processes → Memory → Kernel. Ideal for systems engineers. Avg 6-10 LPA. Vault: /frontend/public/vault/operating-systems/"
+        a = "OS is core: C → Processes → Memory → Kernel. Ideal for systems engineers. Avg 6-10 LPA. Vault: /public/vault/operating-systems/"
     elif 'ml' in q:
-        a = "ML Roadmap: Stats → Python → Supervised/Unsupervised → MLOps. Avg 7-14 LPA. Vault: /frontend/public/vault/ml/"
+        a = "ML Roadmap: Stats → Python → Supervised/Unsupervised → MLOps. Avg 7-14 LPA. Vault: /public/vault/ml/"
     elif 'roadmap' in q:
         a = "36-week Roadmap per domain: phases 1-6 Math/Python, 7-14 ML, 15-20 Deep Learning, 21-26 GenAI, 27-30 MLOps, 31-36 Projects. See domain.html?Id=...#roadmap or roadmap.html — vault link inside."
     elif 'mark' in q or 'score' in q:
