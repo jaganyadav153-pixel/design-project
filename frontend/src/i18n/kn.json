@@ -1,4 +1,4 @@
-{
+﻿{
  "nav_home": "ಮುಖಪುಟ",
  "nav_explorer": "ಅಟ್ಲಾಸ್",
  "nav_quiz": "ರಸಪ್ರಶ್ನೆ",
@@ -100,7 +100,7 @@
  "compare_feat_careers": "Careers",
  "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
  "quiz_title": "ನಿಮ್ಮ ಪರಿಪೂರ್ಣ ಡೊಮೇನ್ ಹುಡುಕಿ",
- "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+ "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
  "quiz_step_marks": "Step 1 of {total} • Marks",
  "quiz_step_q": "Step {n} of {total} • Q{q}",
  "quiz_marks_title": "First, your academic marks (0-100)",
@@ -114,7 +114,7 @@
  "quiz_get_rec": "Get Recommendation →",
  "quiz_predicting": "Predicting…",
  "quiz_fix_marks": "Please fix marks (0-100)",
- "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+ "quiz_local": "Your data stays on this device - private by design",
  "results_why_prefix": "Why",
  "results_runner": "Runner-up",
  "results_best_fit": "Best fit • Start roadmap + vault",

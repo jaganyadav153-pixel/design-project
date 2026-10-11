@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.glass{ backdrop-filter:blur(12px); background:rgba(255,255,255,0.8) }
-.dark .glass{ background:rgba(15,23,42,0.7) }
-.card-hover{ transition:all .3s }
-.card-hover:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -15px rgba(79,70,229,.25) }
+.glass{ backdrop-filter:blur(16px) saturate(1.2); background:rgba(255,255,255,0.75); box-shadow:0 4px 20px rgba(2,6,23,.06); border-bottom:1px solid rgba(230,232,240,.9) }
+.dark .glass{ background:rgba(17,28,51,0.8) }
+.card-hover{ transition:transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s, border-color .35s }
+.card-hover:hover{ transform:translateY(-6px); box-shadow:0 24px 48px -16px rgba(79,70,229,.28); border-color:#C7D2FE }
 ::-webkit-scrollbar{ width:8px; height:8px }
 ::-webkit-scrollbar-thumb{ background:#CBD5E1; border-radius:99px }
 :focus-visible{ outline:2px solid #4F46E5; outline-offset:2px }
@@ -19,6 +19,14 @@
 :lang(ur){font-family:'Noto Nastaliq Urdu','Noto Sans Arabic',serif; direction:rtl; line-height:2.2; font-size:110%; letter-spacing:0}
 html[dir="rtl"] body{ direction:rtl }
 html:lang(te) .line-clamp-2, html:lang(ta) .line-clamp-2, html:lang(kn) .line-clamp-2, html:lang(ml) .line-clamp-2, html:lang(hi) .line-clamp-2, html:lang(mr) .line-clamp-2, html:lang(bn) .line-clamp-2, html:lang(gu) .line-clamp-2, html:lang(ur) .line-clamp-2{ -webkit-line-clamp:3; line-clamp:3; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden }
-.card-hover{ min-height:340px }
-@media (max-width:640px){ .card-hover{ min-height:320px } }
+.card-hover{ min-height:auto }
+@media (max-width:640px){ .card-hover{ min-height:auto } }
 #domainGrid{ min-height:400px }
+/* === MOBILE-COMPACT (mirrors root theme) === */
+@media (max-width:768px){
+ section{ padding-top:2.5rem !important; padding-bottom:2.5rem !important; }
+ h1{ font-size:1.9rem !important; line-height:1.12 !important; }
+ h2{ font-size:1.45rem !important; }
+ #domainGrid{ gap:1rem !important; }
+ .cat-pill{ min-height:40px !important; font-size:.8rem !important; }
+}

@@ -2,9 +2,14 @@
    All text pairs verified >= 4.5:1 (WCAG AA). UI fills >= 3:1.
    Light :root + dark .dark overrides. Charts read these vars via JS. */
 :root {
-  --page-bg: #F1F5F9;
+  --page-bg: #F6F7FB;
+  --page-mesh-1: #EEF2FF;
+  --page-mesh-2: #ECFEFF;
+  --page-mesh-3: #FFF7ED;
   --card-bg: #FFFFFF;
-  --card-border: #94A3B8;
+  --card-border: #E6E8F0;
+  --midnight: #0B0F2E;
+  --midnight-2: #1E1B4B;
   --text: #0F172A;
   --text-2: #334155;
   --text-muted: #475569;
@@ -57,11 +62,28 @@
 /* Page + cards stand out from background (color/border/shadow only) */
 body {
   background-color: var(--page-bg) !important;
+  background-image:
+    radial-gradient(800px 400px at 10% -5%, var(--page-mesh-1) 0%, transparent 60%),
+    radial-gradient(700px 380px at 90% 10%, var(--page-mesh-2) 0%, transparent 60%),
+    radial-gradient(600px 400px at 50% 100%, var(--page-mesh-3) 0%, transparent 60%) !important;
+  background-attachment: fixed;
   color: var(--text) !important;
 }
+.dark body, .dark {
+  background-image:
+    radial-gradient(700px 350px at 15% 0%, rgba(99,102,241,.18), transparent 60%),
+    radial-gradient(600px 320px at 85% 5%, rgba(6,182,212,.12), transparent 60%) !important;
+}
 .glass {
-  background: var(--card-bg) !important;
-  border-bottom-color: var(--card-border) !important;
+  background: rgba(255,255,255,.75) !important;
+  backdrop-filter: blur(16px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+  border-bottom: 1px solid rgba(230,232,240,.9) !important;
+  box-shadow: 0 4px 20px rgba(2,6,23,.06) !important;
+}
+.dark .glass {
+  background: rgba(17,28,51,.8) !important;
+  border-bottom-color: rgba(255,255,255,.08) !important;
 }
 .bg-white { background-color: var(--card-bg) !important; }
 .dark .dark\:bg-slate-800 { background-color: var(--card-bg) !important; }
@@ -70,7 +92,13 @@ body {
 .card-hover, .rounded-3xl.bg-white, div[class*="rounded-3xl"][class*="border"] {
   background-color: var(--card-bg) !important;
   border-color: var(--card-border) !important;
-  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12) !important;
+  box-shadow: 0 1px 2px rgba(2,6,23,.05), 0 8px 24px rgba(2, 6, 23, 0.08) !important;
+  transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s, border-color .35s !important;
+}
+.card-hover:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 24px 48px -16px rgba(79,70,229,.28) !important;
+  border-color: #C7D2FE !important;
 }
 .dark .card-hover, .dark div[class*="rounded-3xl"][class*="border"] {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45) !important;
@@ -81,7 +109,7 @@ body {
   background-color: var(--btn-bg) !important;
   color: var(--btn-text) !important;
 }
-a.bg-indigo-600, button.bg-indigo-600 { font-size: 0.875rem !important; font-weight: 700 !important; }
+a.bg-indigo-600, button.bg-indigo-600 { font-weight: 700 !important; }
 .bg-slate-900.text-white, a.bg-slate-900 {
   background-color: var(--btn-2-bg) !important;
   color: var(--btn-2-text) !important;
@@ -100,26 +128,23 @@ footer .text-slate-300, footer .text-slate-400, footer .text-white\/70,
 footer .text-white, #compareBar, #toast {
   color: #FFFFFF !important;
 }
-#headerQuizBtn { font-size: 0.875rem !important; }
+#headerQuizBtn { font-weight: 800 !important; }
 
 /* Nav links: lighter + larger */
 nav[role="navigation"] a, nav div[role="navigation"] a {
   color: var(--nav-link) !important;
-  font-size: var(--nav-size) !important;
   font-weight: 600 !important;
 }
 
-/* Small grey text: lighter + larger (kills slate-400/500-on-light failures) */
-.text-slate-500 { color: var(--text-muted) !important; font-size: var(--muted-size) !important; }
+/* Small grey text: AA colors, Tailwind controls size (pro rhythm) */
+.text-slate-500 { color: var(--text-muted) !important; }
 .text-slate-600 { color: var(--text-2) !important; }
-.text-slate-400 { color: var(--text-muted) !important; font-size: var(--muted-size) !important; }
+.text-slate-400 { color: var(--text-muted) !important; }
 .text-slate-700 { color: var(--text-2) !important; }
 .text-slate-300 { color: var(--text-2) !important; }
-.dark .dark\:text-slate-400 { color: var(--text-muted) !important; font-size: var(--muted-size) !important; }
+.dark .dark\:text-slate-400 { color: var(--text-muted) !important; }
 .dark .dark\:text-slate-300 { color: var(--text-2) !important; }
 .text-white\/70, .text-white\/60, .text-white\/80 { color: #FFFFFF !important; font-weight: 500 !important; }
-.text-\[11px\], .text-\[10px\] { font-size: var(--muted-size) !important; }
-.text-xs { font-size: var(--muted-size) !important; }
 
 /* Badges / pills keep AA */
 .bg-indigo-50 { background-color: var(--badge-bg) !important; }
@@ -177,6 +202,66 @@ section[class*="from-indigo"] .bg-white\/20 .text-white,
 section#home .bg-white\/20 .text-white,
 section#home .bg-white\/20 div {
   color: #FFFFFF !important;
+}
+
+/* === PRO UI SYSTEM — 10Cr overhaul: midnight aurora hero, section rhythm, pro cards === */
+section#home {
+  background:
+    radial-gradient(600px 300px at 15% 20%, rgba(99,102,241,.45), transparent 60%),
+    radial-gradient(500px 300px at 85% 20%, rgba(6,182,212,.35), transparent 60%),
+    radial-gradient(700px 400px at 50% 100%, rgba(245,158,11,.16), transparent 60%),
+    linear-gradient(135deg, #0B0F2E 0%, #1E1B4B 38%, #312E81 68%, #0E7490 100%) !important;
+}
+section#home::before {
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.35) 1px, transparent 0);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+}
+#explorer, #features { scroll-margin-top: 96px; }
+#features { background: transparent !important; }
+#explorer .cat-pill { min-height: 44px; }
+#domainGrid { gap: 1.5rem !important; }
+#compareBar { background-color: #0B0F2E !important; border: 1px solid rgba(255,255,255,.12) !important; box-shadow: 0 24px 48px -12px rgba(2,6,23,.5) !important; bottom: 1.5rem !important; }
+#toast { bottom: 5.25rem !important; }
+#chatWindow { border: 1px solid var(--card-border) !important; box-shadow: 0 24px 48px -12px rgba(2,6,23,.35) !important; }
+footer.bg-slate-900 { background-color: #080C1F !important; border-top: 1px solid rgba(255,255,255,.08) !important; }
+footer.bg-slate-900 a { min-height: 28px; display: inline-flex; align-items: center; }
+
+/* === MOBILE-COMPACT SYSTEM — 10Cr: desktop rhythm collapses cleanly on phones === */
+@media (max-width: 768px){
+  /* sections: kill desktop air, keep rhythm */
+  main>section{ padding-top:2.5rem !important; padding-bottom:2.5rem !important; }
+  section#home{ padding-top:2rem !important; padding-bottom:2rem !important; }
+  section#home>div[class*="max-w-7xl"]{ min-height:auto !important; gap:2rem !important; }
+  /* type scale down */
+  section#home h1{ font-size:1.9rem !important; line-height:1.12 !important; }
+  main section h2{ font-size:1.45rem !important; line-height:1.2 !important; }
+  /* hero card stacks: bars full-width, radar below */
+  #heroPreviewCard{ padding:1.25rem !important; }
+  #heroTop3{ grid-template-columns:1fr !important; gap:1rem !important; }
+  /* cards + grids tighten */
+  #domainGrid{ gap:1rem !important; margin-top:1rem !important; }
+  #features div.grid, #domainGrid{ row-gap:1rem !important; }
+  .p-8.rounded-3xl{ padding:1.25rem !important; }
+  /* pills + controls: smaller, still 40px touch */
+  #explorer .cat-pill, .cat-pill{ min-height:40px !important; padding:.55rem .9rem !important; font-size:.8rem !important; }
+  /* bottom bars become full-width sheets, never overlap */
+  #compareBar{ left:.75rem !important; right:.75rem !important; transform:none !important; max-width:none !important; bottom:.75rem !important; }
+  #toast{ bottom:4.75rem !important; max-width:calc(100vw - 1.5rem) !important; }
+  /* chat becomes bottom sheet */
+  #chatWindow{ left:.75rem !important; right:.75rem !important; width:auto !important; bottom:5rem !important; height:min(68vh,480px) !important; }
+  #chatToggle{ bottom:1rem !important; right:1rem !important; }
+  /* modals fit small screens */
+  #commandPalette, #compareModal, #domainModal, #videoModal, #gateModal, #onboardModal{ padding:.75rem !important; }
+  /* footer stacks tight */
+  footer .grid{ gap:1.75rem !important; }
+  footer[class*="bg-slate"]>div{ padding-top:2.5rem !important; padding-bottom:2rem !important; }
+}
+@media (max-width: 380px){
+  section#home h1{ font-size:1.65rem !important; }
+  main section h2{ font-size:1.3rem !important; }
+  #domainGrid{ grid-template-columns:1fr !important; }
 }
 
 :focus-visible { outline: 2px solid var(--focus-ring) !important; outline-offset: 2px !important; }

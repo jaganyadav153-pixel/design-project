@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GuidanceAI — CSE Domain Recommender">
+<meta name="twitter:title" content="GuidanceAI — GuidanceAI">
 <meta name="twitter:description" content="AI-powered counsellor for 1st-year CSE — 89% accuracy, 25 domains Atlas + Vault, 10 languages">
 <meta name="twitter:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://i.pravatar.cc https://picsum.photos https://images.unsplash.com https://img.youtube.com blob:; connect-src 'self' https://guidanceai.vercel.app https://cdn.jsdelivr.net https://unpkg.com http://localhost:8000 http://127.0.0.1:8000; frame-src https://www.youtube.com; worker-src blob:;">
@@ -96,19 +96,15 @@ html[dir="rtl"] canvas{ direction:ltr }
 <nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 px-3 py-2 bg-indigo-600 text-white rounded-lg">Skip to content</a>
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-  <a href="../index.html" class="flex items-center gap-3" aria-label="GuidanceAI Home">
+  <a href="../index.html" class="flex items-center gap-2.5" aria-label="GuidanceAI Home">
    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center text-white font-display font-extrabold">G</div>
-   <div>
-    <div class="font-display font-extrabold leading-none">GuidanceAI</div>
-    <div class="text-xs text-slate-600 dark:text-slate-400 -mt-1">CSE Domain Recommender</div>
-   </div>
-   <span class="hidden sm:inline-flex ml-3 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200">Atlas 25 • AI-Powered</span>
+   <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
    
   </a>
   <div class="hidden lg:flex items-center gap-6 text-sm font-medium" role="navigation" aria-label="Primary">
    <a href="../index.html" class="hover:text-primary" data-i18n="nav_home">Home</a>
    <a href="explorer.html" class="hover:text-primary" data-i18n="nav_explorer">Atlas</a>
-   <a href="quiz.html" class="hover:text-primary" data-i18n="nav_quiz">Quiz</a>
+   <a href="quiz.html#quiz" class="hover:text-primary" data-i18n="nav_quiz">Quiz</a>
    <a href="roadmap.html" class="hover:text-primary" data-i18n="nav_roadmap">Roadmap</a>
    <a href="resources.html" class="hover:text-primary" data-i18n="nav_resources">Resources</a>
    <a href="dashboard.html" class="hover:text-primary" data-i18n="nav_dashboard">Vault</a>
@@ -136,7 +132,8 @@ html[dir="rtl"] canvas{ direction:ltr }
     <option value="teacher">Teacher</option>
    </select>
    <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-regular fa-moon"></i></button>
-   <a href="quiz.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 focus-visible:ring-2">Start Quiz →</a>
+   <a href="quiz.html#quiz" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus-visible:ring-2">Start Quiz →</a>
+      <a href="signin.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl border text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in</a>
    <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
   </div>
  </div>
@@ -145,7 +142,8 @@ html[dir="rtl"] canvas{ direction:ltr }
   <div class="px-4 py-4 space-y-1 text-sm font-medium">
    <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
    <a href="explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Explorer</a>
-   <a href="quiz.html" class="block px-3 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">Start Quiz →</a>
+   <a href="quiz.html#quiz" class="block px-3 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">Start Quiz →</a>
+      <a href="signin.html" class="block px-3 py-2.5 rounded-xl border text-center font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in / Create account</a>
    <a href="roadmap.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Roadmap</a>
    <a href="resources.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Resources</a>
    <a href="dashboard.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Dashboard</a>
@@ -159,15 +157,15 @@ html[dir="rtl"] canvas{ direction:ltr }
 <a href="../index.html" class="inline-flex items-center gap-2 text-sm text-indigo-600 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 <nav aria-label="Breadcrumb" class="mt-3 text-xs text-slate-500 flex items-center gap-1.5"><a href="../index.html" class="hover:text-indigo-600">Home</a><span>/</span><span class="font-semibold text-slate-700">Quiz</span></nav>
 <h1 class="mt-3 font-display font-extrabold text-3xl">Find Your Perfect Domain — 3-Minute Quiz</h1>
-<p class="text-slate-600 mt-1">15 questions plus marks → AI ensemble predicts your Top-3 across 25 tracks with roadmap and starter lessons.</p>
+<p class="text-slate-600 mt-1">Answer 15 quick questions plus your marks — get your Top-3 domains with a clear roadmap and starter lessons.</p>
 </div>
 <!-- QUIZ / PREDICTOR -->
-<section id="quiz" class="bg-white dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700 py-10">
+<section id="quiz" tabindex="-1" class="bg-white dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700 py-10 scroll-mt-24 focus:outline-none">
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="max-w-3xl mx-auto text-center">
    <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200">ML Filter • 3 Minutes • 15 Questions + Marks</span>
    <h2 class="mt-3 font-display font-extrabold text-3xl" data-i18n="quiz_title">Find Your Perfect Domain</h2>
-   <p class="mt-2 text-slate-600 dark:text-slate-400">Quiz + Marks + Interest → AI ensemble (RandomForest primary) → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25) • 15 questions ×4 options.</p>
+   <p class="mt-2 text-slate-600 dark:text-slate-400">Answer 15 quick questions plus your marks — get your Top-3 domains with confidence, roadmap and vault suggestion.</p>
   </div>
   <div class="mt-8 max-w-4xl mx-auto bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 lg:p-8 border border-slate-200">
    <!-- Progress -->
@@ -182,7 +180,7 @@ html[dir="rtl"] canvas{ direction:ltr }
     <!-- Q1: Marks -->
     <div class="quiz-step" data-step="1">
      <h3 class="font-bold text-lg">First, your academic marks (0-100)</h3>
-     <p class="text-sm text-slate-600 dark:text-slate-400">Used by Marks-based ML filter (PCA + RandomForest). Be honest.</p>
+     <p class="text-sm text-slate-600 dark:text-slate-400">Your marks help personalize your Top-3. Be honest.</p>
      <div class="mt-4 grid sm:grid-cols-2 gap-4">
       <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">Math Marks *</span><input id="mMath" aria-label="Math marks" type="number" value="85" min="0" max="100" required class="mt-2 w-full px-3 py-2 rounded-xl border"><span class="text-xs text-slate-600 dark:text-slate-400">Weight high for AI/ML</span><span id="errMath" class="hidden text-xs text-red-600"></span></label>
       <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">Programming Marks *</span><input id="mProg" aria-label="Programming marks" type="number" value="78" min="0" max="100" required class="mt-2 w-full px-3 py-2 rounded-xl border"><span id="errProg" class="hidden text-xs text-red-600"></span></label>
@@ -197,7 +195,7 @@ html[dir="rtl"] canvas{ direction:ltr }
     <button id="quizPrev" class="px-6 py-3 rounded-xl border dark:border-slate-700 bg-white dark:bg-slate-800 font-semibold disabled:opacity-50 btn-press">← Previous</button>
     <div class="flex items-center gap-3"><span id="quizLoading" class="hidden items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="spinner border-indigo-600 border-t-indigo-600"></span> Predicting…</span><button id="quizNext" class="px-8 py-3 rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 btn-press inline-flex items-center gap-2">Next →</button></div>
    </div>
-   <div class="mt-3 text-center text-xs text-slate-600 dark:text-slate-400">Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble</div>
+   <div class="mt-3 text-center text-xs text-slate-600 dark:text-slate-400">Your data stays on this device • Private by design</div>
   </div>
 
   <!-- Results (hidden initially) -->
@@ -237,6 +235,10 @@ html[dir="rtl"] canvas{ direction:ltr }
     <a href="resources.html" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border dark:border-slate-700 font-semibold">Go to Mini-Course</a>
     <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl border dark:border-slate-700 bg-white dark:bg-slate-800 font-semibold">Retake Quiz</button>
    </div>
+   <div id="quizCountdown" class="mt-4 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
+    <div class="text-sm"><b>Your Top-3 is saved!</b> Returning to homepage in <b><span id="quizCountNum">5</span>s</b> — results appear in your homepage hero.</div>
+    <div class="flex gap-2 text-sm"><a href="../index.html" class="px-4 py-2 rounded-xl bg-white text-slate-900 font-bold">Go now →</a><button id="quizStay" class="px-4 py-2 rounded-xl border border-white/25 font-semibold hover:bg-white/10">Stay here</button></div>
+   </div>
    <!-- Post-quiz inline learn — shows after quiz without leaving page -->
    <div id="postQuizLearn" class="hidden mt-8"></div>
    <div id="roadmapContainerQuiz" class="hidden"></div>
@@ -250,7 +252,7 @@ html[dir="rtl"] canvas{ direction:ltr }
   <div class="grid md:grid-cols-4 gap-8">
    <div class="md:col-span-1">
     <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-extrabold text-white">G</div><span class="font-display font-bold text-lg">GuidanceAI</span></div>
-    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Virtual counsellor • Django + RandomForest 89% + PCA • 750+ students guided • 25 domains Atlas + Vault.</p>
+    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Virtual counsellor for 1st-year CSE — Top-3 domains, roadmaps, vault &amp; parent guidance in 10 languages.</p>
     <div class="mt-4 flex gap-2">
      <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-github"></i></a>
      <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
@@ -260,7 +262,7 @@ html[dir="rtl"] canvas{ direction:ltr }
    </div>
    <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Explore</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="explorer.html" class="hover:text-white transition">Domain Atlas → 25 tracks</a></li><li><a href="quiz.html" class="hover:text-white transition">Quiz & ML Filter • 3 min • 25-way</a></li><li><a href="roadmap.html" class="hover:text-white transition">4-Year Roadmaps (25)</a></li><li><a href="resources.html" class="hover:text-white transition">Resource Hub + Vault</a></li><li><a href="dashboard.html" class="hover:text-white transition">Dashboards + Compare</a></li></ul></div>
    <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">For Users</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="dashboard.html" onclick="switchDashboard('student');return false;" class="hover:text-white transition">Student • XP & Roadmap</a></li><li><a href="dashboard.html" onclick="switchDashboard('parent');return false;" class="hover:text-white transition">Parent • Voice Report (10 langs)</a></li><li><a href="dashboard.html" onclick="switchDashboard('teacher');return false;" class="hover:text-white transition">Teacher • Batch Analytics</a></li><li><span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-robot text-cyan-400"></i> Chatbot + Voice</span></li></ul></div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Tech & Docs</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> RandomForest 89% • PCA 11→10 • 25-way</li><li>Dataset: 750 (30×25) • Atlas</li><li>API: Django REST • Vault</li><li>Docs: /vault/ • Offline</li></ul><details class="mt-3 group"><summary class="text-xs text-slate-300 hover:text-white cursor-pointer list-none flex items-center gap-1"><i class="fa-solid fa-code text-xs"></i> Developer info (hidden) <i class="fa-solid fa-chevron-down text-[10px] group-open:rotate-180 transition"></i></summary><div class="mt-2 text-xs text-slate-300 font-mono bg-white/5 p-2 rounded-lg">ml/dataset.csv • backend/api/views.py • docs/ARCHITECTURE.md</div></details><div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> Privacy-first • No tracking • Offline fallback</div></div>
+   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Why us</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Top-3 fit • Personal roadmap</li><li>NPTEL • Coursera • YouTube</li><li>Privacy-first • Works offline</li></ul><div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> No signup • Data stays local</div></div>
   </div>
   <div class="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
    <div class="text-slate-300 text-center md:text-left">© 2026 GuidanceAI • Open-source • <span class="text-white">v1.0</span></div>
@@ -317,6 +319,36 @@ html[dir="rtl"] canvas{ direction:ltr }
 <script src="../assets/js/app.js"></script>
 <script>
 // Accessibility: right-click and keyboard shortcuts enabled — no blocking (WCAG 2.1.1)
+// 10Cr focus: Start Quiz deep-links to #quiz — center card in viewport + focus first question input
+(function(){
+  function focusQuiz(){
+    var sec=document.getElementById('quiz');
+    var box=document.getElementById('quizContainer');
+    if(!sec||!box) return;
+    // Center the quiz card (not slammed to top/bottom) with room for the sticky nav
+    try{
+      var r=box.getBoundingClientRect();
+      var navH=70;
+      var targetY=window.scrollY + r.top - Math.max(navH+12,(window.innerHeight - Math.min(r.height,window.innerHeight*0.85))/2);
+      window.scrollTo({top:Math.max(0,targetY),behavior:'smooth'});
+    }catch(e){ try{ sec.scrollIntoView({behavior:'smooth',block:'center'}); }catch(_){} }
+    try{ sec.focus({preventScroll:true}); }catch(e){}
+    // Brief pro highlight so the eye lands on the quiz, then fades
+    try{
+      box.style.transition='box-shadow .5s ease';
+      box.style.boxShadow='0 0 0 3px rgba(79,70,229,.55), 0 24px 48px -16px rgba(79,70,229,.35)';
+      box.style.borderRadius='24px';
+      setTimeout(function(){ box.style.boxShadow=''; },1600);
+    }catch(e){}
+    setTimeout(function(){
+      var el=document.querySelector('#quizContainer .quiz-step:not(.hidden) input, #quizContainer .quiz-step:not(.hidden) [tabindex], #mMath');
+      if(el){ try{ el.focus({preventScroll:true}); }catch(e){ try{ el.focus(); }catch(_){} } }
+    },550);
+  }
+  if(location.hash==='#quiz'||location.hash==='#quizContainer') setTimeout(focusQuiz,250);
+  window.addEventListener('hashchange',function(){ if(location.hash==='#quiz'||location.hash==='#quizContainer') focusQuiz(); });
+  window.focusQuizQuestions=focusQuiz;
+})();
 </script>
 <noscript><div style="background:#fee; color:#900; padding:12px; text-align:center;">JavaScript is disabled — please enable to use Quiz, Radar & Chatbot. Or open <code>docs/</code> for offline info.</div></noscript>
 </body>

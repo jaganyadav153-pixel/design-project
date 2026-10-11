@@ -112,7 +112,7 @@ export default function App(){
       <section id="quiz" className="bg-white border-y py-10">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-center">Find Your Perfect Domain (25-way)</h2>
-          <p className="text-center text-slate-500 mt-2">Quiz + Marks → AI ensemble → Top-3 across 25 with vault suggestion.</p>
+          <p className="text-center text-slate-500 mt-2">Answer a quick quiz — get your Top-3 domains with roadmap.</p>
           <div className="mt-6 bg-slate-50 rounded-3xl p-6 border">
             <QuizEngine onResult={setResult} />
             {result && (
@@ -136,12 +136,12 @@ export default function App(){
 
       <footer className="bg-slate-900 text-white py-10">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
-          <div><div className="flex items-center gap-2"><div className="w-8 h-8 rounded-lg bg-indigo-600 grid place-items-center font-extrabold">G</div><span className="font-bold">GuidanceAI Atlas 25</span></div><p className="mt-3 text-sm text-white/60">Virtual counsellor • Django + RandomForest 89% • 25 tracks • Vault • 750 (30×25)</p></div>
+          <div><div className="flex items-center gap-2"><div className="w-8 h-8 rounded-lg bg-indigo-600 grid place-items-center font-extrabold">G</div><span className="font-bold">GuidanceAI</span></div><p className="mt-3 text-sm text-white/60">Virtual counsellor — Top-3 domains, roadmaps &amp; vault in 10 languages</p></div>
           <div><div className="font-bold">Explore</div><ul className="mt-3 space-y-2 text-sm text-white/70"><li>Atlas 25 Tracks</li><li>Quiz 25-way</li><li>Roadmaps + Vault</li><li>Compare 3</li></ul></div>
           <div><div className="font-bold">For Users</div><ul className="mt-3 space-y-2 text-sm text-white/70"><li>Student + Vault</li><li>Parent Voice Report</li><li>Teacher Analytics (25)</li></ul></div>
-          <div><div className="font-bold">Tech</div><ul className="mt-3 space-y-2 text-sm text-white/70"><li>RandomForest 89% • PCA 11→10 • 25-way</li><li>Dataset: 750 (30×25) • Atlas</li><li>Vault: /vault/ • Offline</li></ul></div>
+          <div><div className="font-bold">Why us</div><ul className="mt-3 space-y-2 text-sm text-white/70"><li>Top-3 fit • Personal roadmap</li><li>NPTEL • Coursera • YouTube</li><li>Private • Works offline</li></ul></div>
         </div>
-        <div className="mt-8 pt-6 border-t border-white/10 text-xs text-white/50 text-center">© 2026 GuidanceAI Atlas 25 • Vault ready</div>
+        <div className="mt-8 pt-6 border-t border-white/10 text-xs text-white/50 text-center">© 2026 GuidanceAI</div>
       </footer>
 
       <Chatbot />

@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GuidanceAI — CSE Domain Recommender">
+<meta name="twitter:title" content="GuidanceAI — GuidanceAI">
 <meta name="twitter:description" content="AI-powered counsellor for 1st-year CSE — 89% accuracy, 25 domains Atlas + Vault, 10 languages">
 <meta name="twitter:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://i.pravatar.cc https://picsum.photos https://images.unsplash.com https://img.youtube.com blob:; connect-src 'self' https://guidanceai.vercel.app https://cdn.jsdelivr.net https://unpkg.com http://localhost:8000 http://127.0.0.1:8000; frame-src https://www.youtube.com; worker-src blob:;">
@@ -96,19 +96,15 @@ html[dir="rtl"] canvas{ direction:ltr }
 <nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 px-3 py-2 bg-indigo-600 text-white rounded-lg">Skip to content</a>
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-  <a href="../index.html" class="flex items-center gap-3" aria-label="GuidanceAI Home">
+  <a href="../index.html" class="flex items-center gap-2.5" aria-label="GuidanceAI Home">
    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center text-white font-display font-extrabold">G</div>
-   <div>
-    <div class="font-display font-extrabold leading-none">GuidanceAI</div>
-    <div class="text-xs text-slate-600 dark:text-slate-400 -mt-1">CSE Domain Recommender</div>
-   </div>
-   <span class="hidden sm:inline-flex ml-3 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200">Atlas 25 • AI-Powered</span>
+   <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
    
   </a>
   <div class="hidden lg:flex items-center gap-6 text-sm font-medium" role="navigation" aria-label="Primary">
    <a href="../index.html" class="hover:text-primary" data-i18n="nav_home">Home</a>
    <a href="explorer.html" class="hover:text-primary" data-i18n="nav_explorer">Atlas</a>
-   <a href="quiz.html" class="hover:text-primary" data-i18n="nav_quiz">Quiz</a>
+   <a href="quiz.html#quiz" class="hover:text-primary" data-i18n="nav_quiz">Quiz</a>
    <a href="roadmap.html" class="hover:text-primary" data-i18n="nav_roadmap">Roadmap</a>
    <a href="resources.html" class="hover:text-primary" data-i18n="nav_resources">Resources</a>
    <a href="dashboard.html" class="hover:text-primary" data-i18n="nav_dashboard">Vault</a>
@@ -136,7 +132,8 @@ html[dir="rtl"] canvas{ direction:ltr }
     <option value="teacher">Teacher</option>
    </select>
    <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-regular fa-moon"></i></button>
-   <a href="quiz.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 focus-visible:ring-2">Start Quiz →</a>
+   <a href="quiz.html#quiz" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus-visible:ring-2">Start Quiz →</a>
+      <a href="signin.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl border text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in</a>
    <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
   </div>
  </div>
@@ -145,7 +142,8 @@ html[dir="rtl"] canvas{ direction:ltr }
   <div class="px-4 py-4 space-y-1 text-sm font-medium">
    <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
    <a href="explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Explorer</a>
-   <a href="quiz.html" class="block px-3 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">Start Quiz →</a>
+   <a href="quiz.html#quiz" class="block px-3 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">Start Quiz →</a>
+      <a href="signin.html" class="block px-3 py-2.5 rounded-xl border text-center font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in / Create account</a>
    <a href="roadmap.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Roadmap</a>
    <a href="resources.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Resources</a>
    <a href="dashboard.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Dashboard</a>

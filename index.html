@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GuidanceAI — CSE Domain Recommender">
+<meta name="twitter:title" content="GuidanceAI">
 <meta name="twitter:description" content="AI-powered counsellor for 1st-year CSE — 89% accuracy, 25 domains Atlas + Vault, 10 languages">
 <meta name="twitter:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://i.pravatar.cc https://picsum.photos https://images.unsplash.com https://img.youtube.com blob:; connect-src 'self' https://guidanceai.vercel.app https://cdn.jsdelivr.net https://unpkg.com http://localhost:8000 http://127.0.0.1:8000; frame-src https://www.youtube.com; worker-src blob:;">
@@ -80,10 +80,10 @@ html{scroll-behavior:smooth}
 :lang(ur){font-family:'Noto Nastaliq Urdu','Noto Sans Arabic',serif; direction:rtl; line-height:2.2; font-size:110%; letter-spacing:0}
 html[dir="rtl"] body{ direction:rtl }
 html:lang(te) .line-clamp-2, html:lang(ta) .line-clamp-2, html:lang(kn) .line-clamp-2, html:lang(ml) .line-clamp-2, html:lang(hi) .line-clamp-2, html:lang(mr) .line-clamp-2, html:lang(bn) .line-clamp-2, html:lang(gu) .line-clamp-2, html:lang(ur) .line-clamp-2{ -webkit-line-clamp:3; line-clamp:3; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden }
-.card-hover{ min-height:340px }
-@media (max-width:640px){ .card-hover{ min-height:320px } }
+.card-hover{ min-height:auto }
+@media (max-width:640px){ .card-hover{ min-height:auto } }
 #domainGrid{ min-height:400px }
-#toast{ inset-inline-start:50%; transform:translateX(-50%); left:auto }
+#toast{ inset-inline-start:50%; transform:translateX(-50%); left:auto; bottom:5.25rem }
 html[dir="rtl"] #toast{ inset-inline-start:50% }
 html[dir="rtl"] .cat-pill{ direction:rtl }
 html[dir="rtl"] table{ direction:rtl }
@@ -94,43 +94,37 @@ html[dir="rtl"] canvas{ direction:ltr }
 .header-quiz{animation:quizPulse 2s cubic-bezier(0.4,0,0.6,1) infinite; position:relative; isolation:isolate;}
 .header-quiz::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-100%);animation:quizShine 3.2s infinite;}
 @keyframes quizShine{100%{transform:translateX(100%)}}
-@media(max-width:640px){#headerQuizBtn{padding:7px 12px !important; font-size:12px !important;}}
-@media(max-width:380px){#headerQuizBtn{padding:6px 10px !important; font-size:11px !important; letter-spacing:0;}}
 /* Laptop fit — prevent horizontal scroll */
-#domainGrid{max-width:100%; overflow:hidden;}
+#domainGrid{max-width:100%; overflow:visible; scroll-margin-top:96px;}
 *{box-sizing:border-box;}
 img,video,canvas,svg{max-width:100%;}
 section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 </style>
 </head>
-<body class="bg-[#F8FAFC] dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans antialiased">
+<body class="bg-[#F6F7FB] dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans antialiased">
 <!-- NAV -->
 <nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 px-3 py-2 bg-indigo-600 text-white rounded-lg">Skip to content</a>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="#home" class="flex items-center gap-3" aria-label="GuidanceAI Home">
+    <a href="#home" class="flex items-center gap-2.5" aria-label="GuidanceAI Home">
       <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center text-white font-display font-extrabold">G</div>
-      <div>
-        <div class="font-display font-extrabold leading-none">GuidanceAI</div>
-        <div class="text-xs text-slate-600 dark:text-slate-400 -mt-1">CSE Domain Recommender</div>
-      </div>
-      <span class="hidden sm:inline-flex ml-3 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200">Atlas 25 • AI-Powered</span>
-      <span id="kbHint" class="hidden xl:inline-flex ml-2 px-2 py-1 rounded-full bg-slate-900 text-white text-[11px] font-mono border">Ctrl+K</span>
+      <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
+      <span id="kbHint" class="hidden xl:inline-flex ml-1 px-2 py-1 rounded-full bg-slate-900 text-white text-[11px] font-mono border">Ctrl+K</span>
     </a>
-    <div class="hidden xl:flex items-center gap-3 text-[13px] font-medium" role="navigation" aria-label="Primary">
+    <div class="hidden lg:flex items-center gap-5 text-[15px] font-medium" role="navigation" aria-label="Primary">
       <a href="#home" class="hover:text-primary whitespace-nowrap" data-i18n="nav_home">Home</a>
       <a href="pages/explorer.html" class="hover:text-primary whitespace-nowrap">Atlas</a>
-      <a href="pages/domain.html?id=AI" class="hover:text-primary px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs whitespace-nowrap">Handbook</a>
-      <a href="pages/quiz.html" class="hover:text-primary whitespace-nowrap">Quiz</a>
+      <a href="pages/domain.html?id=AI" class="hover:text-primary whitespace-nowrap">Handbook</a>
+      <a href="pages/quiz.html#quiz" class="hover:text-primary whitespace-nowrap">Quiz</a>
       <a href="pages/roadmap.html" class="hover:text-primary whitespace-nowrap">Roadmap</a>
       <a href="pages/resources.html" class="hover:text-primary whitespace-nowrap">Resources</a>
       <a href="pages/dashboard.html" class="hover:text-primary whitespace-nowrap">Dashboard</a>
-      <a href="#about" class="hover:text-primary whitespace-nowrap hidden 2xl:inline">About</a>
-      <a href="#contact" class="hover:text-primary whitespace-nowrap hidden 2xl:inline">Contact</a>
+      <a href="#about" class="hover:text-primary whitespace-nowrap">About</a>
+      <a href="#contact" class="hover:text-primary whitespace-nowrap">Contact</a>
     </div>
-    <div class="flex items-center gap-1 sm:gap-1.5 min-w-0">
+    <div class="flex items-center gap-2 min-w-0">
       <label for="langSwitcher" class="sr-only">Select language</label>
-      <select id="langSwitcher" aria-label="Select language" class="hidden xl:block px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs bg-white dark:bg-slate-800 max-w-[110px]">
+      <select id="langSwitcher" aria-label="Select language" class="hidden lg:block px-2.5 py-2 rounded-lg border border-slate-200 text-sm bg-white dark:bg-slate-800 max-w-[130px]">
         <option value="en">English</option>
         <option value="te">తెలుగు (Telugu)</option>
         <option value="hi">हिन्दी (Hindi)</option>
@@ -143,18 +137,18 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
         <option value="ur">اردو (Urdu)</option>
       </select>
       <label for="roleSwitcher" class="sr-only">Select role</label>
-      <select id="roleSwitcher" aria-label="Select role" class="hidden xl:block px-2.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs max-w-[90px]">
+      <select id="roleSwitcher" aria-label="Select role" class="hidden lg:block px-2.5 py-2 rounded-lg bg-slate-900 text-white text-sm max-w-[110px]">
         <option value="student">Student</option>
         <option value="parent">Parent</option>
         <option value="teacher">Teacher</option>
       </select>
-      <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-regular fa-moon"></i></button>
-      <a id="headerQuizBtn" href="pages/quiz.html" class="header-quiz inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700 text-white font-extrabold hover:from-indigo-700 hover:to-violet-700 focus-visible:ring-2 shadow-[0_8px_24px_rgba(79,70,229,0.35)] hover:shadow-[0_12px_32px_rgba(79,70,229,0.45)] hover:scale-[1.02] transition-all duration-200 flex-shrink-0 whitespace-nowrap ring-1 ring-white/20 overflow-hidden" style="display:inline-flex !important; visibility:visible !important; opacity:1 !important;" aria-label="Start Quiz — 3 min, 15 questions">Start Quiz <span aria-hidden="true">→</span></a>
-      <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="xl:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-solid fa-bars"></i></button>
+      <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-regular fa-moon"></i></button>
+      <a data-auth="signin" href="pages/signin.html" class="hidden sm:inline-flex px-4 py-2.5 rounded-xl border text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition whitespace-nowrap min-h-[44px] items-center">Sign in</a>
+      <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
   <!-- Mobile Drawer (perfect webdev) -->
-  <div id="mobileDrawer" class="hidden xl:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
+  <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
     <div class="px-4 py-3 flex gap-2 border-b border-slate-100 dark:border-slate-800">
       <label for="mobileLangSwitcher" class="sr-only">Language</label>
       <select id="mobileLangSwitcher" aria-label="Select language" class="flex-1 px-3 py-2 rounded-lg border border-slate-200 text-sm bg-white dark:bg-slate-800">
@@ -179,7 +173,8 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
     <div class="px-4 py-4 space-y-1 text-sm font-medium">
       <a href="#home" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
       <a href="pages/explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Explorer</a>
-      <a href="pages/quiz.html" class="block px-3 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold shadow">Start Quiz →</a>
+      <a href="pages/quiz.html#quiz" class="block px-3 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold shadow">Start Quiz →</a>
+      <a href="pages/signin.html" class="block px-3 py-2.5 rounded-xl border text-center font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in / Create account</a>
       <a href="pages/roadmap.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Roadmap</a>
       <a href="pages/resources.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Resources</a>
       <a href="pages/dashboard.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Dashboard</a>
@@ -188,55 +183,45 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
     </div>
   </div>
 </nav>
-<!-- Mobile always-visible Start Quiz bar — guarantees header CTA visible even on crowded small screens -->
-<div class="lg:hidden bg-gradient-to-r from-indigo-50 to-violet-50 border-b border-indigo-100 px-4 py-3 flex items-center justify-between gap-3 sticky top-16 z-30">
-  <div class="flex items-center gap-2 text-sm font-bold text-indigo-900"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 3-Min Quiz • Top-3</div>
-  <a href="pages/quiz.html" class="inline-flex items-center gap-1 px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-extrabold text-sm shadow-md hover:bg-indigo-700 whitespace-nowrap">Start Quiz →</a>
-</div>
 <main id="main">
 <!-- HERO -->
 <section id="home" class="relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-indigo-500 to-cyan-500"></div>
-  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
-    <div class="text-white reveal"> 
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-sm backdrop-blur border border-white/20"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Trusted by 750+ CSE students • 25 Domains • 89% Accuracy • Vault Ready</div>
-      <h1 class="mt-5 font-display font-extrabold text-4xl lg:text-5xl leading-tight" data-i18n="hero_title">Confused between 25 CSE domains?<br>Your <span class="text-white drop-shadow">AI Counsellor</span> is here.</h1>
-      <p class="mt-4 text-white/90 text-lg" data-i18n="hero_sub">Personalized Top-3 recommendations across 25 tracks using Decision Tree, Random Forest, KNN & PCA — 4-year roadmap, mini-courses, vault for your files & parent guidance in 10 languages.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="pages/quiz.html" class="px-7 py-3.5 rounded-xl bg-white text-indigo-700 font-bold shadow-lg hover:shadow-xl ring-1 ring-white/20">Take 3-Min Quiz →</a>
-        <a href="#explorer" class="px-7 py-3.5 rounded-xl bg-slate-900 text-white font-semibold">Explore Domains</a>
-        <button onclick="document.getElementById('videoModal').classList.remove('hidden')" class="px-6 py-3.5 rounded-xl bg-white text-indigo-700 font-semibold shadow-lg hover:bg-slate-50"><i class="fa-solid fa-play mr-2"></i>Watch Demo (45s)</button>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14 grid lg:grid-cols-2 gap-10 items-center min-h-[calc(100vh-4rem)]">
+    <div class="text-white reveal">
+      <div class="font-mono text-xs tracking-[0.2em] uppercase text-cyan-300">AI Counsellor • Atlas 25 • 89% Accuracy</div>
+      <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-sm backdrop-blur border border-white/20"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Trusted by 750+ CSE students • Vault Ready</div>
+      <h1 class="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.05] tracking-tight" data-i18n="hero_title">Confused between 25 CSE domains?<br>Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-amber-200">AI Counsellor</span> is here.</h1>
+      <p class="mt-4 text-white text-lg leading-relaxed max-w-xl" data-i18n="hero_sub">Personalized Top-3 recommendations across 25 tracks using Decision Tree, Random Forest, KNN &amp; PCA — 4-year roadmap, mini-courses, vault for your files &amp; parent guidance in 10 languages.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-4">
+        <a href="pages/quiz.html#quiz" class="w-full sm:w-auto justify-center px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition inline-flex items-center">Take 3-Min Quiz →</a>
+        <a href="#explorer" onclick="scrollToDomains(event)" class="w-full sm:w-auto justify-center px-7 py-3.5 rounded-2xl border border-white/25 text-white font-semibold hover:bg-white/10 transition inline-flex items-center">Explore Domains</a>
+        <button onclick="document.getElementById('videoModal').classList.remove('hidden')" class="text-white/90 font-semibold hover:text-white hover:underline underline-offset-4"><i class="fa-solid fa-play mr-2"></i>Watch Demo (45s)</button>
       </div>
-      <div class="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-        <div class="p-4 rounded-2xl bg-white/20 backdrop-blur border border-white/30 text-center"><div class="font-extrabold text-2xl">750+</div><div class="text-sm text-white">Students Guided</div></div>
-        <div class="p-4 rounded-2xl bg-white/20 backdrop-blur border border-white/30 text-center"><div class="font-extrabold text-2xl">25</div><div class="text-sm text-white">CSE Domains</div></div>
-        <div class="p-4 rounded-2xl bg-white/20 backdrop-blur border border-white/30 text-center"><div class="font-extrabold text-2xl">10</div><div class="text-sm text-white">Languages</div></div>
+      <div class="mt-6 grid grid-cols-3 gap-4 max-w-lg">
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-center"><div class="font-extrabold text-2xl">750+</div><div class="text-sm text-white/90">Students Guided</div></div>
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-center"><div class="font-extrabold text-2xl">25</div><div class="text-sm text-white/90">CSE Domains</div></div>
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-center"><div class="font-extrabold text-2xl">10</div><div class="text-sm text-white/90">Languages</div></div>
       </div>
-      <div class="mt-4 flex flex-wrap gap-2 text-xs"><span class="px-2.5 py-1 rounded-full bg-white/15 border border-white/20">Press Ctrl+K to search</span><span class="px-2.5 py-1 rounded-full bg-white/15 border border-white/20">New: Vault per domain</span><span class="px-2.5 py-1 rounded-full bg-white/15 border border-white/20">Compare 3 tracks</span></div>
-      <div class="mt-6 flex items-center gap-3 text-sm text-white"><i class="fa-solid fa-shield-halved"></i> Research-backed • NPTEL/Coursera/YouTube curated • AWS/Render deployed</div>
+      <div class="mt-4 flex items-center gap-3 text-sm text-white/80"><i class="fa-solid fa-shield-halved"></i> Research-backed • NPTEL/Coursera/YouTube curated</div>
     </div>
     <div class="relative reveal reveal-delay-1">
-      <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-6 border border-white/20 float-animation">
+      <div id="heroPreviewCard" class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-6 border border-white/20">
         <div class="flex items-center justify-between">
-          <h3 class="font-bold">Live Prediction Preview</h3><span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">RandomForest 89%</span>
+          <h3 id="heroPreviewTitle" class="font-bold text-lg">Live Prediction Preview</h3><span id="heroBadge" class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">RandomForest 89%</span>
         </div>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
-          <div class="space-y-3">
+        <div id="heroTop3" class="mt-4 grid grid-cols-2 gap-4 text-sm">
+          <div class="space-y-4">
             <div><div class="flex justify-between"><span>AI</span><span class="font-bold">82%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-indigo-600" style="width:82%"></div></div></div>
             <div><div class="flex justify-between"><span>ML</span><span class="font-bold">76%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-cyan-500" style="width:76%"></div></div></div>
             <div><div class="flex justify-between"><span>Cybersecurity</span><span class="font-bold">42%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-slate-400" style="width:42%"></div></div></div>
           </div>
           <div class="bg-slate-50 dark:bg-slate-900 rounded-2xl p-3">
-            <canvas id="heroRadar" height="150" role="img" aria-label="Skill radar preview"></canvas>
+            <canvas id="heroRadar" height="130" role="img" aria-label="Skill radar preview"></canvas>
           </div>
         </div>
-        <div class="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900"><i class="fa-solid fa-lightbulb mr-1"></i> <b>Why AI?</b> High logic (5/5) + math marks 92 + strong data interest.</div>
-        <button onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})" class="mt-4 w-full py-3 rounded-xl bg-slate-900 text-white font-semibold">Try Your Prediction →</button>
-        <div class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-600 dark:text-slate-400"><i class="fa-solid fa-lock"></i> Privacy-first • No data shared</div>
-      </div>
-      <div class="absolute -bottom-4 -left-4 hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700">
-        <img src="https://i.pravatar.cc/40?img=12" alt="Parent avatar" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full"><div><div class="font-semibold text-sm">Parent Report • తెలుగు</div><div class="text-xs text-slate-600 dark:text-slate-400">Voice readout ready</div></div><button onclick="speakParentReport(); toast('🔊 Telugu voice demo')" aria-label="Play voice sample" class="w-8 h-8 rounded-full bg-indigo-600 text-white grid place-items-center hover:bg-indigo-700 transition"><i class="fa-solid fa-volume-high text-xs"></i></button>
+        <div id="heroWhy" class="mt-4 p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-sm text-amber-900"><i class="fa-solid fa-lightbulb mr-1"></i> <b>Why AI?</b> High logic (5/5) + math marks 92 + strong data interest.</div>
+        <a id="heroCTA" href="pages/quiz.html#quiz" class="mt-4 block w-full py-3 rounded-2xl bg-slate-900 text-white font-semibold text-center hover:bg-black transition">Try Your Prediction →</a>
+        <div class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500"><i class="fa-solid fa-lock"></i> Privacy-first • No data shared</div>
       </div>
     </div>
   </div>
@@ -255,49 +240,49 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 </section>
 
 <!-- FEATURES HIGHLIGHT - Perfect Webdev (6 features) -->
-<section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div class="text-center max-w-2xl mx-auto">
+<section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+  <div class="text-center max-w-2xl mx-auto mb-12">
     <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200">Why GuidanceAI • Atlas 25 • 8+6 Modules</span>
-    <h2 class="mt-3 font-display font-extrabold text-3xl">Everything a First-Year Needs — Now 25 Tracks</h2>
-    <p class="mt-2 text-slate-600 dark:text-slate-400">Beyond paper guidance — Atlas, vault per domain, compare, roadmap, visualization, multilingual voice & gamification.</p>
+    <h2 class="mt-4 font-display font-extrabold text-3xl lg:text-4xl tracking-tight">Everything a First-Year Needs — Now 25 Tracks</h2>
+    <p class="mt-3 text-slate-600 dark:text-slate-400 text-lg">Beyond paper guidance — Atlas, vault per domain, compare, roadmap, visualization, multilingual voice & gamification.</p>
   </div>
-  <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-    <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 grid place-items-center text-xl"><i class="fa-solid fa-layer-group"></i></div><h3 class="font-bold mt-4">25-Domain Atlas</h3><p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Intelligence 6 · Build 5 · Core 8 · Frontier 6 — grouped, searchable, professional dev layout.</p></div>
-    <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center text-xl"><i class="fa-solid fa-folder-open"></i></div><h3 class="font-bold mt-4">Vault per Domain</h3><p class="text-sm text-slate-600 dark:text-slate-400 mt-1">4 empty slots per track: Notes, Videos, Projects, Assignments — add your files later, stays local.</p></div>
-    <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 grid place-items-center text-xl"><i class="fa-solid fa-code-compare"></i></div><h3 class="font-bold mt-4">Compare 3 Tracks</h3><p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Tick Compare on cards — bottom bar — side-by-side salary, skills, roadmap.</p></div>
-    <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 grid place-items-center text-xl"><i class="fa-solid fa-road"></i></div><h3 class="font-bold mt-4">4-Year Roadmap</h3><p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Foundation to Advanced to Placement — for each track, with vault link.</p></div>
-    <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-12 h-12 rounded-2xl bg-violet-50 text-violet-600 grid place-items-center text-xl"><i class="fa-solid fa-trophy"></i></div><h3 class="font-bold mt-4">Search + Gamified</h3><p class="text-sm text-slate-600 dark:text-slate-400 mt-1">XP, streaks and quick search to jump to any domain.</p></div>
-    <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 grid place-items-center text-xl"><i class="fa-solid fa-users"></i></div><h3 class="font-bold mt-4">Parent + Teacher</h3><p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Vernacular PDF + voice for parents; batch analytics for 25-track cohorts.</p></div>
+  <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 grid place-items-center text-2xl"><i class="fa-solid fa-layer-group"></i></div><h3 class="font-bold text-lg mt-5">25-Domain Atlas</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Intelligence 6 · Build 5 · Core 8 · Frontier 6 — grouped, searchable, professional dev layout.</p></div>
+    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center text-2xl"><i class="fa-solid fa-folder-open"></i></div><h3 class="font-bold text-lg mt-5">Vault per Domain</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">4 empty slots per track: Notes, Videos, Projects, Assignments — add your files later, stays local.</p></div>
+    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 grid place-items-center text-2xl"><i class="fa-solid fa-code-compare"></i></div><h3 class="font-bold text-lg mt-5">Compare 3 Tracks</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Tick Compare on cards — bottom bar — side-by-side salary, skills, roadmap.</p></div>
+    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 grid place-items-center text-2xl"><i class="fa-solid fa-road"></i></div><h3 class="font-bold text-lg mt-5">4-Year Roadmap</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Foundation to Advanced to Placement — for each track, with vault link.</p></div>
+    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-violet-50 text-violet-600 grid place-items-center text-2xl"><i class="fa-solid fa-trophy"></i></div><h3 class="font-bold text-lg mt-5">Search + Gamified</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">XP, streaks and quick search to jump to any domain.</p></div>
+    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 grid place-items-center text-2xl"><i class="fa-solid fa-users"></i></div><h3 class="font-bold text-lg mt-5">Parent + Teacher</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Vernacular PDF + voice for parents; batch analytics for 25-track cohorts.</p></div>
   </div>
 </section>
 
 <!-- DOMAIN ATLAS — 25 Tracks Professional -->
-<section id="explorer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-  <div class="flex flex-wrap items-end justify-between gap-4">
+<section id="explorer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 lg:pt-14 pb-16 lg:pb-24">
+  <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
     <div>
-      <h2 class="font-display font-extrabold text-3xl" data-i18n="explorer_title">Domain Atlas — 25 Tracks</h2>
-      <p class="text-slate-600 dark:text-slate-400 mt-1">Professional explorer — grouped by Intelligence, Build, Core & Frontier. Search, compare & vault per domain.</p>
-      <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="px-2 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700">Search</span><span class="px-2 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700">Empty vaults ready</span><span class="px-2 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700">Compare up to 3</span></div>
+      <div class="font-mono text-xs tracking-[0.2em] uppercase text-indigo-600">Atlas • 25 Tracks</div>
+      <h2 class="mt-2 font-display font-extrabold text-3xl lg:text-4xl tracking-tight" data-i18n="explorer_title">Domain Atlas — 25 Tracks</h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-2 text-lg">Professional explorer — grouped by Intelligence, Build, Core &amp; Frontier. Search, compare &amp; vault per domain.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full lg:w-auto">
       <label for="explorerSearch" class="sr-only">Search domains</label>
-      <input id="explorerSearch" aria-label="Search domains" placeholder="Search AI, Quantum, Web..." class="px-4 py-2.5 rounded-xl border border-slate-200 w-full sm:w-72">
+      <input id="explorerSearch" aria-label="Search domains" placeholder="Search AI, Quantum, Web..." class="px-4 py-3 rounded-xl border border-slate-200 w-full sm:w-72 min-h-[44px]">
       <label for="explorerSort" class="sr-only">Sort</label>
-      <select id="explorerSort" aria-label="Sort domains" class="px-3 py-2.5 rounded-xl border border-slate-200 text-sm bg-white"><option value="featured">Featured</option><option value="az">A → Z</option><option value="salary">Salary High → Low</option><option value="demand">Demand High → Low</option></select>
+      <select id="explorerSort" aria-label="Sort domains" class="px-3 py-3 rounded-xl border border-slate-200 text-sm bg-white min-h-[44px]"><option value="featured">Featured</option><option value="az">A → Z</option><option value="salary">Salary High → Low</option><option value="demand">Demand High → Low</option></select>
       <!-- Hidden legacy filter for JS compat -->
       <select id="explorerFilter" aria-label="Filter domains" class="hidden"><option value="all">All Domains</option></select>
     </div>
   </div>
   <!-- Category Pills (Atlas) -->
-  <div class="mt-6 flex flex-wrap gap-2 sticky top-16 z-30 bg-[#F8FAFC]/80 dark:bg-slate-900/80 backdrop-blur py-3 border-y border-transparent">
-    <button data-cat="All" class="cat-pill px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-semibold border border-slate-900">All 25</button>
-    <button data-cat="Intelligence & Data" class="cat-pill px-4 py-2 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50">Intelligence & Data · 6</button>
-    <button data-cat="Build & Experience" class="cat-pill px-4 py-2 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50">Build · 5</button>
-    <button data-cat="Core Systems" class="cat-pill px-4 py-2 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50">Core Systems · 8</button>
-    <button data-cat="Frontier Tech" class="cat-pill px-4 py-2 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50">Frontier · 6</button>
+  <div class="flex flex-wrap gap-2 py-4">
+    <button data-cat="All" class="cat-pill px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold border border-slate-900 min-h-[44px]">All 25</button>
+    <button data-cat="Intelligence & Data" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Intelligence & Data · 6</button>
+    <button data-cat="Build & Experience" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Build · 5</button>
+    <button data-cat="Core Systems" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Core Systems · 8</button>
+    <button data-cat="Frontier Tech" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Frontier · 6</button>
     <span id="domainCount" class="ml-auto text-sm text-slate-500 self-center">Showing 25 of 25 tracks</span>
   </div>
-  <div id="domainGrid" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+  <div id="domainGrid" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Cards injected by JS (grouped when All) -->
   </div>
   <div class="mt-6 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
@@ -307,13 +292,12 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 </section>
 
 <!-- QUIZ CTA — Full inside quiz.html -->
-<section id="quiz" class="bg-white border-y py-10">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border">ML Filter • 3 Minutes • 15 Questions + Marks</span>
-    <h2 class="mt-3 font-display font-extrabold text-3xl">Find Your Perfect Domain in 3 Minutes</h2>
-    <p class="mt-2 text-slate-600">15 questions ×4 options → Top-3 across 25 tracks with radar & vault. Inside has full 16 steps.</p>
-    <a href="pages/quiz.html" class="mt-6 inline-flex px-8 py-4 rounded-2xl bg-indigo-600 text-white font-bold shadow-lg hover:shadow-xl">Start 15-Q Quiz →</a>
-    <p class="mt-3 text-xs text-slate-500">Full quiz moved inside for clean front • No lengthy inline</p>
+<section id="quiz" class="relative overflow-hidden py-16 lg:py-24" style="background:linear-gradient(135deg,#0B0F2E 0%,#1E1B4B 50%,#0E7490 100%)">
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+    <div class="font-mono text-xs tracking-[0.2em] uppercase text-cyan-300">ML Filter • 3 Minutes • 15 Questions</div>
+    <h2 class="mt-4 font-display font-extrabold text-3xl lg:text-4xl tracking-tight">Find Your Perfect Domain in 3 Minutes</h2>
+    <p class="mt-3 text-white/85 text-lg">15 questions × 4 options → Top-3 across 25 tracks with radar &amp; vault.</p>
+    <a href="pages/quiz.html#quiz" class="mt-8 inline-flex px-8 py-4 rounded-2xl bg-white text-indigo-700 font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition">Start 15-Q Quiz →</a>
   </div>
 </section>
 <!-- IMMERSIVE HANDBOOKS — 3Cr Pro: No filler, lean navigation to 25 immersive handbooks -->
@@ -333,7 +317,7 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
     <a href="pages/roadmap.html" class="p-4 rounded-2xl bg-white border hover:border-indigo-200 hover:bg-indigo-50 transition"><div class="font-bold">Roadmap</div><div class="text-slate-600">36-week per domain</div></a>
     <a href="pages/resources.html" class="p-4 rounded-2xl bg-white border hover:border-indigo-200 hover:bg-indigo-50 transition"><div class="font-bold">Resources</div><div class="text-slate-600">NPTEL • Coursera • YouTube</div></a>
     <a href="pages/dashboard.html" class="p-4 rounded-2xl bg-white border hover:border-indigo-200 hover:bg-indigo-50 transition"><div class="font-bold">Vault</div><div class="text-slate-600">4 slots per track</div></a>
-    <a href="pages/quiz.html" class="p-4 rounded-2xl bg-white border hover:border-indigo-200 hover:bg-indigo-50 transition"><div class="font-bold">Quiz</div><div class="text-slate-600">15Q → Top-3 • 3 min</div></a>
+    <a href="pages/quiz.html#quiz" class="p-4 rounded-2xl bg-white border hover:border-indigo-200 hover:bg-indigo-50 transition"><div class="font-bold">Quiz</div><div class="text-slate-600">15Q → Top-3 • 3 min</div></a>
   </div>
 </section>
 <!-- ABOUT PREVIEW — Full inside about.html -->
@@ -359,25 +343,24 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center"><a href="pages/contact.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 text-white font-semibold hover:bg-black">Contact & Support →</a></section>
 <!-- FOOTER - Professional Bottom -->
 <footer class="bg-slate-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid md:grid-cols-4 gap-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
       <div class="md:col-span-1">
-        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-extrabold text-white">G</div><span class="font-display font-bold text-lg">GuidanceAI</span></div>
-        <p class="mt-3 text-sm text-slate-300 leading-relaxed">Virtual counsellor • Django + RandomForest 89% + PCA • 750+ students guided • 25 domains Atlas + Vault.</p>
-        <div class="mt-4 flex gap-2">
-          <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-github"></i></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
-          <a href="mailto:guidance@college.edu" aria-label="Email" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-solid fa-envelope"></i></a>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-extrabold text-white text-lg">G</div><span class="font-display font-bold text-xl">GuidanceAI</span></div>
+        <p class="mt-4 text-[15px] text-slate-300 leading-relaxed">Virtual counsellor for 1st-year CSE — Top-3 domains, roadmaps, vault &amp; parent guidance in 10 languages.</p>
+        <div class="mt-5 flex gap-2">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-github"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
+          <a href="mailto:guidance@college.edu" aria-label="Email" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-solid fa-envelope"></i></a>
         </div>
-        <div class="mt-4 text-xs text-slate-300">Project by CSE Team • Week 1-7 • Vercel + Render</div>
       </div>
-      <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Explore</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="#explorer" class="hover:text-white transition">Domain Atlas → 25 tracks</a></li><li><a href="pages/quiz.html" class="hover:text-white transition">Quiz & ML Filter • 3 min • 25-way</a></li><li><a href="pages/roadmap.html" class="hover:text-white transition">4-Year Roadmaps (25)</a></li><li><a href="pages/resources.html" class="hover:text-white transition">Resource Hub + Vault</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Dashboards + Compare</a></li></ul></div>
-      <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">For Users</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="pages/dashboard.html" class="hover:text-white transition">Student • XP & Roadmap</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Parent • Voice Report (10 langs)</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Teacher • Batch Analytics</a></li><li><span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-robot text-cyan-400"></i> Chatbot + Voice</span></li></ul></div>
-      <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Tech & Docs</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> RandomForest 89% • PCA 11→10 • 25-way</li><li>Dataset: 750 (30×25) • Atlas</li><li>API: Django REST • Vault</li><li>Docs: /vault/ • Offline</li></ul><details class="mt-3 group"><summary class="text-xs text-slate-300 hover:text-white cursor-pointer list-none flex items-center gap-1"><i class="fa-solid fa-code text-xs"></i> Developer info (hidden) <i class="fa-solid fa-chevron-down text-[10px] group-open:rotate-180 transition"></i></summary><div class="mt-2 text-xs text-slate-300 font-mono bg-white/5 p-2 rounded-lg">ml/dataset.csv • backend/api/views.py • docs/ARCHITECTURE.md</div></details><div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> Privacy-first • No tracking • Offline fallback</div></div>
+      <div><div class="font-bold text-sm tracking-wider uppercase text-white">Explore</div><ul class="mt-5 space-y-3 text-[15px] text-slate-300"><li><a href="#explorer" class="hover:text-white transition">Domain Atlas — 25 tracks</a></li><li><a href="pages/quiz.html#quiz" class="hover:text-white transition">Quiz — 3 min Top-3</a></li><li><a href="pages/roadmap.html" class="hover:text-white transition">4-Year Roadmaps</a></li><li><a href="pages/resources.html" class="hover:text-white transition">Resource Hub + Vault</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Dashboards + Compare</a></li></ul></div>
+      <div><div class="font-bold text-sm tracking-wider uppercase text-white">For Users</div><ul class="mt-5 space-y-3 text-[15px] text-slate-300"><li><a href="pages/dashboard.html" class="hover:text-white transition">Student — XP &amp; Roadmap</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Parent — Voice Report</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Teacher — Batch Analytics</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Chatbot + Voice →</a></li></ul></div>
+      <div><div class="font-bold text-sm tracking-wider uppercase text-white">Why us</div><ul class="mt-5 space-y-3 text-[15px] text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> RandomForest 89% • 25-way</li><li>NPTEL • Coursera • YouTube</li><li>Privacy-first • Offline ready</li></ul><div class="mt-5 p-4 rounded-2xl bg-white/5 border border-white/10 text-sm text-slate-200"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> No signup • Data stays local</div></div>
     </div>
-    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-      <div class="text-slate-300 text-center md:text-left">© 2026 GuidanceAI • Open-source • <span class="text-white">v1.0</span></div>
-      <div class="flex items-center gap-3 text-slate-300"><span>Files → See FILE_MAP.md</span><span class="hidden sm:inline">•</span><button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-3 py-1.5 rounded-full bg-white text-slate-900 font-semibold hover:bg-slate-100 transition">↑ Back to top</button></div>
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+      <div class="text-slate-300 text-center md:text-left">© 2026 GuidanceAI • Open-source • <span class="text-white">v2.0 Pro</span></div>
+      <div class="flex items-center gap-3"><button onclick="try{['guidance_gate','guidance_onboarded'].forEach(k=>localStorage.removeItem(k))}catch(e){};location.href=location.pathname+'?fresh=1'" class="px-4 py-2.5 rounded-xl border border-white/20 text-slate-200 font-semibold hover:bg-white/10 transition min-h-[44px]" title="Replay the sign-in + quiz intro">↺ Replay intro</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-4 py-2.5 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition min-h-[44px]">↑ Back to top</button></div>
     </div>
   </div>
 </footer>
@@ -423,10 +406,36 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
     <div class="p-6 pt-0 flex gap-3"><button onclick="document.getElementById('domainModal').classList.add('hidden'); document.getElementById('domainModal').setAttribute('aria-hidden','true')" class="flex-1 py-3 rounded-xl border font-bold">Close</button><button onclick="document.getElementById('domainModal').classList.add('hidden'); document.getElementById('quiz').scrollIntoView({behavior:'smooth'})" class="flex-1 py-3 rounded-xl bg-indigo-600 text-white font-bold">Take Quiz for this Domain →</button></div>
   </div>
 </div>
-<div id="videoModal" class="hidden fixed inset-0 z-50 bg-slate-900/80 grid place-items-center p-4" role="dialog" aria-modal="true" aria-hidden="true"><div class="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-lg w-full text-slate-800 dark:text-slate-100"><h3 class="font-bold">Demo — Atlas 25 + Vault (45 sec)</h3><div class="mt-3 aspect-video bg-slate-900 rounded-xl grid place-items-center text-white text-center p-6"><div><i class="fa-solid fa-play text-3xl"></i><div class="mt-2 font-semibold">How it works: Quiz → Top-3 → Handbook → Vault</div><div class="text-sm text-slate-300 mt-1">Take the 3-min quiz to see your live Top-3 with roadmap and vault.</div><a href="pages/quiz.html" class="mt-3 inline-flex px-5 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-sm">Start Quiz →</a></div></div><button onclick="document.getElementById('videoModal').classList.add('hidden')" class="mt-4 w-full py-2.5 rounded-xl border font-bold">Close</button></div></div>
+<div id="videoModal" class="hidden fixed inset-0 z-50 bg-slate-900/80 grid place-items-center p-4" role="dialog" aria-modal="true" aria-hidden="true"><div class="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-lg w-full text-slate-800 dark:text-slate-100"><h3 class="font-bold">Demo — Atlas 25 + Vault (45 sec)</h3><div class="mt-3 aspect-video bg-slate-900 rounded-xl grid place-items-center text-white text-center p-6"><div><i class="fa-solid fa-play text-3xl"></i><div class="mt-2 font-semibold">How it works: Quiz → Top-3 → Handbook → Vault</div><div class="text-sm text-slate-300 mt-1">Take the 3-min quiz to see your live Top-3 with roadmap and vault.</div><a href="pages/quiz.html#quiz" class="mt-3 inline-flex px-5 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-sm">Start Quiz →</a></div></div><button onclick="document.getElementById('videoModal').classList.add('hidden')" class="mt-4 w-full py-2.5 rounded-xl border font-bold">Close</button></div></div>
 
 <!-- TOAST -->
 <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm shadow-xl z-50" role="status" aria-live="polite"></div>
+
+<!-- GATE 1/2 — Sign in first (skippable, SEO-safe: hidden by default) -->
+<div id="gateModal" class="hidden fixed inset-0 z-[60] bg-slate-950/70 backdrop-blur-sm p-4 grid place-items-center" role="dialog" aria-modal="true" aria-label="Sign in to GuidanceAI">
+  <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-8 text-center shadow-2xl border dark:border-slate-700">
+    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center text-white font-display font-extrabold text-2xl mx-auto">G</div>
+    <div class="mt-3 font-mono text-[11px] tracking-[0.2em] uppercase text-slate-500">Step 1 of 2 • 30 seconds</div>
+    <h3 class="mt-2 font-display font-extrabold text-2xl">Sign in to GuidanceAI</h3>
+    <p class="mt-2 text-slate-600 dark:text-slate-400">Your quiz Top-3 and vault save to your profile on this device.</p>
+    <a href="pages/signin.html" class="mt-6 block w-full py-3.5 rounded-2xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition min-h-[48px] flex items-center justify-center">Sign in / Create account →</a>
+    <button id="gateGuest" class="mt-3 w-full py-3 rounded-2xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px]">Explore without signing in</button>
+    <p class="mt-3 text-xs text-slate-500">Quiz auto-starts after sign-in • Guests start it manually</p>
+  </div>
+</div>
+
+<!-- GATE 2/2 — Start quiz popup; after quiz hero shows Your Top-3 -->
+<div id="onboardModal" class="hidden fixed inset-0 z-[60] bg-slate-950/70 backdrop-blur-sm p-4 grid place-items-center" role="dialog" aria-modal="true" aria-label="Start with quiz">
+  <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-8 text-center shadow-2xl border dark:border-slate-700">
+    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center text-white font-display font-extrabold text-2xl mx-auto">G</div>
+    <div class="mt-3 font-mono text-[11px] tracking-[0.2em] uppercase text-slate-500">Step 2 of 2 • 3 minutes</div>
+    <h3 class="mt-2 font-display font-extrabold text-2xl">Find your Top-3 domains</h3>
+    <p class="mt-2 text-slate-600 dark:text-slate-400">Take a quick quiz — your 3 best-fit courses appear right here on the homepage.</p>
+    <a href="pages/quiz.html#quiz" class="mt-6 block w-full py-3.5 rounded-2xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition min-h-[48px] flex items-center justify-center">Start Quiz →</a>
+    <button id="onboardLater" class="mt-3 w-full py-3 rounded-2xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px]">Explore first</button>
+    <p class="mt-3 text-xs text-slate-500">Private • No signup • 10 languages</p>
+  </div>
+</div>
 
 <script>window.FRONT_PREVIEW_LIMIT=8;</script>
 <script src="assets/js/app.js"></script>
@@ -437,6 +446,7 @@ try {
   const hint = document.getElementById('kbHint');
   if (hint) hint.textContent = isMac ? '⌘K' : 'Ctrl+K';
 } catch(e){}
+
 // Sync mobile header controls with desktop — ensures language/role work on mobile where header selects are hidden
 try{
   const mLang=document.getElementById('mobileLangSwitcher'), dLang=document.getElementById('langSwitcher');
@@ -444,10 +454,87 @@ try{
   const mRole=document.getElementById('mobileRoleSwitcher'), dRole=document.getElementById('roleSwitcher');
   if(mRole&&dRole){ mRole.value=dRole.value; mRole.addEventListener('change',()=>{dRole.value=mRole.value; dRole.dispatchEvent(new Event('change'));}); dRole.addEventListener('change',()=>{mRole.value=dRole.value;}); }
 }catch(e){}
-// Force header quiz visible — own technique guarantee
+// 10Cr: deterministic jump to Domains top — pure #anchors mis-land because
+// cards render async after the click (layout shifts mid smooth-scroll)
+function scrollToDomains(e){
+ if(e&&e.preventDefault) e.preventDefault();
+ try{
+  let userMoved=false;
+  const onMove=()=>{ userMoved=true; };
+  window.addEventListener('wheel',onMove,{once:true,passive:true});
+  window.addEventListener('touchmove',onMove,{once:true,passive:true});
+  const land=()=>{
+    const sec=document.getElementById('explorer');
+    if(!sec){ location.hash='#explorer'; return false; }
+    // Instant jump (no smooth glide): always exact, never caught mid-animation
+    const top=sec.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({top:Math.max(0,top),behavior:'auto'});
+    try{ history.replaceState(null,'','#explorer'); }catch(_){}
+    return true;
+  };
+  land();
+  // Correction pass: async card/chart/font rendering shifts layout after the
+  // jump — re-pin heading to top unless the user scrolled manually
+  setTimeout(()=>{
+    if(userMoved) return;
+    const sec=document.getElementById('explorer');
+    if(!sec) return;
+    const r=sec.getBoundingClientRect();
+    if(r.top>140||r.top<-40){ land(); }
+  },650);
+ }catch(err){ location.hash='#explorer'; }
+}
+try{ window.scrollToDomains=scrollToDomains; }catch(e){}
+document.addEventListener('click',function(e){
+ const a=e.target&&e.target.closest?e.target.closest('a[href="#explorer"]'):null;
+ if(a) scrollToDomains(e);
+});
+// 10Cr sequence: GATE sign-in -> QUIZ popup -> hero Your Top-3 (soft gate, skippable, SEO-safe)
 try{
-  const btn=document.getElementById('headerQuizBtn');
-  if(btn){ btn.style.display='inline-flex'; btn.style.visibility='visible'; btn.style.opacity='1'; btn.removeAttribute('hidden'); }
+  const get=(k)=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } };
+  const set=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
+  const del=(k)=>{ try{ localStorage.removeItem(k); }catch(e){} };
+  // Fresh-replay support for testing on live server: index.html?fresh=1 replays full gate sequence
+  const qs=new URLSearchParams(location.search||'');
+  if(qs.get('fresh')==='1'||location.hash==='#fresh'){ ['guidance_gate','guidance_onboarded'].forEach(del); try{history.replaceState(null,'',location.pathname)}catch(e){} console.log('[GuidanceAI] fresh replay — gate flags cleared'); }
+  const getUser=()=>{ try{ const u=JSON.parse(get('guidance_user')||'null'); return (u&&u.email)?u:null; }catch(e){ return null; } };
+  // 1) Personalize hero slot if quiz completed (your screenshot place)
+  const raw=get('guidance_top3');
+  if(raw){
+    try{
+      const top3=JSON.parse(raw);
+      if(Array.isArray(top3)&&top3.length>=3){
+        const barColors=['bg-indigo-600','bg-cyan-500','bg-emerald-500'];
+        const esc=(s)=>String(s).replace(/</g,'&lt;');
+        const rows=top3.slice(0,3).map(([name,score],i)=>`<div><div class="flex justify-between"><span>${esc(name)}</span><span class="font-bold">${score}%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full ${barColors[i]||'bg-indigo-600'}" style="width:${score}%"></div></div></div>`).join('');
+        const grid=document.getElementById('heroTop3');
+        if(grid){ const left=grid.querySelector('.space-y-4'); if(left) left.innerHTML=rows; }
+        const title=document.getElementById('heroPreviewTitle'); if(title) title.textContent='Your Top-3 Domains';
+        const badge=document.getElementById('heroBadge'); if(badge){ badge.textContent='Your result'; }
+        const why=document.getElementById('heroWhy'); if(why) why.innerHTML='<i class="fa-solid fa-lightbulb mr-1"></i> <b>Your best fit: '+esc(top3[0][0])+'</b> at '+top3[0][1]+'% — open its handbook & vault below. <a class="underline font-semibold" href="pages/quiz.html#quiz">Retake</a>';
+        const cta=document.getElementById('heroCTA'); if(cta){ cta.textContent='View My Roadmap'; cta.href='pages/roadmap.html?domain='+encodeURIComponent(top3[0][0]); }
+      }
+    }catch(e){}
+  }
+  // 2) Refresh-restart sequence: EVERY reload restarts the process — quiz auto-start ONLY after sign-in
+  const done=get('guidance_completed')==='1'||!!raw;
+  const user=getUser();
+  const show=(id)=>{ const m=document.getElementById(id); if(m) m.classList.remove('hidden'); };
+  const hide=(id)=>{ const m=document.getElementById(id); if(m) m.classList.add('hidden'); };
+  if(!done){
+    if(!user){
+      setTimeout(()=>{ show('gateModal'); console.log('[GuidanceAI] gate: sign-in popup shown (fresh refresh)'); },900);
+    } else {
+      setTimeout(()=>{ show('onboardModal'); console.log('[GuidanceAI] gate: quiz popup shown (signed in, fresh refresh)'); },600);
+    }
+  } else if(!user){
+    setTimeout(()=>{ show('gateModal'); console.log('[GuidanceAI] gate: sign-in popup shown (refresh, quiz done — sign in to keep results)'); },900);
+  } else { console.log('[GuidanceAI] gate: quiz completed — hero shows Your Top-3'); }
+  document.getElementById('gateGuest')?.addEventListener('click',()=>{ set('guidance_gate','1'); hide('gateModal'); console.log('[GuidanceAI] gate: guest — no auto quiz, browse freely'); });
+  document.getElementById('gateModal')?.addEventListener('click',(e)=>{ if(e.target.id==='gateModal'){ set('guidance_gate','1'); hide('gateModal'); } });
+  document.getElementById('onboardLater')?.addEventListener('click',()=>{ set('guidance_onboarded','1'); hide('onboardModal'); });
+  document.getElementById('onboardModal')?.addEventListener('click',(e)=>{ if(e.target.id==='onboardModal'){ set('guidance_onboarded','1'); e.currentTarget.classList.add('hidden'); } });
+  document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ hide('gateModal'); hide('onboardModal'); } });
 }catch(e){}
 </script>
 <noscript><div style="background:#fee; color:#900; padding:12px; text-align:center;">JavaScript is disabled — please enable to use Quiz, Radar & Chatbot. Or open <code>docs/</code> for offline info.</div></noscript>

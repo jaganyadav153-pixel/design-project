@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — GuidanceAI</title>
+<meta name="description" content="Sign in to GuidanceAI — save quiz Top-3, vault files, roadmaps and parent reports on this device. Private by design.">
+<meta name="theme-color" content="#4F46E5">
+<link rel="canonical" href="https://guidanceai.vercel.app/signin.html">
+<meta name="robots" content="noindex,follow">
+<meta property="og:title" content="Sign in | GuidanceAI">
+<meta property="og:description" content="Your Top-3 domains, vault and roadmaps — saved on your device.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guidanceai.vercel.app/signin.html">
+<meta property="og:image" content="https://guidanceai.vercel.app/public/icons/icon-512.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234F46E5'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='48' font-family='sans-serif' font-weight='800' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="../public/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet"></noscript>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/theme-contrast.css">
+<script>
+tailwind.config = {
+ darkMode: 'class',
+ theme: { extend: {
+  fontFamily: { sans: ['Inter','system-ui','sans-serif'], display: ['Plus Jakarta Sans','sans-serif'] },
+  colors: { primary: '#4F46E5', secondary: '#06B6D4', accent: '#F59E0B' }
+ }}
+}
+</script>
+<style>
+html{scroll-behavior:smooth}
+section#signinHero{background:radial-gradient(600px 300px at 15% 20%,rgba(99,102,241,.45),transparent 60%),radial-gradient(500px 300px at 85% 20%,rgba(6,182,212,.35),transparent 60%),radial-gradient(700px 400px at 50% 100%,rgba(245,158,11,.16),transparent 60%),linear-gradient(135deg,#0B0F2E 0%,#1E1B4B 38%,#312E81 68%,#0E7490 100%)}
+.btn-press:active{transform:scale(.97)}
+:focus-visible{outline:2px solid #4F46E5;outline-offset:2px}
+.tab-active{background:#0F172A !important;color:#fff !important;border-color:#0F172A !important}
+</style>
+</head>
+<body class="bg-[#F6F7FB] dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans antialiased">
+<nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
+ <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 px-3 py-2 bg-indigo-600 text-white rounded-lg">Skip to content</a>
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <a href="../index.html" class="flex items-center gap-2.5" aria-label="GuidanceAI Home">
+   <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center text-white font-display font-extrabold">G</div>
+   <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
+  </a>
+  <div class="hidden lg:flex items-center gap-6 text-sm font-medium" role="navigation" aria-label="Primary">
+   <a href="../index.html" class="hover:text-primary">Home</a>
+   <a href="explorer.html" class="hover:text-primary">Atlas</a>
+   <a href="quiz.html#quiz" class="hover:text-primary">Quiz</a>
+   <a href="roadmap.html" class="hover:text-primary">Roadmap</a>
+   <a href="resources.html" class="hover:text-primary">Resources</a>
+   <a href="dashboard.html" class="hover:text-primary">Vault</a>
+   <a href="about.html" class="hover:text-primary">About</a>
+   <a href="contact.html" class="hover:text-primary">Contact</a>
+  </div>
+  <div class="flex items-center gap-2">
+   <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-regular fa-moon"></i></button>
+   <a href="quiz.html#quiz" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700">Start Quiz →</a>
+   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
+  </div>
+ </div>
+  <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
+   <div class="px-4 py-4 space-y-1 text-sm font-medium">
+    <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
+    <a href="explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Atlas</a>
+    <a href="quiz.html#quiz" class="block px-3 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold">Start Quiz →</a>
+    <a href="roadmap.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Roadmap</a>
+    <a href="resources.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Resources</a>
+    <a href="dashboard.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Vault</a>
+    <a href="about.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">About</a>
+    <a href="contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Contact</a>
+   </div>
+ </div>
+</nav>
+<main id="main">
+<section id="signinHero" class="relative overflow-hidden">
+ <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid lg:grid-cols-2 gap-10 items-center">
+  <div class="text-white">
+   <div class="font-mono text-xs tracking-[0.2em] uppercase text-cyan-300">Private by design • No spam</div>
+   <h1 class="mt-3 font-display font-extrabold text-4xl lg:text-5xl leading-[1.05] tracking-tight">Welcome back.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-amber-200">Your Top-3 waits.</span></h1>
+   <p class="mt-4 text-white/85 text-lg leading-relaxed max-w-lg">Sign in to keep your quiz results, vault files, roadmaps and parent reports on this device. No signup needed for demo — continue as guest anytime.</p>
+   <ul class="mt-6 space-y-3 text-sm text-white/90">
+    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-300"></i> Top-3 + roadmap restored after quiz</li>
+    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-300"></i> Vault files stay local, counts follow you</li>
+    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-300"></i> Student / Parent / Teacher roles</li>
+   </ul>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-6 sm:p-8 border border-white/20">
+   <div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-slate-100 dark:bg-slate-900" role="tablist" aria-label="Sign mode">
+    <button id="tabIn" role="tab" aria-selected="true" class="tab-active py-2.5 rounded-xl border text-sm font-bold transition min-h-[44px]">Sign in</button>
+    <button id="tabUp" role="tab" aria-selected="false" class="py-2.5 rounded-xl border border-transparent text-sm font-bold transition min-h-[44px] hover:bg-white dark:hover:bg-slate-800">Create account</button>
+   </div>
+   <div class="mt-5 grid grid-cols-2 gap-3">
+    <button onclick="socialSign('Google')" class="py-3 rounded-xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px] flex items-center justify-center gap-2"><i class="fa-brands fa-google text-red-500"></i> Google</button>
+    <button onclick="socialSign('GitHub')" class="py-3 rounded-xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px] flex items-center justify-center gap-2"><i class="fa-brands fa-github"></i> GitHub</button>
+   </div>
+   <div class="my-5 flex items-center gap-3 text-xs text-slate-500"><span class="h-px flex-1 bg-slate-200"></span> or with email <span class="h-px flex-1 bg-slate-200"></span></div>
+   <form id="signinForm" class="space-y-4" novalidate>
+    <div id="nameWrap" class="hidden">
+     <label for="suName" class="text-sm font-semibold">Full name</label>
+     <input id="suName" type="text" autocomplete="name" placeholder="Aarav Kumar" class="mt-2 w-full px-4 py-3 rounded-xl border min-h-[48px]">
+    </div>
+    <div>
+     <label for="suEmail" class="text-sm font-semibold">Email</label>
+     <input id="suEmail" type="email" autocomplete="email" placeholder="you@college.edu" required class="mt-2 w-full px-4 py-3 rounded-xl border min-h-[48px]">
+     <p id="errEmail" class="hidden text-xs text-red-600 mt-1"></p>
+    </div>
+    <div>
+     <div class="flex items-center justify-between"><label for="suPass" class="text-sm font-semibold">Password</label><button type="button" id="forgotBtn" class="text-xs text-indigo-600 hover:underline">Forgot?</button></div>
+     <div class="relative">
+      <input id="suPass" type="password" autocomplete="current-password" placeholder="••••••••" required minlength="6" class="mt-2 w-full px-4 py-3 pr-12 rounded-xl border min-h-[48px]">
+      <button type="button" id="passToggle" aria-label="Show password" class="absolute right-2 top-1/2 -translate-y-1/2 mt-1 w-10 h-10 rounded-xl hover:bg-slate-100 grid place-items-center text-slate-500"><i class="fa-regular fa-eye"></i></button>
+     </div>
+     <p id="errPass" class="hidden text-xs text-red-600 mt-1"></p>
+    </div>
+    <div>
+     <label for="suRole" class="text-sm font-semibold">I am a</label>
+     <select id="suRole" class="mt-2 w-full px-4 py-3 rounded-xl border bg-white dark:bg-slate-800 min-h-[48px]">
+      <option value="student">Student</option>
+      <option value="parent">Parent</option>
+      <option value="teacher">Teacher</option>
+     </select>
+    </div>
+    <label class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"><input id="remember" type="checkbox" checked class="mt-1"> Remember me on this device (local only, never uploaded).</label>
+    <button id="submitBtn" type="submit" class="w-full py-3.5 rounded-2xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition min-h-[48px] btn-press">Sign in →</button>
+   </form>
+   <button onclick="guestContinue()" class="mt-3 w-full py-3 rounded-2xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px]">Continue as guest</button>
+   <p class="mt-4 text-xs text-center text-slate-500"><i class="fa-solid fa-lock mr-1"></i> Demo auth — stored only in your browser. <a href="quiz.html#quiz" class="text-indigo-600 hover:underline font-semibold">Skip to quiz →</a></p>
+  </div>
+ </div>
+</section>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid sm:grid-cols-3 gap-4 text-sm">
+ <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border flex gap-3"><i class="fa-solid fa-bolt mt-1 text-amber-500"></i><div><b>Resume quiz</b><div class="text-slate-600 dark:text-slate-400">Top-3 restores on the homepage hero.</div></div></div>
+ <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border flex gap-3"><i class="fa-solid fa-folder-open mt-1 text-indigo-600"></i><div><b>Vault follows you</b><div class="text-slate-600 dark:text-slate-400">File counts per domain, per profile.</div></div></div>
+ <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border flex gap-3"><i class="fa-solid fa-language mt-1 text-cyan-600"></i><div><b>10 languages</b><div class="text-slate-600 dark:text-slate-400">Parent reports + voice readout.</div></div></div>
+</section>
+</main>
+<footer class="bg-slate-900 text-white">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-300">
+   <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-bold text-white">G</div> GuidanceAI • Private by design</div>
+   <div class="flex gap-4"><a href="../index.html" class="hover:text-white">Home</a><a href="quiz.html#quiz" class="hover:text-white">Quiz</a><a href="dashboard.html" class="hover:text-white">Dashboard</a><span>© 2026</span></div>
+  </div>
+ </div>
+</footer>
+<div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm shadow-xl z-50" role="status" aria-live="polite"></div>
+<script src="../assets/js/app.js"></script>
+<script>
+function toggleDark(){document.documentElement.classList.toggle('dark');try{localStorage.setItem('dark',document.documentElement.classList.contains('dark'))}catch(e){}}
+try{if(localStorage.getItem('dark')==='true')document.documentElement.classList.add('dark')}catch(e){}
+document.getElementById('mobileMenuBtn')?.addEventListener('click',()=>document.getElementById('mobileDrawer')?.classList.toggle('hidden'));
+function toast(m){const t=document.getElementById('toast');if(!t)return;t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2200)}
+let mode='in';
+const tabIn=document.getElementById('tabIn'),tabUp=document.getElementById('tabUp'),nameWrap=document.getElementById('nameWrap'),submitBtn=document.getElementById('submitBtn'),passInput=document.getElementById('suPass');
+function setMode(m){mode=m;const up=m==='up';tabIn.classList.toggle('tab-active',!up);tabUp.classList.toggle('tab-active',up);tabIn.setAttribute('aria-selected',String(!up));tabUp.setAttribute('aria-selected',String(up));nameWrap.classList.toggle('hidden',!up);submitBtn.textContent=up?'Create account →':'Sign in →';passInput.setAttribute('autocomplete',up?'new-password':'current-password')}
+tabIn.onclick=()=>setMode('in');tabUp.onclick=()=>setMode('up');
+document.getElementById('passToggle').onclick=function(){const show=passInput.type==='password';passInput.type=show?'text':'password';this.setAttribute('aria-label',show?'Hide password':'Show password');this.innerHTML=show?'<i class="fa-regular fa-eye-slash"></i>':'<i class="fa-regular fa-eye"></i>';passInput.focus()};
+document.getElementById('forgotBtn').onclick=()=>toast('Demo — use any 6+ char password, stored locally only');
+function saveUser(name,email,role,provider){try{const u={name:name||email.split('@')[0],email,role:role||'student',provider:provider||'email',ts:Date.now()};localStorage.setItem('guidance_user',JSON.stringify(u));localStorage.setItem('role',u.role);const rs=document.getElementById('roleSwitcher');if(rs)rs.value=u.role}catch(e){}return true}
+function next(){const q=new URLSearchParams(location.search).get('next');if(q){location.href=q;return}location.href='quiz.html#quiz'}
+function socialSign(p){const email='demo.'+p.toLowerCase()+'@college.edu';saveUser(p+' User',email,document.getElementById('suRole').value,p);toast('Signed in with '+p+' (demo) — opening quiz…');setTimeout(next,600)}
+function guestContinue(){try{localStorage.setItem('guidance_onboarded','1')}catch(e){}location.href='quiz.html#quiz'}
+document.getElementById('signinForm').addEventListener('submit',function(e){e.preventDefault();
+ const email=document.getElementById('suEmail').value.trim(),pass=passInput.value,name=(document.getElementById('suName').value||'').trim(),role=document.getElementById('suRole').value;
+ const eE=document.getElementById('errEmail'),eP=document.getElementById('errPass');let ok=true;
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){eE.textContent='Enter a valid email';eE.classList.remove('hidden');ok=false}else eE.classList.add('hidden');
+ if(!pass||pass.length<6){eP.textContent='Password needs 6+ characters (demo only)';eP.classList.remove('hidden');ok=false}else eP.classList.add('hidden');
+ if(mode==='up'&&!name){toast('Add your name to create your profile');document.getElementById('suName').focus();return}
+ if(!ok)return;
+ saveUser(name,email,role,'email');toast(mode==='up'?'Account created — opening quiz…':'Signed in — opening quiz…');setTimeout(next,600);
+});
+(function(){try{const u=JSON.parse(localStorage.getItem('guidance_user')||'null');if(u&&u.email){var card=document.querySelector('#signinHero .bg-white.dark\\:bg-slate-800');if(card){var n=(u.name||u.email.split('@')[0]);var init=n.trim().charAt(0).toUpperCase();card.innerHTML='<div class="text-center py-4"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center text-white font-display font-extrabold text-2xl mx-auto">'+init+'</div><h3 class="mt-4 font-display font-extrabold text-2xl">You are signed in as '+n.replace(/</g,'&lt;')+'</h3><p class="mt-2 text-slate-600 dark:text-slate-400">'+u.email.replace(/</g,'&lt;')+' • '+u.role+'</p><a href="quiz.html#quiz" class="mt-6 block w-full py-3.5 rounded-2xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition min-h-[48px] flex items-center justify-center">Continue to Quiz →</a><div class="mt-3 grid grid-cols-2 gap-3"><a href="../index.html" class="py-3 rounded-2xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px] flex items-center justify-center">Homepage</a><button onclick="try{localStorage.removeItem(\'guidance_user\')}catch(e){};location.reload()" class="py-3 rounded-2xl border font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition min-h-[48px]">Sign out</button></div></div>';return}document.getElementById('suEmail').value=u.email;if(u.name&&document.getElementById('suName'))document.getElementById('suName').value=u.name}}catch(e){}})();
+setTimeout(()=>{try{document.getElementById(mode==='up'?'suName':'suEmail').focus({preventScroll:true})}catch(e){}},400);
+</script>
+</body>
+</html>

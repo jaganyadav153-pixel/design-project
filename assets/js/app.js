@@ -1,4 +1,4 @@
-// ---------- DATA : 25 Domains Atlas Pro ----------
+﻿// ---------- DATA : 25 Domains Atlas Pro ----------
 const domains = [
  // Intelligence & Data (6)
  {id:'AI', name:'Artificial Intelligence (AI)', short:'AI', category:'Intelligence & Data', icon:'fa-brain', color:'from-violet-600 to-indigo-600', tag:'Trending 2026', level:'Advanced', demand:'Very High', growth:'35%', desc:'Build intelligent systems that think, learn & reason.', skills:['Python','Math','Logic','ML Basics'], careers:['AI Engineer (12 LPA)','Data Scientist','Researcher'], roadmap:'Python → Math → ML → Deep Learning → Projects', salary:'8-15 LPA', salaryNum:12, resources: ['NPTEL Intro to AI','Coursera AI for Everyone']},
@@ -194,7 +194,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "Find Your Perfect Domain (25-way)",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -208,7 +208,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -684,7 +684,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "अपना परफेक्ट डोमेन खोजें (25-वे)",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -698,7 +698,7 @@ const i18n = {
   "quiz_get_rec": "सिफारिश पाएं →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -929,7 +929,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "உங்கள் சரியான டொமைனைக் கண்டறியவும்",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -943,7 +943,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -1174,7 +1174,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "ನಿಮ್ಮ ಪರಿಪೂರ್ಣ ಡೊಮೇನ್ ಹುಡುಕಿ",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -1188,7 +1188,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -1419,7 +1419,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "നിങ്ങളുടെ മികച്ച ഡൊമെയ്ൻ കണ്ടെത്തുക",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -1433,7 +1433,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -1664,7 +1664,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "तुमचा परफेक्ट डोमेन शोधा",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -1678,7 +1678,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -1909,7 +1909,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "আপনার পারফেক্ট ডোমেন খুঁজুন",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -1923,7 +1923,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -2154,7 +2154,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "તમારો પરફેક્ટ ડોમેન શોધો",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -2168,7 +2168,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -2399,7 +2399,7 @@ const i18n = {
   "compare_feat_careers": "Careers",
   "quiz_badge": "ML Filter • 3 Minutes • 15 Questions + Marks",
   "quiz_title": "اپنا بہترین ڈومین تلاش کریں",
-  "quiz_sub": "Quiz + Marks + Interest → AI ensemble → Top-3 across 25 tracks with confidence, radar & vault suggestion. Demo uses 750-record synthetic dataset (30×25).",
+  "quiz_sub": "Answer 15 quick questions plus your marks - get your Top-3 domains with roadmap and vault suggestion.",
   "quiz_step_marks": "Step 1 of {total} • Marks",
   "quiz_step_q": "Step {n} of {total} • Q{q}",
   "quiz_marks_title": "First, your academic marks (0-100)",
@@ -2413,7 +2413,7 @@ const i18n = {
   "quiz_get_rec": "Get Recommendation →",
   "quiz_predicting": "Predicting…",
   "quiz_fix_marks": "Please fix marks (0-100)",
-  "quiz_local": "Your data stays local • Model: backend/ml_service/model.pkl (RandomForest 89%) • Fallback JS ensemble",
+  "quiz_local": "Your data stays on this device - private by design",
   "results_why_prefix": "Why",
   "results_runner": "Runner-up",
   "results_best_fit": "Best fit • Start roadmap + vault",
@@ -2787,9 +2787,9 @@ const domainNames = {
   "Embedded Systems": "ےمبےددےد سیستےمس",
   "Quantum Computing": "قوانتوم کومپوتینگ"
  },
- "en": {
-  "AI": "ai Artificial Intelligence (AI)",
-  "ML": "ml Machine Learning (ML)",
+  "en": {
+   "AI": "Artificial Intelligence (AI)",
+   "ML": "Machine Learning (ML)",
   "Data Science": "Data Science",
   "Big Data": "Big Data",
   "Computer Vision": "Computer Vision",
@@ -3380,11 +3380,11 @@ function renderDomains(filterCategory='All', search='') {
   return catMatch && searchMatch;
  });
 
- // Update filter UI active state
- document.querySelectorAll('.cat-pill').forEach(p=>{
-  const isActive = p.dataset.cat===filterCategory;
-  p.className = isActive ? 'cat-pill px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-semibold border border-slate-900' : 'cat-pill px-4 py-2 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50';
- });
+  // Update filter UI active state
+  document.querySelectorAll('.cat-pill').forEach(p=>{
+   const isActive = p.dataset.cat===filterCategory;
+   p.className = isActive ? 'cat-pill px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold border border-slate-900 min-h-[44px]' : 'cat-pill px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 dark:hover:bg-slate-700 min-h-[44px]';
+  });
  const countEl=document.getElementById('domainCount');
  if(countEl) countEl.textContent=t('explorer_showing',{n:filtered.length, total:domains.length});
 
@@ -3415,7 +3415,7 @@ function renderDomains(filterCategory='All', search='') {
    if(list.length===0) continue;
    const catIcons={'Intelligence & Data':'fa-brain','Build & Experience':'fa-code','Core Systems':'fa-server','Frontier Tech':'fa-atom'};
    const catColors={'Intelligence & Data':'from-violet-600 to-indigo-600','Build & Experience':'from-cyan-500 to-blue-600','Core Systems':'from-slate-700 to-slate-900','Frontier Tech':'from-emerald-500 to-teal-600'};
-   html+=`<div class="col-span-full mt-2 first:mt-0"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-gradient-to-br ${catColors[cat]} grid place-items-center text-white"><i class="fa-solid ${catIcons[cat]}"></i></div><div><div class="font-display font-extrabold">${escapeHtml(cat)} <span class="font-sans font-bold text-sm text-slate-500">· ${list.length}</span></div><div class="text-xs text-slate-500">${cat==='Intelligence & Data'?'ML-first, data-driven careers': cat==='Build & Experience'?'Ship products users touch': cat==='Core Systems'?'The engine — secure, scale, persist':'Hardware, immersion, next compute'}</div></div><div class="ml-auto hidden sm:block h-px flex-1 bg-slate-200 ml-4"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">${list.map(d=>cardHtml(d)).join('')}</div></div>`;
+    html+=`<div class="col-span-full mt-4 first:mt-0"><div class="flex items-center gap-3 mb-5"><div class="w-10 h-10 rounded-xl bg-gradient-to-br ${catColors[cat]} grid place-items-center text-white"><i class="fa-solid ${catIcons[cat]}"></i></div><div><div class="font-display font-extrabold text-lg">${escapeHtml(cat)} <span class="font-sans font-bold text-sm text-slate-500">· ${list.length}</span></div><div class="text-sm text-slate-500">${cat==='Intelligence & Data'?'ML-first, data-driven careers': cat==='Build & Experience'?'Ship products users touch': cat==='Core Systems'?'The engine — secure, scale, persist':'Hardware, immersion, next compute'}</div></div><div class="ml-auto hidden sm:block h-px flex-1 bg-slate-200 ml-6"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">${list.map(d=>cardHtml(d)).join('')}</div></div>`;
   }
   grid.innerHTML=html;
  } else {
@@ -3432,28 +3432,26 @@ function cardHtml(d){
  const demandKey = d.demand==='Very High'?'card_demand_vhigh': d.demand==='High'?'card_demand_high':'card_demand_med';
  const levelColor=d.level==='Beginner'?'bg-emerald-50 border-emerald-200 text-emerald-700': d.level==='Intermediate'?'bg-blue-50 border-blue-200 text-blue-700':'bg-violet-50 border-violet-200 text-violet-700';
  const demandColor=d.demand==='Very High'?'bg-red-50 border-red-200 text-red-700': d.demand==='High'?'bg-amber-50 border-amber-200 text-amber-700':'bg-slate-50 border-slate-200 text-slate-700';
- return `
-  <div class="p-5 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 card-hover flex flex-col group relative overflow-hidden">
-   <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${d.color} opacity-80 group-hover:opacity-100 transition"></div>
-   <div class="flex items-start justify-between gap-2">
-    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br ${d.color} grid place-items-center text-white text-lg flex-shrink-0"><i class="fa-solid ${d.icon}" aria-hidden="true"></i></div>
-    <div class="flex flex-col items-end gap-1">
-     <span class="px-2 py-1 rounded-full text-[10px] font-bold border tracking-wider ${d.tag==='Trending 2026'?'bg-amber-50 border-amber-200 text-amber-700': d.tag==='Trending'?'bg-violet-50 border-violet-200 text-violet-700':'bg-slate-50 border-slate-200 text-slate-700'}">${escapeHtml(d.tag)}</span>
-     <span class="text-[10px] font-mono text-slate-400">${escapeHtml(d.short)}</span>
+  return `
+   <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 card-hover flex flex-col group relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${d.color} opacity-90 group-hover:opacity-100 transition"></div>
+    <div class="flex items-start justify-between gap-3">
+     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${d.color} grid place-items-center text-white text-xl flex-shrink-0 shadow-lg"><i class="fa-solid ${d.icon}" aria-hidden="true"></i></div>
+     <div class="flex flex-col items-end gap-1.5">
+      <span class="px-2.5 py-1 rounded-full text-xs font-bold border tracking-wide ${d.tag==='Trending 2026'?'bg-amber-50 border-amber-200 text-amber-700': d.tag==='Trending'?'bg-violet-50 border-violet-200 text-violet-700':'bg-slate-50 border-slate-200 text-slate-700'}">${escapeHtml(d.tag)}</span>
+      <span class="text-xs font-mono text-slate-400">${escapeHtml(d.short)}</span>
+     </div>
     </div>
-   </div>
-   <div class="mt-3 flex items-center gap-2 flex-wrap"><h3 class="font-bold leading-tight text-[15px]">${escapeHtml(td(d.id,'name'))}</h3></div>
-   <div class="mt-1 flex flex-wrap gap-1.5"><span class="px-2 py-1 rounded-full text-[11px] font-semibold border ${levelColor}">${escapeHtml(t(levelKey))}</span><span class="px-2 py-1 rounded-full text-[11px] font-semibold border ${demandColor}">${escapeHtml(t(demandKey))}</span><span class="px-2 py-1 rounded-full bg-slate-50 text-[11px] border">${escapeHtml(d.salary)}</span></div>
-   <p class="mt-2 text-[13px] text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">${escapeHtml(td(d.id,'desc'))}</p>
-   <div class="mt-3 flex flex-wrap gap-1.5">${d.skills.slice(0,3).map(s=>`<span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-[11px] dark:text-slate-300">${escapeHtml(s)}</span>`).join('')}${d.skills.length>3?`<span class="px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] border">+${d.skills.length-3}</span>`:''}</div>
-   <div class="mt-3 flex items-center justify-between text-xs text-slate-500"><span class="flex items-center gap-1"><i class="fa-solid fa-chart-line"></i> ${escapeHtml(d.growth)} ${escapeHtml(t('card_growth'))}</span><span class="flex items-center gap-1"><i class="fa-regular fa-folder"></i> ${escapeHtml(t('card_vault'))} ${vc}</span></div>
-   <div class="mt-4 flex gap-2">
-    <a href="${domainPath(d.id)}" class="flex-1 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-black transition text-center">${escapeHtml(t('card_view'))}</a>
-    <button onclick="openDomain('${escapeHtml(d.id)}'); event.preventDefault();" class="px-2 py-2.5 rounded-xl border text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 bg-white dark:bg-slate-800" title="Quick view">👁</button>
-    <label class="px-3 py-2.5 rounded-xl border text-xs font-semibold flex items-center gap-1.5 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 ${isCompared?'bg-indigo-50 border-indigo-200 text-indigo-700':'bg-white dark:bg-slate-800'}"><input type="checkbox" class="compare-check" data-id="${escapeHtml(d.id)}" ${isCompared?'checked':''} onchange="toggleCompare('${escapeHtml(d.id)}')"> ${escapeHtml(t('card_compare'))}</label>
-   </div>
-   <a href="${domainPath(d.id)}" class="mt-2 inline-flex items-center gap-1 text-xs text-indigo-600 hover:underline">Immersive handbook → <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-  </div>`;
+    <div class="mt-5 flex items-center gap-2 flex-wrap"><h3 class="font-bold leading-tight text-lg"><a href="${domainPath(d.id)}" class="hover:text-indigo-600 transition">${escapeHtml(td(d.id,'name'))}</a></h3></div>
+    <div class="mt-2 flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-full text-xs font-semibold border ${levelColor}">${escapeHtml(t(levelKey))}</span><span class="px-2.5 py-1 rounded-full text-xs font-semibold border ${demandColor}">${escapeHtml(t(demandKey))}</span></div>
+    <p class="mt-3 text-[15px] text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">${escapeHtml(td(d.id,'desc'))}</p>
+    <div class="mt-4 flex flex-wrap gap-1.5">${d.skills.slice(0,2).map(s=>`<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-xs dark:text-slate-300">${escapeHtml(s)}</span>`).join('')}${d.skills.length>2?`<span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs border">+${d.skills.length-2}</span>`:''}<span class="ml-auto text-xs font-semibold text-slate-500">${escapeHtml(d.salary)}</span></div>
+    <div class="mt-3 flex items-center justify-between text-xs text-slate-500"><span class="flex items-center gap-1"><i class="fa-solid fa-chart-line"></i> ${escapeHtml(d.growth)} ${escapeHtml(t('card_growth'))}</span><span class="flex items-center gap-1"><i class="fa-regular fa-folder"></i> ${escapeHtml(t('card_vault'))} ${vc}</span></div>
+    <div class="mt-5 flex gap-2 flex-1 items-end">
+     <a href="${domainPath(d.id)}" class="flex-1 py-3 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-black transition text-center min-h-[44px] flex items-center justify-center">${escapeHtml(t('card_view'))}</a>
+     <label class="px-4 py-3 rounded-xl border text-xs font-semibold flex items-center gap-1.5 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 min-h-[44px] ${isCompared?'bg-indigo-50 border-indigo-200 text-indigo-700':'bg-white dark:bg-slate-800'}"><input type="checkbox" class="compare-check" data-id="${escapeHtml(d.id)}" ${isCompared?'checked':''} onchange="toggleCompare('${escapeHtml(d.id)}')"> ${escapeHtml(t('card_compare'))}</label>
+    </div>
+   </div>`;
 }
 // Defer first render to initLang to avoid FOUC — initLang will call renderDomains with correct lang
 // try{ renderDomains(); }catch(e){}
@@ -3575,6 +3573,22 @@ function showStep(n){
  const label=document.getElementById('quizStepLabel'); if(label) label.textContent= n===1? t('quiz_step_marks',{total:totalSteps}) : t('quiz_step_q',{n:n, total:totalSteps, q:n-1});
  const bar=document.getElementById('quizProgressBar'); if(bar) bar.style.width= (n/totalSteps*100)+'%';
  const txt=document.getElementById('quizProgressText'); if(txt) txt.textContent= Math.round(n/totalSteps*100)+'%';
+  // 10Cr focus: keep quiz questions centered in view + move keyboard focus to current step
+  try{
+   const box=document.getElementById('quizContainer');
+   const step=box?box.querySelector('.quiz-step:not(.hidden)'):null;
+   if(box&&step){
+     const r=box.getBoundingClientRect();
+     if(r.top<80||r.bottom>innerHeight-40){
+       try{
+         const targetY=window.scrollY + r.top - Math.max(82,(window.innerHeight - Math.min(r.height,window.innerHeight*0.85))/2);
+         window.scrollTo({top:Math.max(0,targetY),behavior:'smooth'});
+       }catch(se){ box.scrollIntoView({behavior:'smooth',block:'center'}); }
+     }
+     const f=step.querySelector('input, [tabindex], button');
+     if(f) setTimeout(()=>{ try{ f.focus({preventScroll:true}); }catch(e){ try{ f.focus(); }catch(_){} } },150);
+   }
+  }catch(e){}
 }
 showStep(1);
 const prevBtn=document.getElementById('quizPrev'); if(prevBtn) prevBtn.onclick=()=>{ if(curStep>1){ curStep--; showStep(curStep);} }
@@ -3704,8 +3718,8 @@ function showResults(sorted, scores, marks){
  const res=document.getElementById('quizResults');
  res.classList.remove('hidden');
  fireConfetti();
- // Persist for roadmap page
- try{ localStorage.setItem('quiz_top_domain', sorted[0][0]); localStorage.setItem('quiz_top_score', String(sorted[0][1])); }catch(e){}
+ // Persist for roadmap page + hero Top-3 slot on home
+  try{ localStorage.setItem('quiz_top_domain', sorted[0][0]); localStorage.setItem('quiz_top_score', String(sorted[0][1])); localStorage.setItem('guidance_top3', JSON.stringify(sorted.slice(0,3))); localStorage.setItem('guidance_completed', '1'); }catch(e){}
 
  document.getElementById('resTopDomain').textContent=`${sorted[0][0]} — ${sorted[0][1]}% Match`;
  const strengthLabels=['Logic','Math','Creativity','Security','Cloud','Data','OS','Coding','Trend','Social'];
@@ -3720,7 +3734,25 @@ function showResults(sorted, scores, marks){
    <div class="mt-2 h-1.5 bg-black/10 rounded-full overflow-hidden"><div class="h-full ${i===0?'bg-indigo-600':'bg-white'}" style="width:${p}%"></div></div>
    <div class="mt-2 text-xs ${i===0?'text-slate-600':'opacity-80'}">${i===0?'Best fit • Start roadmap + vault': 'Good alternative'}</div>
   </div>`).join('');
- const radarDom=document.getElementById('radarDomain'); if(radarDom) radarDom.textContent=sorted[0][0];
+  // 10Cr: results focus + toast + 5s auto-return run FIRST (before optional charts below that may early-return)
+  try{ res.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){}
+  try{ toast(`🎉 Predicted: ${sorted[0][0]} (${sorted[0][1]}%) — Vault ready`); }catch(e){}
+  // 10Cr return: 5s countdown back to homepage hero with Your Top-3
+  try{
+   const cd=document.getElementById('quizCountdown'), num=document.getElementById('quizCountNum');
+   if(cd&&num){
+     let n=5; num.textContent=String(n);
+     if(window._quizHomeTimer) clearInterval(window._quizHomeTimer);
+     const stop=()=>{ if(window._quizHomeTimer){ clearInterval(window._quizHomeTimer); window._quizHomeTimer=null; } };
+     document.getElementById('quizStay')?.addEventListener('click',()=>{ stop(); cd.querySelector('.text-sm').innerHTML='<b>Staying here.</b> Your Top-3 is saved — <a class="underline font-bold" href="../index.html">open homepage anytime →</a>'; },{once:true});
+     document.querySelector('#quizResults [onclick*="resetQuiz"]')?.addEventListener('click',stop);
+     window._quizHomeTimer=setInterval(()=>{
+       n--; if(n<=0){ stop(); location.href='../index.html'; return; }
+       num.textContent=String(n);
+     },1000);
+   }
+  }catch(e){}
+  const radarDom=document.getElementById('radarDomain'); if(radarDom) radarDom.textContent=sorted[0][0];
  const radarEl=document.getElementById('resultRadar'); if(!radarEl) return; const ctx=radarEl.getContext('2d');
  if(radarChart) radarChart.destroy();
   radarChart=new Chart(ctx,{type:'radar', data:{labels:['Logic','Math','Creativity','Security','Cloud','Data','OS'], datasets:[{label:'You', data: answers.slice(0,7), fill:true, backgroundColor:contrastChartPalette().fill1, borderColor:contrastChartPalette().c1, pointBackgroundColor:contrastChartPalette().c1, borderWidth:2.5, pointRadius:4}, {label:'Req for '+sorted[0][0], data: weightsForRadar(sorted[0][0]), fill:true, backgroundColor:contrastChartPalette().fill2, borderColor:contrastChartPalette().c2, borderDash:[5,5], borderWidth:2.5}]}, options:{scales:{r:{min:0,max:5,ticks:{stepSize:1, color:contrastChartPalette().tick}, grid:{color:contrastChartPalette().grid}, angleLines:{color:contrastChartPalette().grid}, pointLabels:{color:contrastChartPalette().tick}}}, plugins:{legend:{position:'bottom', labels:{color:contrastChartPalette().tick}}}}});
@@ -3751,9 +3783,7 @@ function showResults(sorted, scores, marks){
   const rc=document.getElementById('roadmapContainerQuiz'); if(rc){ rc.id='roadmapContainer'; renderRoadmap(sorted[0][0]); rc.id='roadmapContainerQuiz'; }
   if(typeof renderCourse==='function') try{ renderCourse(sorted[0][0],0);}catch(e){}
   // If on roadmap.html, respect ?domain param (handled elsewhere)
- }catch(e){}
- res.scrollIntoView({behavior:'smooth'});
- toast(`🎉 Predicted: ${sorted[0][0]} (${sorted[0][1]}%) — Vault ready`);
+  }catch(e){}
 }
 function weightsForRadar(domain){
  const map={
@@ -4663,3 +4693,42 @@ function initCommandPalette(){
 }
 try{ initCommandPalette(); }catch(e){}
 try{ renderCompareBar(); }catch(e){}
+// ---------- AUTH HEADER STATE — signed-in user visible on main page ----------
+function getSignedUser(){ try{ const u=JSON.parse(localStorage.getItem('guidance_user')||'null'); return (u&&u.email)?u:null; }catch(e){ return null; } }
+function signOut(e){ if(e) e.preventDefault(); try{ localStorage.removeItem('guidance_user'); }catch(_){} try{ toast('Signed out — see you soon!'); }catch(_){} setTimeout(()=>renderAuthState(),50); setTimeout(()=>{ try{ location.reload(); }catch(_){} },450); }
+try{ window.signOut=signOut; }catch(e){}
+function renderAuthState(){
+  const user=getSignedUser();
+  // sync role to profile
+  try{ if(user&&user.role){ ['roleSwitcher','mobileRoleSwitcher','suRole'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=user.role; }); } }catch(e){}
+  const links=document.querySelectorAll('a[href$="signin.html"]');
+  links.forEach(a=>{
+    const isDrawer=!!a.closest('#mobileDrawer');
+    if(!user){
+      // signed out — restore link if it was replaced before (reload handles most cases)
+      return;
+    }
+    const first=((user.email||user.name||'U').trim().charAt(0)||'U').toUpperCase();
+    const short=(user.name||user.email.split('@')[0]||'User').split(' ')[0].slice(0,12);
+    if(isDrawer){
+      const row=document.createElement('div');
+      row.setAttribute('data-auth','user');
+      row.className='px-3 py-2.5 rounded-xl bg-indigo-50 dark:bg-slate-800 border border-indigo-100 flex items-center gap-3';
+      row.innerHTML='<span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center text-white font-bold">'+first+'</span><span class="flex-1 min-w-0"><span class="block font-bold truncate">'+short+'</span><span class="block text-xs text-slate-500 truncate">'+user.role+'</span></span><button onclick="signOut(event)" class="text-xs font-bold px-3 py-2 rounded-lg border hover:bg-white" aria-label="Sign out">Out</button>';
+      a.replaceWith(row);
+    } else {
+      // Header: Gmail-letter avatar only (no Start Quiz, no name text)
+      const chip=document.createElement('div');
+      chip.setAttribute('data-auth','user');
+      chip.className='hidden sm:inline-flex items-center gap-1.5 min-h-[44px]';
+      chip.title=(user.email||user.name)+' • '+user.role+' • Open dashboard, × to sign out';
+      chip.innerHTML='<a href="'+(a.getAttribute('href')||'#').replace('signin.html','dashboard.html')+'" class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center text-white font-bold flex-shrink-0" aria-label="Open dashboard as '+short+'">'+first+'</a><button onclick="signOut(event)" class="w-7 h-7 rounded-full border border-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 grid place-items-center text-slate-500 flex-shrink-0 text-sm" aria-label="Sign out">×</button>';
+      a.replaceWith(chip);
+    }
+  });
+}
+try{
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',renderAuthState);
+  else renderAuthState();
+  window.addEventListener('storage',e=>{ if(e.key==='guidance_user') location.reload(); });
+}catch(e){}

@@ -363,22 +363,15 @@ const handbooks = {
      "source": "GeeksforGeeks ?",
      "freq": "Med"
     },
-    {
-     "q": "Design AI system tradeoff ? scale vs cost",
-     "company": "Amazon 2024",
-     "year": "2024",
-     "source": "Glassdoor ?",
-     "freq": "Med"
-    },
-    {
-     "q": "Design AI system tradeoff ? scale vs cost",
-     "company": "Amazon 2024",
-     "year": "2024",
-     "source": "Glassdoor ?",
-     "freq": "Med"
-    }
-   ],
-   "coding": [
+     {
+      "q": "Design AI system tradeoff ? scale vs cost",
+      "company": "Amazon 2024",
+      "year": "2024",
+      "source": "Glassdoor ?",
+      "freq": "Med"
+     }
+    ],
+    "coding": [
     {
      "q": "Group Anagrams",
      "link": "LeetCode 49",
@@ -1377,22 +1370,15 @@ const handbooks = {
      "source": "GeeksforGeeks ?",
      "freq": "High"
     },
-    {
-     "q": "Design Data Science system tradeoff ? scale vs cost",
-     "company": "Amazon 2024",
-     "year": "2024",
-     "source": "Glassdoor ?",
-     "freq": "Med"
-    },
-    {
-     "q": "Design Data Science system tradeoff ? scale vs cost",
-     "company": "Amazon 2024",
-     "year": "2024",
-     "source": "Glassdoor ?",
-     "freq": "Med"
-    }
-   ],
-   "coding": [
+     {
+      "q": "Design Data Science system tradeoff ? scale vs cost",
+      "company": "Amazon 2024",
+      "year": "2024",
+      "source": "Glassdoor ?",
+      "freq": "Med"
+     }
+    ],
+    "coding": [
     {
      "q": "Second Highest Salary SQL",
      "link": "LeetCode 176",

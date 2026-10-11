@@ -82,7 +82,7 @@ function render(id){
  currentId = id;
  const hb = handbooks[id];
  const meta = domainMeta(id);
- if(!hb){ document.getElementById('heroTitle').textContent='Not found'; return; }
+ if(!hb){ try{ document.getElementById('heroTitle').textContent='Not found'; }catch(e){} return; }
  document.title = hb.id + ' Handbook — GuidanceAI • Immersive';
  try{
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', hb.id + ' Handbook — GuidanceAI • Immersive, not PDF');
@@ -100,10 +100,10 @@ function render(id){
  document.getElementById('heroSalary').textContent = meta? meta.salary : '';
  document.getElementById('heroLevel').textContent = meta? meta.level : '';
  document.getElementById('navDomainPill').textContent = hb.id + ' • Immersive';
- document.getElementById('heroCanvasBadge').textContent = hb.id + ' • ' + hb.pillars.length + ' Pillars';
+ document.getElementById('heroCanvasBadge').textContent = hb.id + ' • ' + (hb.pillars?hb.pillars.length:0) + ' Pillars';
  document.getElementById('statDemand').textContent = meta? meta.demand : '';
  document.getElementById('statGrowth').textContent = meta? meta.growth : '';
- document.getElementById('statSalary').textContent = meta? meta.salaryNum + ' LPA' : '';
+ document.getElementById('statSalary').textContent = (meta&&meta.salaryNum!=null) ? meta.salaryNum + ' LPA' : '';
  document.getElementById('domainSwitcher').value = id in handbooks ? id : 'AI';
  document.getElementById('vaultName').textContent = meta? meta.name : hb.id;
   document.getElementById('vaultPath').textContent = 'public/vault/' + (hb.id.toLowerCase().replace(/[^a-z0-9]+/g,'-')) + '/';
@@ -328,12 +328,13 @@ function render(id){
  const idx = keys.indexOf(id);
  const next = keys[(idx+1)%keys.length];
  const nd = document.getElementById('nextDomain');
- nd.href = 'domain.html?id=' + encodeURIComponent(next);
- nd.textContent = 'Next: ' + next + ' →';
+ if(nd){ nd.href = 'domain.html?id=' + encodeURIComponent(next); nd.textContent = 'Next: ' + next + ' →'; }
  // charts with retry for deferred loading
  scheduleCharts(hb, meta);
  // hero 3D with retry
  scheduleHero(hb, meta);
+ // notify page-level hooks (vault list refresh) — safe even if page defined it before domain.js loaded
+ try{ if(typeof window.afterHandbookRender==='function') window.afterHandbookRender(id); }catch(e){}
 }
 
 function scheduleCharts(hb, meta){
@@ -361,11 +362,18 @@ function scheduleCharts(hb, meta){
   setTimeout(()=> scheduleCharts(hb, meta), 120);
  }
 }
+let _heroRetry = 0;
 function scheduleHero(hb, meta){
- if(typeof THREE !== 'undefined' && document.getElementById('heroCanvas')){
+ if(!document.getElementById('heroCanvas')) return;
+ if(typeof THREE !== 'undefined'){
+  _heroRetry = 0;
   initHero3D(hb, meta);
- } else {
+ } else if(_heroRetry < 40){
+  _heroRetry++;
   setTimeout(()=> scheduleHero(hb, meta), 160);
+ } else {
+  // THREE failed/blocked — initHero3D falls through to 2D canvas fallback
+  initHero3D(hb, meta);
  }
 }
 
@@ -540,7 +548,7 @@ function initHero3D(hb, meta){
  if(['AR/VR','IoT','Big Data','Cloud Computing'].includes(hb.id)) particleCount = Math.max(particleCount, 36);
  if(['Quantum Computing','Cybersecurity'].includes(hb.id)) particleCount = Math.max(particleCount, 32);
 
- const hasThree = typeof window.THREE !== 'undefined' && window.THREE.WebGLRenderer && !!canvas.getContext('webgl');
+ const hasThree = typeof window.THREE !== 'undefined' && window.THREE.WebGLRenderer && (function(){ try{ const t=document.createElement('canvas'); return !!(t.getContext('webgl')||t.getContext('experimental-webgl')); }catch(e){ return false; } })();
  if(hasThree){
   try{
    const THREE = window.THREE;
@@ -682,11 +690,9 @@ function initHero3D(hb, meta){
     const palm=addMesh(new THREE.BoxGeometry(1.38,1.08,0.36), new THREE.MeshStandardMaterial({color:0xFDD5B1}), 0,-0.12,0,1);
     for(let i=0;i<4;i++) addMesh(new THREE.CapsuleGeometry(0.14,0.64,4,10), new THREE.MeshStandardMaterial({color:0xFDD5B1}), -0.47+i*0.31,0.65,0,1);
     addMesh(new THREE.CapsuleGeometry(0.14,0.52,4,8), new THREE.MeshStandardMaterial({color:0xFDD5B1}), -0.62,-0.18,0.18,1).rotation.z=0.55;
-   } else if(model==='net'){
-    const pts=[]; for(let i=0;i<9;i++) pts.push(new THREE.Vector3((Math.random()-0.5)*3.4,(Math.random()-0.5)*2.3,(Math.random()-0.5)*1.3));
-    pts.forEach(p=> addMesh(new THREE.SphereGeometry(0.15,12,8), i=>pt?matWhite:matAccent, p.x,p.y,p.z,1));
-    // fix: separate add
-    pts.forEach((p,i)=>{ const m=addMesh(new THREE.SphereGeometry(0.14,10,8), i%3?matWhite:matAccent, p.x,p.y,p.z,1); pts[i]=m.position; });
+    } else if(model==='net'){
+     const pts=[]; for(let i=0;i<9;i++) pts.push(new THREE.Vector3((Math.random()-0.5)*3.4,(Math.random()-0.5)*2.3,(Math.random()-0.5)*1.3));
+     pts.forEach((p,i)=>{ const m=addMesh(new THREE.SphereGeometry(0.14,10,8), i%3?matWhite:matAccent, p.x,p.y,p.z,1); pts[i]=m.position; });
     // lines
     for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++) if(Math.random()>0.58){ const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(pts[i].x,pts[i].y,pts[i].z), new THREE.Vector3(pts[j].x,pts[j].y,pts[j].z)]); const l=new THREE.Line(g, new THREE.LineBasicMaterial({color:0xffffff, transparent:true, opacity:0.24})); group.add(l); }
    } else if(model==='cylinder'){
