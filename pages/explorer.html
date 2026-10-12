@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Domain Atlas — 25 Tracks | GuidanceAI</title>
 <meta name="description" content="Explore 25 CSE domains grouped by Intelligence, Build, Core & Frontier. Search, compare & vault per domain.">
 <meta name="theme-color" content="#4F46E5">
@@ -37,6 +37,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/theme-contrast.css">
+<link rel="stylesheet" href="../assets/css/mobile-pro.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GuidanceAI","url":"https://guidanceai.vercel.app","logo":"https://guidanceai.vercel.app/public/icons/icon-512.png","description":"AI-powered virtual counsellor for 1st-year CSE students"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is this different from other career sites?","acceptedAnswer":{"@type":"Answer","text":"CSE domain-specific 25 domains (Atlas 25) with roadmap, mini-course, parent voice reports"}},{"@type":"Question","name":"Which ML models are used?","acceptedAnswer":{"@type":"Answer","text":"RandomForest 89% primary, DecisionTree, KNN + PCA"}},{"@type":"Question","name":"Is it free & private?","acceptedAnswer":{"@type":"Answer","text":"Yes, no signup, data stays local"}},{"@type":"Question","name":"Can parents use in Telugu/Hindi?","acceptedAnswer":{"@type":"Answer","text":"Yes, 10 languages with TTS"}}]}</script>
 <script>
@@ -101,15 +102,15 @@ html[dir="rtl"] canvas{ direction:ltr }
    <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
    
   </a>
-  <div class="hidden lg:flex items-center gap-6 text-sm font-medium" role="navigation" aria-label="Primary">
+  <div class="hidden xl:flex items-center gap-5 text-sm font-medium" role="navigation" aria-label="Primary">
    <a href="../index.html" class="hover:text-primary" data-i18n="nav_home">Home</a>
    <a href="explorer.html" class="hover:text-primary" data-i18n="nav_explorer">Atlas</a>
    <a href="quiz.html#quiz" class="hover:text-primary" data-i18n="nav_quiz">Quiz</a>
    <a href="roadmap.html" class="hover:text-primary" data-i18n="nav_roadmap">Roadmap</a>
    <a href="resources.html" class="hover:text-primary" data-i18n="nav_resources">Resources</a>
    <a href="dashboard.html" class="hover:text-primary" data-i18n="nav_dashboard">Vault</a>
-   <a href="about.html" class="hover:text-primary">About</a>
-   <a href="contact.html" class="hover:text-primary">Contact</a>
+   
+   
   </div>
   <div class="flex items-center gap-2">
    <label for="langSwitcher" class="sr-only">Select language</label>
@@ -134,11 +135,11 @@ html[dir="rtl"] canvas{ direction:ltr }
    <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-regular fa-moon"></i></button>
    <a href="quiz.html#quiz" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus-visible:ring-2">Start Quiz →</a>
       <a href="signin.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl border text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in</a>
-   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
+   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="xl:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
   </div>
  </div>
  <!-- Mobile Drawer (perfect webdev) -->
- <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
+ <div id="mobileDrawer" class="hidden xl:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
   <div class="px-4 py-4 space-y-1 text-sm font-medium">
    <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
    <a href="explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Explorer</a>
@@ -188,35 +189,37 @@ html[dir="rtl"] canvas{ direction:ltr }
  <div id="domainGrid" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
   <!-- Cards injected by JS (grouped when All) -->
  </div>
- <div class="mt-6 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
+  <div id="vaultStrip" class="mt-6 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
   <div class="text-sm"><b class="text-cyan-300">Vault:</b> Tap any card to open its Vault and add your files.</div>
   <button onclick="document.getElementById('commandPalette').classList.remove('hidden'); document.getElementById('commandInput')?.focus()" class="px-4 py-2 rounded-xl bg-white text-slate-900 text-sm font-bold">Search</button>
  </div>
 </section>
 <div class="max-w-7xl mx-auto px-4 py-6 text-center"><a href="../index.html" class="text-indigo-600 underline">← Back to Home</a></div>
 </main>
-<footer class="bg-slate-900 text-white">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <div class="grid md:grid-cols-4 gap-8">
-   <div class="md:col-span-1">
-    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-extrabold text-white">G</div><span class="font-display font-bold text-lg">GuidanceAI</span></div>
-    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Virtual counsellor • Django + RandomForest 89% + PCA • 750+ students guided • 25 domains Atlas + Vault.</p>
-    <div class="mt-4 flex gap-2">
-     <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-github"></i></a>
-     <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
-     <a href="mailto:guidance@college.edu" aria-label="Email" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-solid fa-envelope"></i></a>
+<!-- FOOTER - short, Google-style -->
+<!-- FOOTER - short, Google-style -->
+<!-- FOOTER - short, black -->
+<footer class="bg-slate-900 text-white" style="background:#000;color:#fff;border-top:1px solid #222;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 pb-5">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+      <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl grid place-items-center font-extrabold text-white text-lg" style="background:linear-gradient(135deg,#4F46E5,#0E7490);">G</div><div><span class="font-display font-bold text-lg" style="color:#fff;">GuidanceAI</span><div class="text-xs" style="color:#fff;">Top 3 Domains • Roadmap • Free videos</div></div></div>
+      <a href="quiz.html#quiz" class="sm:ml-auto inline-flex items-center justify-center px-6 py-3 rounded-2xl font-bold min-h-[48px] shadow" style="background:#fff;color:#111827;">Find my Top-3 →</a>
     </div>
-    <div class="mt-4 text-xs text-slate-300">Project by CSE Team • Week 1-7 • Vercel + Render</div>
-   </div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Explore</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="explorer.html" class="hover:text-white transition">Domain Atlas → 25 tracks</a></li><li><a href="quiz.html" class="hover:text-white transition">Quiz & ML Filter • 3 min • 25-way</a></li><li><a href="roadmap.html" class="hover:text-white transition">4-Year Roadmaps (25)</a></li><li><a href="resources.html" class="hover:text-white transition">Resource Hub + Vault</a></li><li><a href="dashboard.html" class="hover:text-white transition">Dashboards + Compare</a></li></ul></div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">For Users</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="dashboard.html" onclick="switchDashboard('student');return false;" class="hover:text-white transition">Student • XP & Roadmap</a></li><li><a href="dashboard.html" onclick="switchDashboard('parent');return false;" class="hover:text-white transition">Parent • Voice Report (10 langs)</a></li><li><a href="dashboard.html" onclick="switchDashboard('teacher');return false;" class="hover:text-white transition">Teacher • Batch Analytics</a></li><li><span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-robot text-cyan-400"></i> Chatbot + Voice</span></li></ul></div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Tech & Docs</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> RandomForest 89% • PCA 11→10 • 25-way</li><li>Dataset: 750 (30×25) • Atlas</li><li>API: Django REST • Vault</li><li>Docs: /vault/ • Offline</li></ul><details class="mt-3 group"><summary class="text-xs text-slate-300 hover:text-white cursor-pointer list-none flex items-center gap-1"><i class="fa-solid fa-code text-xs"></i> Developer info (hidden) <i class="fa-solid fa-chevron-down text-[10px] group-open:rotate-180 transition"></i></summary><div class="mt-2 text-xs text-slate-300 font-mono bg-white/5 p-2 rounded-lg">ml/dataset.csv • backend/api/views.py • docs/ARCHITECTURE.md</div></details><div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> Privacy-first • No tracking • Offline fallback</div></div>
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Start</div><ul class="mt-2 text-[14px]"><li><a href="quiz.html#quiz" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Quiz (3 min)</a></li><li><a href="../index.html#explorer" class="inline-flex items-center min-h-[40px]" style="color:#fff;">25 fields</a></li><li><a href="roadmap.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Roadmap</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Learn</div><ul class="mt-2 text-[14px]"><li><a href="resources.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Free videos</a></li><li><a href="dashboard.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Vault</a></li><li><a href="contact.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Help</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Trust</div><ul class="mt-2 text-[14px]" style="color:#fff;"><li class="min-h-[40px] inline-flex items-center">89% accurate</li><li class="min-h-[40px] inline-flex items-center">No signup</li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Contact</div><div class="mt-2 text-[14px]" style="color:#fff;">guidance@college.edu</div><div class="mt-3 flex gap-2">
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-github"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:guidance@college.edu" aria-label="Email" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-solid fa-envelope"></i></a>
+      </div></div>
+    </div>
+    <div class="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px]" style="border-top:1px solid #333;">
+      <div style="color:#fff;">© 2026 GuidanceAI</div>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-4 py-2 rounded-xl font-bold min-h-[44px]" style="background:#fff;color:#111827;">↑ Top</button>
+    </div>
   </div>
-  <div class="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-   <div class="text-slate-300 text-center md:text-left">© 2026 GuidanceAI • Open-source • <span class="text-white">v1.0</span></div>
-   <div class="flex items-center gap-3 text-slate-300"><span>Atlas 25 · Vault Ready · Docs</span><span class="hidden sm:inline">•</span><button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-3 py-1.5 rounded-full bg-white text-slate-900 font-semibold hover:bg-slate-100 transition">↑ Back to top</button></div>
-  </div>
- </div>
 </footer>
 <!-- COMPARE BAR -->
 <div id="compareBar" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl z-40 flex items-center gap-3 max-w-[95vw]">
@@ -265,6 +268,7 @@ html[dir="rtl"] canvas{ direction:ltr }
 
 
 <script src="../assets/js/app.js"></script>
+<script src="../assets/js/mobile-nav.js"></script>
 <script>
 // Accessibility: right-click and keyboard shortcuts enabled — no blocking (WCAG 2.1.1)
 </script>

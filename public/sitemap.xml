@@ -4,13 +4,84 @@
   <url><loc>https://guidanceai.vercel.app/index.html</loc><priority>1.0</priority></url>
   <url><loc>https://guidanceai.vercel.app/explorer.html</loc><priority>0.9</priority></url>
   <url><loc>https://guidanceai.vercel.app/quiz.html</loc><priority>0.9</priority></url>
-  <url><loc>https://guidanceai.vercel.app/domain.html?id=AI</loc><priority>0.9</priority></url>
   <url><loc>https://guidanceai.vercel.app/roadmap.html</loc><priority>0.8</priority></url>
   <url><loc>https://guidanceai.vercel.app/resources.html</loc><priority>0.8</priority></url>
   <url><loc>https://guidanceai.vercel.app/dashboard.html</loc><priority>0.8</priority></url>
   <url><loc>https://guidanceai.vercel.app/about.html</loc><priority>0.7</priority></url>
   <url><loc>https://guidanceai.vercel.app/contact.html</loc><priority>0.6</priority></url>
-  <url><loc>https://guidanceai.vercel.app/domain.html?id=ML</loc><priority>0.6</priority></url>
-  <url><loc>https://guidanceai.vercel.app/domain.html?id=Cybersecurity</loc><priority>0.6</priority></url>
-  <url><loc>https://guidanceai.vercel.app/domain.html?id=Quantum%20Computing</loc><priority>0.5</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=ai</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/ai.html</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/ai</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=ml</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/ml.html</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/ml</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=data-science</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/data-science.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/data-science</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=big-data</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/big-data.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/big-data</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=computer-vision</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/computer-vision.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/computer-vision</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=nlp</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/nlp.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/nlp</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=web-development</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/web-development.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/web-development</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=mobile-app-development</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/mobile-app-development.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/mobile-app-development</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=software-engineering</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/software-engineering.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/software-engineering</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=game-development</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/game-development.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/game-development</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=hci</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/hci.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/hci</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=cybersecurity</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/cybersecurity.html</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/cybersecurity</loc><priority>0.9</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=cloud-computing</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/cloud-computing.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/cloud-computing</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=computer-networks</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/computer-networks.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/computer-networks</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=dbms</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/dbms.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/dbms</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=operating-systems</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/operating-systems.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/operating-systems</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=computer-architecture</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/computer-architecture.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/computer-architecture</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=devops</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/devops.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/devops</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=distributed-systems</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/distributed-systems.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/distributed-systems</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=iot</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/iot.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/iot</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=blockchain</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/blockchain.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/blockchain</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=robotics</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/robotics.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/robotics</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=ar-vr</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/ar-vr.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/ar-vr</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=embedded-systems</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/embedded-systems.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/embedded-systems</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/domain.html?id=quantum-computing</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/pages/domains/quantum-computing.html</loc><priority>0.6</priority></url>
+  <url><loc>https://guidanceai.vercel.app/d/quantum-computing</loc><priority>0.6</priority></url>
 </urlset>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>GuidanceAI — Student Guidance & Domain Recommender for CSE</title>
 <meta name="description" content="AI-powered virtual counsellor for 1st-year CSE students. Personalized domain recommendations, roadmaps, mini-courses, multi-language parent guidance.">
 <meta name="theme-color" content="#4F46E5">
@@ -37,6 +37,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="assets/css/theme-contrast.css">
+<link rel="stylesheet" href="assets/css/mobile-pro.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GuidanceAI","url":"https://guidanceai.vercel.app","logo":"https://guidanceai.vercel.app/public/icons/icon-512.png","description":"AI-powered virtual counsellor for 1st-year CSE students"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is this different from other career sites?","acceptedAnswer":{"@type":"Answer","text":"CSE domain-specific 6 domains with roadmap, mini-course, parent voice reports"}},{"@type":"Question","name":"Which ML models are used?","acceptedAnswer":{"@type":"Answer","text":"RandomForest 89% primary, DecisionTree, KNN + PCA"}},{"@type":"Question","name":"Is it free & private?","acceptedAnswer":{"@type":"Answer","text":"Yes, no signup, data stays local"}},{"@type":"Question","name":"Can parents use in Telugu/Hindi?","acceptedAnswer":{"@type":"Answer","text":"Yes, 10 languages with TTS"}}]}</script>
 <script>
@@ -111,17 +112,15 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
       <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
       <span id="kbHint" class="hidden xl:inline-flex ml-1 px-2 py-1 rounded-full bg-slate-900 text-white text-[11px] font-mono border">Ctrl+K</span>
     </a>
-    <div class="hidden lg:flex items-center gap-5 text-[15px] font-medium" role="navigation" aria-label="Primary">
+    <div class="hidden xl:flex items-center gap-5 text-[15px] font-medium" role="navigation" aria-label="Primary">
       <a href="#home" class="hover:text-primary whitespace-nowrap" data-i18n="nav_home">Home</a>
       <a href="pages/explorer.html" class="hover:text-primary whitespace-nowrap">Atlas</a>
-      <a href="pages/domain.html?id=AI" class="hover:text-primary whitespace-nowrap">Handbook</a>
+      <a href="pages/domain.html?id=ai&tab=overview" class="hover:text-primary whitespace-nowrap">Handbook</a>
       <a href="pages/quiz.html#quiz" class="hover:text-primary whitespace-nowrap">Quiz</a>
       <a href="pages/roadmap.html" class="hover:text-primary whitespace-nowrap">Roadmap</a>
       <a href="pages/resources.html" class="hover:text-primary whitespace-nowrap">Resources</a>
       <a href="pages/dashboard.html" class="hover:text-primary whitespace-nowrap">Dashboard</a>
-      <a href="#about" class="hover:text-primary whitespace-nowrap">About</a>
-      <a href="#contact" class="hover:text-primary whitespace-nowrap">Contact</a>
-    </div>
+                </div>
     <div class="flex items-center gap-2 min-w-0">
       <label for="langSwitcher" class="sr-only">Select language</label>
       <select id="langSwitcher" aria-label="Select language" class="hidden lg:block px-2.5 py-2 rounded-lg border border-slate-200 text-sm bg-white dark:bg-slate-800 max-w-[130px]">
@@ -144,11 +143,11 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
       </select>
       <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-regular fa-moon"></i></button>
       <a data-auth="signin" href="pages/signin.html" class="hidden sm:inline-flex px-4 py-2.5 rounded-xl border text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition whitespace-nowrap min-h-[44px] items-center">Sign in</a>
-      <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-solid fa-bars"></i></button>
+      <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="xl:hidden w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition flex-shrink-0"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
   <!-- Mobile Drawer (perfect webdev) -->
-  <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
+  <div id="mobileDrawer" class="hidden xl:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
     <div class="px-4 py-3 flex gap-2 border-b border-slate-100 dark:border-slate-800">
       <label for="mobileLangSwitcher" class="sr-only">Language</label>
       <select id="mobileLangSwitcher" aria-label="Select language" class="flex-1 px-3 py-2 rounded-lg border border-slate-200 text-sm bg-white dark:bg-slate-800">
@@ -185,43 +184,43 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 </nav>
 <main id="main">
 <!-- HERO -->
-<section id="home" class="relative overflow-hidden">
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14 grid lg:grid-cols-2 gap-10 items-center min-h-[calc(100vh-4rem)]">
+<section id="home" class="relative overflow-hidden" style="background:linear-gradient(135deg,#0B0F2E 0%,#1E1B4B 38%,#312E81 68%,#0E7490 100%);">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 lg:py-14 grid lg:grid-cols-2 gap-6 lg:gap-10 items-center lg:min-h-[calc(100vh-4rem)]">
     <div class="text-white reveal">
-      <div class="font-mono text-xs tracking-[0.2em] uppercase text-cyan-300">AI Counsellor • Atlas 25 • 89% Accuracy</div>
-      <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-sm backdrop-blur border border-white/20"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Trusted by 750+ CSE students • Vault Ready</div>
-      <h1 class="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.05] tracking-tight" data-i18n="hero_title">Confused between 25 CSE domains?<br>Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-amber-200">AI Counsellor</span> is here.</h1>
-      <p class="mt-4 text-white text-lg leading-relaxed max-w-xl" data-i18n="hero_sub">Personalized Top-3 recommendations across 25 tracks using Decision Tree, Random Forest, KNN &amp; PCA — 4-year roadmap, mini-courses, vault for your files &amp; parent guidance in 10 languages.</p>
-      <div class="mt-6 flex flex-wrap items-center gap-4">
-        <a href="pages/quiz.html#quiz" class="w-full sm:w-auto justify-center px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition inline-flex items-center">Take 3-Min Quiz →</a>
-        <a href="#explorer" onclick="scrollToDomains(event)" class="w-full sm:w-auto justify-center px-7 py-3.5 rounded-2xl border border-white/25 text-white font-semibold hover:bg-white/10 transition inline-flex items-center">Explore Domains</a>
-        <button onclick="document.getElementById('videoModal').classList.remove('hidden')" class="text-white/90 font-semibold hover:text-white hover:underline underline-offset-4"><i class="fa-solid fa-play mr-2"></i>Watch Demo (45s)</button>
+      <div class="font-bold text-[11px] sm:text-xs tracking-[0.14em] uppercase text-white">For 1st-year CSE • Free • No signup</div>
+      <div class="mt-2.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-[13px] backdrop-blur border border-white/20"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Loved by 750+ first-years • 4.6/5</div>
+      <h1 class="mt-3 font-display font-extrabold text-[1.75rem] sm:text-4xl lg:text-5xl leading-[1.12] tracking-tight" data-i18n="hero_title">Not sure which CSE field fits you? Get your Top-3 in 3 minutes.</h1>
+      <p class="mt-3 text-white text-[15px] sm:text-lg leading-relaxed max-w-xl" data-i18n="hero_sub">Answer 15 short questions + your marks. We show your best 3 fields, what to learn first, and free videos — in your language, with a parent report.</p>
+      <div class="mt-5 flex flex-wrap items-center gap-3">
+        <a href="pages/quiz.html#quiz" class="w-full sm:w-auto justify-center px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition inline-flex items-center min-h-[52px]">Find my Top-3 →</a>
+        <a href="#explorer" onclick="scrollToDomains(event)" class="w-full sm:w-auto justify-center px-7 py-3 rounded-2xl border border-white/25 text-white font-semibold hover:bg-white/10 transition inline-flex items-center min-h-[48px]">See all 25 fields</a>
       </div>
-      <div class="mt-6 grid grid-cols-3 gap-4 max-w-lg">
-        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-center"><div class="font-extrabold text-2xl">750+</div><div class="text-sm text-white/90">Students Guided</div></div>
-        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-center"><div class="font-extrabold text-2xl">25</div><div class="text-sm text-white/90">CSE Domains</div></div>
-        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-center"><div class="font-extrabold text-2xl">10</div><div class="text-sm text-white/90">Languages</div></div>
-      </div>
-      <div class="mt-4 flex items-center gap-3 text-sm text-white/80"><i class="fa-solid fa-shield-halved"></i> Research-backed • NPTEL/Coursera/YouTube curated</div>
+      <!-- How it helps: 3 steps in 10 seconds -->
+      <ol class="mt-5 grid grid-cols-3 gap-2 max-w-lg text-left">
+        <li class="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur border border-white/20"><div class="w-6 h-6 rounded-full bg-white text-indigo-700 grid place-items-center text-xs font-extrabold">1</div><div class="mt-1.5 text-[12px] sm:text-[13px] font-bold leading-snug">Answer 3 min</div><div class="text-[11px] sm:text-xs text-white/90 leading-snug">15 Qs + marks</div></li>
+        <li class="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur border border-white/20"><div class="w-6 h-6 rounded-full bg-white text-indigo-700 grid place-items-center text-xs font-extrabold">2</div><div class="mt-1.5 text-[12px] sm:text-[13px] font-bold leading-snug">Get Top-3</div><div class="text-[11px] sm:text-xs text-white/90 leading-snug">+ roadmap</div></li>
+        <li class="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur border border-white/20"><div class="w-6 h-6 rounded-full bg-white text-indigo-700 grid place-items-center text-xs font-extrabold">3</div><div class="mt-1.5 text-[12px] sm:text-[13px] font-bold leading-snug">Learn free</div><div class="text-[11px] sm:text-xs text-white/90 leading-snug">videos + files</div></li>
+      </ol>
+      <div class="mt-3 flex items-center gap-2 text-[12.5px] text-white/90"><img src="https://i.pravatar.cc/48?img=12" alt="student" width="24" height="24" class="w-6 h-6 rounded-full border border-white/40 bg-white/20"><img src="https://i.pravatar.cc/48?img=32" alt="student" width="24" height="24" class="w-6 h-6 rounded-full border border-white/40 bg-white/20 -ml-3"><img src="https://i.pravatar.cc/48?img=45" alt="student" width="24" height="24" class="w-6 h-6 rounded-full border border-white/40 bg-white/20 -ml-3"><span class="ml-1">Parents understand in Telugu / Hindi + voice</span></div>
     </div>
     <div class="relative reveal reveal-delay-1">
-      <div id="heroPreviewCard" class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-6 border border-white/20">
-        <div class="flex items-center justify-between">
-          <h3 id="heroPreviewTitle" class="font-bold text-lg">Live Prediction Preview</h3><span id="heroBadge" class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">RandomForest 89%</span>
+      <div id="heroPreviewCard" class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-5 sm:p-6 border border-white/20">
+        <div class="flex items-center justify-between gap-2">
+          <h3 id="heroPreviewTitle" class="font-bold text-[15px] sm:text-lg">Your Top 3 Domains</h3><span id="heroBadge" class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] sm:text-xs font-bold border border-emerald-200 whitespace-nowrap">Example • 89% accurate</span>
         </div>
         <div id="heroTop3" class="mt-4 grid grid-cols-2 gap-4 text-sm">
           <div class="space-y-4">
-            <div><div class="flex justify-between"><span>AI</span><span class="font-bold">82%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-indigo-600" style="width:82%"></div></div></div>
-            <div><div class="flex justify-between"><span>ML</span><span class="font-bold">76%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-cyan-500" style="width:76%"></div></div></div>
-            <div><div class="flex justify-between"><span>Cybersecurity</span><span class="font-bold">42%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-slate-400" style="width:42%"></div></div></div>
+            <div><div class="flex justify-between gap-2"><span class="font-semibold text-slate-800">AI — best fit</span><span class="font-bold">82%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-indigo-600" style="width:82%"></div></div></div>
+            <div><div class="flex justify-between gap-2"><span class="text-slate-700">Data Science</span><span class="font-bold">76%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-cyan-500" style="width:76%"></div></div></div>
+            <div><div class="flex justify-between gap-2"><span class="text-slate-700">Cybersecurity</span><span class="font-bold">42%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-slate-400" style="width:42%"></div></div></div>
           </div>
           <div class="bg-slate-50 dark:bg-slate-900 rounded-2xl p-3">
             <canvas id="heroRadar" height="130" role="img" aria-label="Skill radar preview"></canvas>
           </div>
         </div>
-        <div id="heroWhy" class="mt-4 p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-sm text-amber-900"><i class="fa-solid fa-lightbulb mr-1"></i> <b>Why AI?</b> High logic (5/5) + math marks 92 + strong data interest.</div>
-        <a id="heroCTA" href="pages/quiz.html#quiz" class="mt-4 block w-full py-3 rounded-2xl bg-slate-900 text-white font-semibold text-center hover:bg-black transition">Try Your Prediction →</a>
-        <div class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500"><i class="fa-solid fa-lock"></i> Privacy-first • No data shared</div>
+        <div id="heroWhy" class="mt-4 p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-[13px] sm:text-sm text-amber-900 leading-relaxed"><i class="fa-solid fa-lightbulb mr-1"></i> <b>Why AI for you?</b> You like logic + scored 92 in maths. We show why in simple words.</div>
+        <a id="heroCTA" href="pages/quiz.html#quiz" class="mt-4 flex items-center justify-center w-full py-3.5 rounded-2xl bg-slate-900 text-white font-bold text-center hover:bg-black transition min-h-[52px]">Get my Top-3 free →</a>
+        <div class="mt-3 flex items-center justify-center gap-2 text-[12.5px] font-medium text-slate-600"><i class="fa-solid fa-lock"></i> Free • No signup • Marks stay on your phone</div>
       </div>
     </div>
   </div>
@@ -240,52 +239,52 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 </section>
 
 <!-- FEATURES HIGHLIGHT - Perfect Webdev (6 features) -->
-<section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-  <div class="text-center max-w-2xl mx-auto mb-12">
+<section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-24" data-m-long>
+  <div class="text-center max-w-2xl mx-auto mb-7 lg:mb-12">
     <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200">Why GuidanceAI • Atlas 25 • 8+6 Modules</span>
-    <h2 class="mt-4 font-display font-extrabold text-3xl lg:text-4xl tracking-tight">Everything a First-Year Needs — Now 25 Tracks</h2>
-    <p class="mt-3 text-slate-600 dark:text-slate-400 text-lg">Beyond paper guidance — Atlas, vault per domain, compare, roadmap, visualization, multilingual voice & gamification.</p>
+    <h2 class="mt-3 font-display font-extrabold text-[1.55rem] sm:text-3xl lg:text-4xl tracking-tight">Everything a First-Year Needs — Now 25 Tracks</h2>
+    <p class="mt-2 text-slate-600 dark:text-slate-400 text-[15px] sm:text-lg">Beyond paper guidance — Atlas, vault per domain, compare, roadmap, visualization, multilingual voice & gamification.</p>
   </div>
-  <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 grid place-items-center text-2xl"><i class="fa-solid fa-layer-group"></i></div><h3 class="font-bold text-lg mt-5">25-Domain Atlas</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Intelligence 6 · Build 5 · Core 8 · Frontier 6 — grouped, searchable, professional dev layout.</p></div>
-    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center text-2xl"><i class="fa-solid fa-folder-open"></i></div><h3 class="font-bold text-lg mt-5">Vault per Domain</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">4 empty slots per track: Notes, Videos, Projects, Assignments — add your files later, stays local.</p></div>
-    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 grid place-items-center text-2xl"><i class="fa-solid fa-code-compare"></i></div><h3 class="font-bold text-lg mt-5">Compare 3 Tracks</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Tick Compare on cards — bottom bar — side-by-side salary, skills, roadmap.</p></div>
-    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 grid place-items-center text-2xl"><i class="fa-solid fa-road"></i></div><h3 class="font-bold text-lg mt-5">4-Year Roadmap</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Foundation to Advanced to Placement — for each track, with vault link.</p></div>
-    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-violet-50 text-violet-600 grid place-items-center text-2xl"><i class="fa-solid fa-trophy"></i></div><h3 class="font-bold text-lg mt-5">Search + Gamified</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">XP, streaks and quick search to jump to any domain.</p></div>
-    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 grid place-items-center text-2xl"><i class="fa-solid fa-users"></i></div><h3 class="font-bold text-lg mt-5">Parent + Teacher</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Vernacular PDF + voice for parents; batch analytics for 25-track cohorts.</p></div>
+  <div class="mt-6 lg:mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
+    <div class="p-5 lg:p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 grid place-items-center text-2xl"><i class="fa-solid fa-layer-group"></i></div><h3 class="font-bold text-lg mt-5">25-Domain Atlas</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Intelligence 6 · Build 5 · Core 8 · Frontier 6 — grouped, searchable, professional dev layout.</p></div>
+    <div class="p-5 lg:p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center text-2xl"><i class="fa-solid fa-folder-open"></i></div><h3 class="font-bold text-lg mt-5">Vault per Domain</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">4 empty slots per track: Notes, Videos, Projects, Assignments — add your files later, stays local.</p></div>
+    <div class="p-5 lg:p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 grid place-items-center text-2xl"><i class="fa-solid fa-code-compare"></i></div><h3 class="font-bold text-lg mt-5">Compare 3 Tracks</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Tick Compare on cards — bottom bar — side-by-side salary, skills, roadmap.</p></div>
+    <div class="p-5 lg:p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 grid place-items-center text-2xl"><i class="fa-solid fa-road"></i></div><h3 class="font-bold text-lg mt-5">4-Year Roadmap</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Foundation to Advanced to Placement — for each track, with vault link.</p></div>
+    <div class="p-5 lg:p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-violet-50 text-violet-600 grid place-items-center text-2xl"><i class="fa-solid fa-trophy"></i></div><h3 class="font-bold text-lg mt-5">Search + Gamified</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">XP, streaks and quick search to jump to any domain.</p></div>
+    <div class="p-5 lg:p-8 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700 card-hover"><div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 grid place-items-center text-2xl"><i class="fa-solid fa-users"></i></div><h3 class="font-bold text-lg mt-5">Parent + Teacher</h3><p class="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2">Vernacular PDF + voice for parents; batch analytics for 25-track cohorts.</p></div>
   </div>
 </section>
 
 <!-- DOMAIN ATLAS — 25 Tracks Professional -->
-<section id="explorer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 lg:pt-14 pb-16 lg:pb-24">
-  <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+<section id="explorer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 lg:pt-14 pb-10 lg:pb-24">
+  <div class="flex flex-wrap items-end justify-between gap-3 lg:gap-4 mb-5 lg:mb-8">
     <div>
       <div class="font-mono text-xs tracking-[0.2em] uppercase text-indigo-600">Atlas • 25 Tracks</div>
-      <h2 class="mt-2 font-display font-extrabold text-3xl lg:text-4xl tracking-tight" data-i18n="explorer_title">Domain Atlas — 25 Tracks</h2>
-      <p class="text-slate-600 dark:text-slate-400 mt-2 text-lg">Professional explorer — grouped by Intelligence, Build, Core &amp; Frontier. Search, compare &amp; vault per domain.</p>
+      <h2 class="mt-2 font-display font-extrabold text-[1.55rem] sm:text-3xl lg:text-4xl tracking-tight" data-i18n="explorer_title">Domain Atlas — 25 Tracks</h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-2 text-[15px] sm:text-lg">Professional explorer — grouped by Intelligence, Build, Core &amp; Frontier. Search, compare &amp; vault per domain.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full lg:w-auto">
       <label for="explorerSearch" class="sr-only">Search domains</label>
-      <input id="explorerSearch" aria-label="Search domains" placeholder="Search AI, Quantum, Web..." class="px-4 py-3 rounded-xl border border-slate-200 w-full sm:w-72 min-h-[44px]">
+      <input id="explorerSearch" aria-label="Search domains" placeholder="Search AI, Quantum, Web..." class="px-4 py-3 rounded-xl border border-slate-200 w-full sm:w-72 min-h-[48px] text-[16px]">
       <label for="explorerSort" class="sr-only">Sort</label>
-      <select id="explorerSort" aria-label="Sort domains" class="px-3 py-3 rounded-xl border border-slate-200 text-sm bg-white min-h-[44px]"><option value="featured">Featured</option><option value="az">A → Z</option><option value="salary">Salary High → Low</option><option value="demand">Demand High → Low</option></select>
+      <select id="explorerSort" aria-label="Sort domains" class="px-3 py-3 rounded-xl border border-slate-200 text-sm bg-white min-h-[48px] flex-1 sm:flex-none"><option value="featured">Featured</option><option value="az">A → Z</option><option value="salary">Salary High → Low</option><option value="demand">Demand High → Low</option></select>
       <!-- Hidden legacy filter for JS compat -->
       <select id="explorerFilter" aria-label="Filter domains" class="hidden"><option value="all">All Domains</option></select>
     </div>
   </div>
   <!-- Category Pills (Atlas) -->
-  <div class="flex flex-wrap gap-2 py-4">
-    <button data-cat="All" class="cat-pill px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold border border-slate-900 min-h-[44px]">All 25</button>
-    <button data-cat="Intelligence & Data" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Intelligence & Data · 6</button>
-    <button data-cat="Build & Experience" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Build · 5</button>
-    <button data-cat="Core Systems" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Core Systems · 8</button>
-    <button data-cat="Frontier Tech" class="cat-pill px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Frontier · 6</button>
+  <div class="flex flex-wrap gap-2 py-3 lg:py-4">
+    <button data-cat="All" class="cat-pill px-4 sm:px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold border border-slate-900 min-h-[44px]">All 25</button>
+    <button data-cat="Intelligence & Data" class="cat-pill px-4 sm:px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Intelligence & Data · 6</button>
+    <button data-cat="Build & Experience" class="cat-pill px-4 sm:px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Build · 5</button>
+    <button data-cat="Core Systems" class="cat-pill px-4 sm:px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Core Systems · 8</button>
+    <button data-cat="Frontier Tech" class="cat-pill px-4 sm:px-5 py-2.5 rounded-full bg-white border text-sm font-semibold hover:border-indigo-200 hover:bg-indigo-50 min-h-[44px]">Frontier · 6</button>
     <span id="domainCount" class="ml-auto text-sm text-slate-500 self-center">Showing 25 of 25 tracks</span>
   </div>
-  <div id="domainGrid" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div id="domainGrid" class="mt-4 lg:mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
     <!-- Cards injected by JS (grouped when All) -->
   </div>
-  <div class="mt-6 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
+  <div id="vaultStrip" class="mt-6 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
     <div class="text-sm"><b class="text-cyan-300">Vault:</b> Tap any card to open its Vault and add your files.</div>
     <button onclick="document.getElementById('commandPalette').classList.remove('hidden'); document.getElementById('commandInput')?.focus()" class="px-4 py-2 rounded-xl bg-white text-slate-900 text-sm font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-magnifying-glass text-[11px]"></i> Search</button>
   </div>
@@ -301,15 +300,15 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
   </div>
 </section>
 <!-- IMMERSIVE HANDBOOKS — 3Cr Pro: No filler, lean navigation to 25 immersive handbooks -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<section id="handbookPromo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-m-long>
   <div class="p-6 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white flex flex-wrap items-center justify-between gap-4 border border-white/10">
     <div>
       <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-xs"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> NEW — 25 Immersive Handbooks • Not PDFs • 3D + Live Graphs</div>
       <h3 class="mt-3 font-display font-extrabold text-xl">AI Handbook Transformed → Every Domain Same Quality</h3>
-      <p class="text-sm text-white/70 mt-1">AI flaghip from your PDF is now an immersive experience. 24 other tracks follow same 10-section pro template — each with own pillars, roadmap, timeline & ethics. No copy-paste.</p>
+      <p class="text-sm text-white/70 mt-1">AI flagship from your PDF is now an immersive experience. 24 other tracks follow same 10-section pro template — each with own pillars, roadmap, timeline & ethics. No copy-paste.</p>
     </div>
     <div class="flex flex-wrap gap-2">
-      <a href="pages/domain.html?id=AI" class="px-6 py-3 rounded-xl bg-white text-slate-900 font-bold">Open AI Handbook →</a>
+      <a href="pages/domain.html?id=ai&tab=overview" class="px-6 py-3 rounded-xl bg-white text-slate-900 font-bold">Open AI Handbook →</a>
       <a href="pages/explorer.html" class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold">Browse 25 →</a>
     </div>
   </div>
@@ -321,7 +320,7 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
   </div>
 </section>
 <!-- ABOUT PREVIEW — Full inside about.html -->
-<section id="about" class="bg-white border-y py-10">
+<section id="about" class="bg-white border-y py-10" data-m-long>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border">About Us • CSE Team</span>
     <h2 class="mt-3 font-display font-extrabold text-2xl">Built by Students, for Students</h2>
@@ -330,7 +329,7 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
   </div>
 </section>
 <!-- TESTIMONIALS -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<section id="stories" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-m-long>
   <div class="flex items-end justify-between gap-4"><h2 class="font-display font-extrabold text-2xl">What Students Say</h2><span class="text-sm text-slate-600 dark:text-slate-400">4.6/5 • 324 reviews • Verified</span></div>
   <div class="mt-6 grid md:grid-cols-3 gap-5">
     <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border dark:border-slate-700"><div class="flex gap-1 text-amber-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="mt-3 text-sm text-slate-700">"Quiz was 3 min and radar showed I need OS not AI — saved me a semester!"</p><div class="mt-4 flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=8" alt="Student" width="32" height="32" class="w-8 h-8 rounded-full"><div><div class="font-semibold text-sm">Aarav • 1st Year CSE</div><div class="text-xs text-slate-600 dark:text-slate-400">Recommended: Cybersecurity 88%</div></div></div></div>
@@ -341,26 +340,26 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
 
 <!-- CONTACT — lean -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center"><a href="pages/contact.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 text-white font-semibold hover:bg-black">Contact & Support →</a></section>
-<!-- FOOTER - Professional Bottom -->
-<footer class="bg-slate-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-      <div class="md:col-span-1">
-        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-extrabold text-white text-lg">G</div><span class="font-display font-bold text-xl">GuidanceAI</span></div>
-        <p class="mt-4 text-[15px] text-slate-300 leading-relaxed">Virtual counsellor for 1st-year CSE — Top-3 domains, roadmaps, vault &amp; parent guidance in 10 languages.</p>
-        <div class="mt-5 flex gap-2">
-          <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-github"></i></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
-          <a href="mailto:guidance@college.edu" aria-label="Email" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-      </div>
-      <div><div class="font-bold text-sm tracking-wider uppercase text-white">Explore</div><ul class="mt-5 space-y-3 text-[15px] text-slate-300"><li><a href="#explorer" class="hover:text-white transition">Domain Atlas — 25 tracks</a></li><li><a href="pages/quiz.html#quiz" class="hover:text-white transition">Quiz — 3 min Top-3</a></li><li><a href="pages/roadmap.html" class="hover:text-white transition">4-Year Roadmaps</a></li><li><a href="pages/resources.html" class="hover:text-white transition">Resource Hub + Vault</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Dashboards + Compare</a></li></ul></div>
-      <div><div class="font-bold text-sm tracking-wider uppercase text-white">For Users</div><ul class="mt-5 space-y-3 text-[15px] text-slate-300"><li><a href="pages/dashboard.html" class="hover:text-white transition">Student — XP &amp; Roadmap</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Parent — Voice Report</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Teacher — Batch Analytics</a></li><li><a href="pages/dashboard.html" class="hover:text-white transition">Chatbot + Voice →</a></li></ul></div>
-      <div><div class="font-bold text-sm tracking-wider uppercase text-white">Why us</div><ul class="mt-5 space-y-3 text-[15px] text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> RandomForest 89% • 25-way</li><li>NPTEL • Coursera • YouTube</li><li>Privacy-first • Offline ready</li></ul><div class="mt-5 p-4 rounded-2xl bg-white/5 border border-white/10 text-sm text-slate-200"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> No signup • Data stays local</div></div>
+<!-- FOOTER - short, black -->
+<footer class="bg-slate-900 text-white" style="background:#000;color:#fff;border-top:1px solid #222;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 pb-5">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+      <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl grid place-items-center font-extrabold text-white text-lg" style="background:linear-gradient(135deg,#4F46E5,#0E7490);">G</div><div><span class="font-display font-bold text-lg" style="color:#fff;">GuidanceAI</span><div class="text-xs" style="color:#fff;">Top 3 Domains • Roadmap • Free videos</div></div></div>
+      <a href="pages/quiz.html#quiz" class="sm:ml-auto inline-flex items-center justify-center px-6 py-3 rounded-2xl font-bold min-h-[48px] shadow" style="background:#fff;color:#111827;">Find my Top-3 →</a>
     </div>
-    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-      <div class="text-slate-300 text-center md:text-left">© 2026 GuidanceAI • Open-source • <span class="text-white">v2.0 Pro</span></div>
-      <div class="flex items-center gap-3"><button onclick="try{['guidance_gate','guidance_onboarded'].forEach(k=>localStorage.removeItem(k))}catch(e){};location.href=location.pathname+'?fresh=1'" class="px-4 py-2.5 rounded-xl border border-white/20 text-slate-200 font-semibold hover:bg-white/10 transition min-h-[44px]" title="Replay the sign-in + quiz intro">↺ Replay intro</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-4 py-2.5 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition min-h-[44px]">↑ Back to top</button></div>
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Start</div><ul class="mt-2 text-[14px]"><li><a href="pages/quiz.html#quiz" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Quiz (3 min)</a></li><li><a href="#explorer" class="inline-flex items-center min-h-[40px]" style="color:#fff;">25 fields</a></li><li><a href="pages/roadmap.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Roadmap</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Learn</div><ul class="mt-2 text-[14px]"><li><a href="pages/resources.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Free videos</a></li><li><a href="pages/dashboard.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Vault</a></li><li><a href="pages/contact.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Help</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Trust</div><ul class="mt-2 text-[14px]" style="color:#fff;"><li class="min-h-[40px] inline-flex items-center">89% accurate</li><li class="min-h-[40px] inline-flex items-center">No signup</li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Contact</div><div class="mt-2 text-[14px]" style="color:#fff;">guidance@college.edu</div><div class="mt-3 flex gap-2">
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-github"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:guidance@college.edu" aria-label="Email" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-solid fa-envelope"></i></a>
+      </div></div>
+    </div>
+    <div class="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px]" style="border-top:1px solid #333;">
+      <div style="color:#fff;">© 2026 GuidanceAI</div>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-4 py-2 rounded-xl font-bold min-h-[44px]" style="background:#fff;color:#111827;">↑ Top</button>
     </div>
   </div>
 </footer>
@@ -437,8 +436,9 @@ section,nav,footer,main{max-width:100vw; overflow-x:clip;}
   </div>
 </div>
 
-<script>window.FRONT_PREVIEW_LIMIT=8;</script>
+<script>window.FRONT_PREVIEW_LIMIT = (window.innerWidth < 1024 ? 4 : 8);</script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/mobile-nav.js"></script>
 <script>
 // Platform-aware keyboard hint
 try {
@@ -481,8 +481,14 @@ function scrollToDomains(e){
     if(!sec) return;
     const r=sec.getBoundingClientRect();
     if(r.top>140||r.top<-40){ land(); }
+    // exact focus: heading gets keyboard focus so users know WHERE they landed
+    try{
+      const h=sec.querySelector('h2');
+      if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+      const s=document.getElementById('explorerSearch'); if(s) s.setAttribute('tabindex','0');
+    }catch(_){}
   },650);
- }catch(err){ location.hash='#explorer'; }
+  }catch(err){ location.hash='#explorer'; }
 }
 try{ window.scrollToDomains=scrollToDomains; }catch(e){}
 document.addEventListener('click',function(e){
@@ -509,10 +515,10 @@ try{
         const rows=top3.slice(0,3).map(([name,score],i)=>`<div><div class="flex justify-between"><span>${esc(name)}</span><span class="font-bold">${score}%</span></div><div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full ${barColors[i]||'bg-indigo-600'}" style="width:${score}%"></div></div></div>`).join('');
         const grid=document.getElementById('heroTop3');
         if(grid){ const left=grid.querySelector('.space-y-4'); if(left) left.innerHTML=rows; }
-        const title=document.getElementById('heroPreviewTitle'); if(title) title.textContent='Your Top-3 Domains';
+        const title=document.getElementById('heroPreviewTitle'); if(title) title.textContent='Your Top 3 Domains';
         const badge=document.getElementById('heroBadge'); if(badge){ badge.textContent='Your result'; }
         const why=document.getElementById('heroWhy'); if(why) why.innerHTML='<i class="fa-solid fa-lightbulb mr-1"></i> <b>Your best fit: '+esc(top3[0][0])+'</b> at '+top3[0][1]+'% — open its handbook & vault below. <a class="underline font-semibold" href="pages/quiz.html#quiz">Retake</a>';
-        const cta=document.getElementById('heroCTA'); if(cta){ cta.textContent='View My Roadmap'; cta.href='pages/roadmap.html?domain='+encodeURIComponent(top3[0][0]); }
+        const cta=document.getElementById('heroCTA'); if(cta){ cta.textContent='View My Roadmap →'; cta.href='pages/roadmap.html?domain='+encodeURIComponent(top3[0][0]); }
       }
     }catch(e){}
   }
@@ -523,14 +529,14 @@ try{
   const hide=(id)=>{ const m=document.getElementById(id); if(m) m.classList.add('hidden'); };
   if(!done){
     if(!user){
-      setTimeout(()=>{ show('gateModal'); console.log('[GuidanceAI] gate: sign-in popup shown (fresh refresh)'); },900);
+      setTimeout(()=>{ show('gateModal'); },900);
     } else {
-      setTimeout(()=>{ show('onboardModal'); console.log('[GuidanceAI] gate: quiz popup shown (signed in, fresh refresh)'); },600);
+      setTimeout(()=>{ show('onboardModal'); },600);
     }
   } else if(!user){
-    setTimeout(()=>{ show('gateModal'); console.log('[GuidanceAI] gate: sign-in popup shown (refresh, quiz done — sign in to keep results)'); },900);
-  } else { console.log('[GuidanceAI] gate: quiz completed — hero shows Your Top-3'); }
-  document.getElementById('gateGuest')?.addEventListener('click',()=>{ set('guidance_gate','1'); hide('gateModal'); console.log('[GuidanceAI] gate: guest — no auto quiz, browse freely'); });
+    setTimeout(()=>{ show('gateModal'); },900);
+  }
+  document.getElementById('gateGuest')?.addEventListener('click',()=>{ set('guidance_gate','1'); hide('gateModal'); });
   document.getElementById('gateModal')?.addEventListener('click',(e)=>{ if(e.target.id==='gateModal'){ set('guidance_gate','1'); hide('gateModal'); } });
   document.getElementById('onboardLater')?.addEventListener('click',()=>{ set('guidance_onboarded','1'); hide('onboardModal'); });
   document.getElementById('onboardModal')?.addEventListener('click',(e)=>{ if(e.target.id==='onboardModal'){ set('guidance_onboarded','1'); e.currentTarget.classList.add('hidden'); } });

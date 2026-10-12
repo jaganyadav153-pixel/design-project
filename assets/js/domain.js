@@ -78,6 +78,8 @@ function domainTheme(id, meta){
  return {a:'#4F46E5',b:'#06B6D4',e:'#6366F1'};
 }
 
+function shortSlugFor(id){ try{ const hb=handbooks[id]; if(hb && hb.slug) return hb.slug; }catch(e){} return String(id||'AI').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'ai'; }
+function currentTab(){ try{ const t=new URLSearchParams(location.search).get('tab'); if(t) return t; }catch(e){} return 'overview'; }
 function render(id){
  currentId = id;
  const hb = handbooks[id];
@@ -87,7 +89,7 @@ function render(id){
  try{
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', hb.id + ' Handbook — GuidanceAI • Immersive, not PDF');
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', hb.exec.slice(0,150));
-  document.querySelector('link[rel="canonical"]')?.setAttribute('href', location.origin + location.pathname + '?id=' + encodeURIComponent(hb.slug || hb.id));
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', location.origin + location.pathname + '?id=' + encodeURIComponent(shortSlugFor(hb.id)) + '&tab=' + encodeURIComponent(currentTab()));
  }catch(e){}
  document.getElementById('heroTitle').textContent = meta ? meta.name : hb.id;
  document.getElementById('heroDesc').textContent = meta ? meta.desc : '';
@@ -105,8 +107,8 @@ function render(id){
  document.getElementById('statGrowth').textContent = meta? meta.growth : '';
  document.getElementById('statSalary').textContent = (meta&&meta.salaryNum!=null) ? meta.salaryNum + ' LPA' : '';
  document.getElementById('domainSwitcher').value = id in handbooks ? id : 'AI';
- document.getElementById('vaultName').textContent = meta? meta.name : hb.id;
-  document.getElementById('vaultPath').textContent = 'public/vault/' + (hb.id.toLowerCase().replace(/[^a-z0-9]+/g,'-')) + '/';
+  try{ const vn=document.getElementById('vaultName'); if(vn) vn.textContent = meta? meta.name : hb.id; }catch(e){}
+  try{ const vp=document.getElementById('vaultPath'); if(vp) vp.textContent = 'public/vault/' + (hb.id.toLowerCase().replace(/[^a-z0-9]+/g,'-')) + '/'; }catch(e){}
  document.getElementById('paradigmTitle').textContent = hb.paradigm.title;
  document.getElementById('paradigmShift').textContent = hb.paradigm.shift;
  document.getElementById('rulesTitle').textContent = hb.paradigm.rules.t;
@@ -177,16 +179,16 @@ function render(id){
    <div class="mt-4 p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-white grid place-items-center shrink-0"><i class="fa-solid fa-check text-xs"></i></span><span><b>Output:</b> ${escapeHtml(ph.out)}</span></div>
   </div>
  `).join('');
- const tl = document.getElementById('timeline');
- tl.innerHTML = `<div class="absolute left-3 top-2 bottom-2 timeline-line rounded-full"></div>` + hb.timeline.map(ev=>`
-  <div class="relative flex gap-4 pb-5 group">
-   <div class="w-7 h-7 rounded-full bg-slate-900 text-white grid place-items-center text-xs z-10 border-2 border-white shadow group-hover:scale-110 transition"><i class="fa-solid fa-circle" style="font-size:7px"></i></div>
-   <div class="flex-1 p-4 rounded-2xl bg-white dark:bg-slate-900 border card-5">
-    <div class="flex items-center gap-2"><span class="kicker px-2.5 py-1 rounded-full bg-slate-900 text-white">${ev.y}</span><span class="font-bold text-sm">${ev.t}</span></div>
-    <div class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">${ev.d}</div>
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = `<div class="absolute top-2 bottom-2 timeline-line rounded-full" style="left:45px" aria-hidden="true"></div>` + hb.timeline.map(ev=>`
+   <div class="relative flex gap-3 sm:gap-4 pb-5 group">
+    <div class="w-7 h-7 rounded-full bg-slate-900 text-white grid place-items-center text-xs z-10 border-2 border-white dark:border-slate-800 shadow shrink-0 group-hover:scale-110 transition"><i class="fa-solid fa-circle" style="font-size:7px"></i></div>
+    <div class="flex-1 min-w-0 p-4 rounded-2xl bg-white dark:bg-slate-900 border card-5">
+     <div class="flex flex-wrap items-center gap-x-2 gap-y-1.5"><span class="kicker px-2.5 py-1 rounded-full bg-slate-900 text-white shrink-0">${ev.y}</span><span class="font-bold text-sm leading-snug min-w-0">${ev.t}</span></div>
+     <div class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">${ev.d}</div>
+    </div>
    </div>
-  </div>
- `).join('');
+  `).join('');
  document.getElementById('prosList').innerHTML = hb.balanced.pros.map(p=>`<li class="flex gap-3 p-2.5 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition"><span class="w-7 h-7 rounded-full bg-emerald-500 text-white grid place-items-center text-xs shrink-0 shadow"><i class="fa-solid fa-check"></i></span><span class="leading-relaxed">${p}</span></li>`).join('');
  document.getElementById('consList').innerHTML = hb.balanced.cons.map(c=>`<li class="flex gap-3 p-2.5 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/20 transition"><span class="w-7 h-7 rounded-full bg-rose-500 text-white grid place-items-center text-xs shrink-0 shadow"><i class="fa-solid fa-xmark"></i></span><span class="leading-relaxed">${c}</span></li>`).join('');
  document.getElementById('ethicsGrid').innerHTML = hb.ethics.map(e=>`
@@ -327,8 +329,8 @@ function render(id){
  const keys = Object.keys(handbooks);
  const idx = keys.indexOf(id);
  const next = keys[(idx+1)%keys.length];
- const nd = document.getElementById('nextDomain');
- if(nd){ nd.href = 'domain.html?id=' + encodeURIComponent(next); nd.textContent = 'Next: ' + next + ' →'; }
+  const nd = document.getElementById('nextDomain');
+  if(nd){ nd.href = 'domain.html?id=' + encodeURIComponent(shortSlugFor(next)) + '&tab=overview'; nd.textContent = 'Next: ' + next + ' →'; }
  // charts with retry for deferred loading
  scheduleCharts(hb, meta);
  // hero 3D with retry
@@ -440,7 +442,7 @@ function drawDemandChart(hb){
    },
    scales:{
      y:{beginAtZero:true, max:10, grid:{color:domainChartPalette().grid, drawBorder:false}, ticks:{stepSize:2, font:{family:'JetBrains Mono', size:isMobile?10:11}, color:domainChartPalette().tick}, border:{display:false}},
-     x:{grid:{display:false}, ticks:{font:{family:'Inter', size:isTiny?9:isMobile?9:10, weight:600}, color:domainChartPalette().tick, maxRotation:rot, minRotation:0, autoSkip:false, maxTicksLimit:isMobile?5:8}, border:{display:false}}
+     x:{grid:{display:false}, ticks:{font:{family:'Inter', size:isTiny?9:isMobile?9:10, weight:600}, color:domainChartPalette().tick, maxRotation:rot, minRotation:0, autoSkip:true, maxTicksLimit:isTiny?4:isMobile?5:8}, border:{display:false}}
    }
   }
  });
@@ -514,7 +516,7 @@ function drawEvolution(hb){
     plugins:{ legend:{display:false}, tooltip:{backgroundColor:'#0f172a', padding:10, cornerRadius:12, titleFont:{family:'Inter'}, bodyFont:{family:'Inter'}}},
     scales:{
      y:{ min:0, max:100, ticks:{callback:v=>v+'%', font:{family:'JetBrains Mono', size:isMobile?10:11}, color:_ep.tick}, grid:{color:_ep.grid, drawBorder:false}, border:{display:false} },
-     x:{ grid:{display:false}, ticks:{font:{family:'Inter', size:isMobile?10:11, weight:600}, color:_ep.tick, maxRotation:0}, border:{display:false} }
+     x:{ grid:{display:false}, ticks:{font:{family:'Inter', size:isMobile?10:11, weight:600}, color:_ep.tick, maxRotation:isMobile?45:0, autoSkip:true, maxTicksLimit:isMobile?6:12}, border:{display:false} }
     }
   }
  });
@@ -960,7 +962,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
  render(id);
  document.getElementById('domainSwitcher')?.addEventListener('change', e=>{
   const v = e.target.value;
-  location.href = 'domain.html?id=' + encodeURIComponent(v);
+  location.href = 'domain.html?id=' + encodeURIComponent(shortSlugFor(v)) + '&tab=' + encodeURIComponent(currentTab());
  });
  // defer GSAP/Lenis init until libs loaded
  let tries=0;

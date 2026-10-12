@@ -9,7 +9,8 @@
     { "source": "/dashboard.html", "destination": "/pages/dashboard.html" },
     { "source": "/about.html", "destination": "/pages/about.html" },
     { "source": "/contact.html", "destination": "/pages/contact.html" },
-    { "source": "/signin.html", "destination": "/pages/signin.html" }
+    { "source": "/signin.html", "destination": "/pages/signin.html" },
+    { "source": "/d/:slug", "destination": "/pages/domains/:slug.html" }
   ],
   "headers": [
     {

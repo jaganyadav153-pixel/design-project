@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Quiz — Find Your Perfect Domain (25-way) | GuidanceAI</title>
 <meta name="description" content="15 questions ×4 plus marks → Top-3 across 25 CSE tracks with radar, confidence & vault. 3 minutes, ML-powered.">
 <meta name="theme-color" content="#4F46E5">
@@ -37,6 +37,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/theme-contrast.css">
+<link rel="stylesheet" href="../assets/css/mobile-pro.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GuidanceAI","url":"https://guidanceai.vercel.app","logo":"https://guidanceai.vercel.app/public/icons/icon-512.png","description":"AI-powered virtual counsellor for 1st-year CSE students"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is this different from other career sites?","acceptedAnswer":{"@type":"Answer","text":"CSE domain-specific 25 domains (Atlas 25) with roadmap, mini-course, parent voice reports"}},{"@type":"Question","name":"Which ML models are used?","acceptedAnswer":{"@type":"Answer","text":"RandomForest 89% primary, DecisionTree, KNN + PCA"}},{"@type":"Question","name":"Is it free & private?","acceptedAnswer":{"@type":"Answer","text":"Yes, no signup, data stays local"}},{"@type":"Question","name":"Can parents use in Telugu/Hindi?","acceptedAnswer":{"@type":"Answer","text":"Yes, 10 languages with TTS"}}]}</script>
 <script>
@@ -101,15 +102,15 @@ html[dir="rtl"] canvas{ direction:ltr }
    <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
    
   </a>
-  <div class="hidden lg:flex items-center gap-6 text-sm font-medium" role="navigation" aria-label="Primary">
+  <div class="hidden xl:flex items-center gap-5 text-sm font-medium" role="navigation" aria-label="Primary">
    <a href="../index.html" class="hover:text-primary" data-i18n="nav_home">Home</a>
    <a href="explorer.html" class="hover:text-primary" data-i18n="nav_explorer">Atlas</a>
    <a href="quiz.html#quiz" class="hover:text-primary" data-i18n="nav_quiz">Quiz</a>
    <a href="roadmap.html" class="hover:text-primary" data-i18n="nav_roadmap">Roadmap</a>
    <a href="resources.html" class="hover:text-primary" data-i18n="nav_resources">Resources</a>
    <a href="dashboard.html" class="hover:text-primary" data-i18n="nav_dashboard">Vault</a>
-   <a href="about.html" class="hover:text-primary">About</a>
-   <a href="contact.html" class="hover:text-primary">Contact</a>
+   
+   
   </div>
   <div class="flex items-center gap-2">
    <label for="langSwitcher" class="sr-only">Select language</label>
@@ -134,11 +135,11 @@ html[dir="rtl"] canvas{ direction:ltr }
    <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-regular fa-moon"></i></button>
    <a href="quiz.html#quiz" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus-visible:ring-2">Start Quiz →</a>
       <a href="signin.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl border text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">Sign in</a>
-   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
+   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="xl:hidden w-9 h-9 rounded-lg border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
   </div>
  </div>
  <!-- Mobile Drawer (perfect webdev) -->
- <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
+ <div id="mobileDrawer" class="hidden xl:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
   <div class="px-4 py-4 space-y-1 text-sm font-medium">
    <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
    <a href="explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Explorer</a>
@@ -153,36 +154,30 @@ html[dir="rtl"] canvas{ direction:ltr }
  </div>
 </nav>
 <main id="main">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-<a href="../index.html" class="inline-flex items-center gap-2 text-sm text-indigo-600 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-<nav aria-label="Breadcrumb" class="mt-3 text-xs text-slate-500 flex items-center gap-1.5"><a href="../index.html" class="hover:text-indigo-600">Home</a><span>/</span><span class="font-semibold text-slate-700">Quiz</span></nav>
-<h1 class="mt-3 font-display font-extrabold text-3xl">Find Your Perfect Domain — 3-Minute Quiz</h1>
-<p class="text-slate-600 mt-1">Answer 15 quick questions plus your marks — get your Top-3 domains with a clear roadmap and starter lessons.</p>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
+<h1 class="font-display font-extrabold text-2xl sm:text-3xl">Find Your Perfect Domain — 3-Minute Quiz</h1>
+<p class="text-slate-600 mt-1 text-[15px]">15 questions + marks → your Top-3 fields.</p>
 </div>
 <!-- QUIZ / PREDICTOR -->
 <section id="quiz" tabindex="-1" class="bg-white dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700 py-10 scroll-mt-24 focus:outline-none">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="max-w-3xl mx-auto text-center">
-   <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200">ML Filter • 3 Minutes • 15 Questions + Marks</span>
-   <h2 class="mt-3 font-display font-extrabold text-3xl" data-i18n="quiz_title">Find Your Perfect Domain</h2>
-   <p class="mt-2 text-slate-600 dark:text-slate-400">Answer 15 quick questions plus your marks — get your Top-3 domains with confidence, roadmap and vault suggestion.</p>
-  </div>
-  <div class="mt-8 max-w-4xl mx-auto bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 lg:p-8 border border-slate-200">
-   <!-- Progress -->
-   <div class="flex items-center justify-between text-xs font-semibold">
-    <span id="quizStepLabel">Step 1 of 16 • Marks</span>
-    <span id="quizProgressText">6%</span>
-   </div>
-   <div class="mt-2 h-2 bg-white dark:bg-slate-800 rounded-full overflow-hidden border"><div id="quizProgressBar" class="h-full bg-indigo-600 transition-all" style="width:6%"></div></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   <div class="mt-8 max-w-4xl mx-auto bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 lg:p-8 border border-slate-200">
+    <!-- Progress -->
+    <div class="flex items-center justify-between gap-3">
+     <span id="quizStepLabel" class="px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs font-bold">Step 1 of 16 • Marks</span>
+     <span id="quizProgressText" class="text-sm font-extrabold text-indigo-600">6%</span>
+    </div>
+    <div class="mt-2.5 h-2.5 bg-white dark:bg-slate-800 rounded-full overflow-hidden border"><div id="quizProgressBar" class="h-full rounded-full transition-all" style="width:6%;background:linear-gradient(90deg,#4F46E5,#06B6D4);"></div></div>
+    <div id="quizDots" class="mt-3 flex items-center gap-1.5" aria-hidden="true"></div>
 
    <!-- Quiz Container -->
    <div id="quizContainer" class="mt-6">
     <!-- Q1: Marks -->
-    <div class="quiz-step" data-step="1">
-     <h3 class="font-bold text-lg">First, your academic marks (0-100)</h3>
-     <p class="text-sm text-slate-600 dark:text-slate-400">Your marks help personalize your Top-3. Be honest.</p>
-     <div class="mt-4 grid sm:grid-cols-2 gap-4">
-      <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">Math Marks *</span><input id="mMath" aria-label="Math marks" type="number" value="85" min="0" max="100" required class="mt-2 w-full px-3 py-2 rounded-xl border"><span class="text-xs text-slate-600 dark:text-slate-400">Weight high for AI/ML</span><span id="errMath" class="hidden text-xs text-red-600"></span></label>
+     <div class="quiz-step" data-step="1">
+      <h3 class="font-bold text-[17px] sm:text-lg">First, your academic marks (0-100)</h3>
+      <p class="text-[13px] sm:text-sm text-slate-600 dark:text-slate-400">Your marks help personalize your Top-3. Be honest.</p>
+      <div class="mt-4 grid grid-cols-2 gap-2.5 sm:gap-4">
+      <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">Math Marks *</span><input id="mMath" aria-label="Math marks" type="number" value="85" min="0" max="100" required class="mt-2 w-full px-3 py-2 rounded-xl border"><span class="text-xs text-slate-600 dark:text-slate-400">Counts the most for AI/ML</span><span id="errMath" class="hidden text-xs text-red-600"></span></label>
       <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">Programming Marks *</span><input id="mProg" aria-label="Programming marks" type="number" value="78" min="0" max="100" required class="mt-2 w-full px-3 py-2 rounded-xl border"><span id="errProg" class="hidden text-xs text-red-600"></span></label>
       <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">Physics Marks</span><input id="mPhy" aria-label="Physics marks" type="number" value="72" min="0" max="100" class="mt-2 w-full px-3 py-2 rounded-xl border"></label>
       <label class="bg-white dark:bg-slate-800 p-4 rounded-2xl border dark:border-slate-700"><span class="text-sm font-semibold">English Marks</span><input id="mEng" aria-label="English marks" type="number" value="80" min="0" max="100" class="mt-2 w-full px-3 py-2 rounded-xl border"></label>
@@ -191,8 +186,8 @@ html[dir="rtl"] canvas{ direction:ltr }
     <!-- Questions injected by JS -->
    </div>
 
-   <div class="mt-6 flex justify-between items-center">
-    <button id="quizPrev" class="px-6 py-3 rounded-xl border dark:border-slate-700 bg-white dark:bg-slate-800 font-semibold disabled:opacity-50 btn-press">← Previous</button>
+    <div id="quizNav" class="mt-6 flex justify-between items-center gap-3">
+     <button id="quizPrev" class="px-5 sm:px-6 py-3 rounded-xl border dark:border-slate-700 bg-white dark:bg-slate-800 font-semibold disabled:opacity-40 btn-press min-h-[48px]">← Prev</button>
     <div class="flex items-center gap-3"><span id="quizLoading" class="hidden items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="spinner border-indigo-600 border-t-indigo-600"></span> Predicting…</span><button id="quizNext" class="px-8 py-3 rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 btn-press inline-flex items-center gap-2">Next →</button></div>
    </div>
    <div class="mt-3 text-center text-xs text-slate-600 dark:text-slate-400">Your data stays on this device • Private by design</div>
@@ -200,7 +195,7 @@ html[dir="rtl"] canvas{ direction:ltr }
 
   <!-- Results (hidden initially) -->
   <div id="quizResults" class="hidden max-w-6xl mx-auto mt-8">
-   <div class="p-6 rounded-3xl bg-gradient-to-br from-indigo-600 to-cyan-500 text-white">
+   <div class="p-6 rounded-3xl text-white" style="background:linear-gradient(135deg,#4F46E5 0%,#7C3AED 55%,#0E7490 100%);">
     <div class="flex flex-wrap items-start justify-between gap-4">
      <div>
       <div class="text-sm opacity-80">✨ Recommended for you</div>
@@ -235,9 +230,9 @@ html[dir="rtl"] canvas{ direction:ltr }
     <a href="resources.html" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border dark:border-slate-700 font-semibold">Go to Mini-Course</a>
     <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl border dark:border-slate-700 bg-white dark:bg-slate-800 font-semibold">Retake Quiz</button>
    </div>
-   <div id="quizCountdown" class="mt-4 p-4 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
-    <div class="text-sm"><b>Your Top-3 is saved!</b> Returning to homepage in <b><span id="quizCountNum">5</span>s</b> — results appear in your homepage hero.</div>
-    <div class="flex gap-2 text-sm"><a href="../index.html" class="px-4 py-2 rounded-xl bg-white text-slate-900 font-bold">Go now →</a><button id="quizStay" class="px-4 py-2 rounded-xl border border-white/25 font-semibold hover:bg-white/10">Stay here</button></div>
+   <div id="quizCountdown" class="mt-4 p-4 rounded-2xl text-white flex flex-wrap items-center justify-between gap-3" style="background:#0F172A;">
+    <div class="text-sm"><b>Your Top-3 is saved on this device.</b> See it in your homepage hero anytime.</div>
+    <div class="flex gap-2 text-sm"><a href="../index.html" class="px-4 py-2 rounded-xl bg-white text-slate-900 font-bold">Homepage →</a><button id="quizStay" onclick="document.getElementById('quizResults').scrollIntoView({behavior:'smooth'})" class="px-4 py-2 rounded-xl border border-white/25 font-semibold hover:bg-white/10">Back to top ↑</button></div>
    </div>
    <!-- Post-quiz inline learn — shows after quiz without leaving page -->
    <div id="postQuizLearn" class="hidden mt-8"></div>
@@ -247,28 +242,30 @@ html[dir="rtl"] canvas{ direction:ltr }
 </section>
 
 </main>
-<footer class="bg-slate-900 text-white">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <div class="grid md:grid-cols-4 gap-8">
-   <div class="md:col-span-1">
-    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-extrabold text-white">G</div><span class="font-display font-bold text-lg">GuidanceAI</span></div>
-    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Virtual counsellor for 1st-year CSE — Top-3 domains, roadmaps, vault &amp; parent guidance in 10 languages.</p>
-    <div class="mt-4 flex gap-2">
-     <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-github"></i></a>
-     <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
-     <a href="mailto:guidance@college.edu" aria-label="Email" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition"><i class="fa-solid fa-envelope"></i></a>
+<!-- FOOTER - short, Google-style -->
+<!-- FOOTER - short, Google-style -->
+<!-- FOOTER - short, black -->
+<footer class="bg-slate-900 text-white" style="background:#000;color:#fff;border-top:1px solid #222;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 pb-5">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+      <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl grid place-items-center font-extrabold text-white text-lg" style="background:linear-gradient(135deg,#4F46E5,#0E7490);">G</div><div><span class="font-display font-bold text-lg" style="color:#fff;">GuidanceAI</span><div class="text-xs" style="color:#fff;">Top 3 Domains • Roadmap • Free videos</div></div></div>
+      <a href="quiz.html#quiz" class="sm:ml-auto inline-flex items-center justify-center px-6 py-3 rounded-2xl font-bold min-h-[48px] shadow" style="background:#fff;color:#111827;">Find my Top-3 →</a>
     </div>
-    <div class="mt-4 text-xs text-slate-300">Project by CSE Team • Week 1-7 • Vercel + Render</div>
-   </div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Explore</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="explorer.html" class="hover:text-white transition">Domain Atlas → 25 tracks</a></li><li><a href="quiz.html" class="hover:text-white transition">Quiz & ML Filter • 3 min • 25-way</a></li><li><a href="roadmap.html" class="hover:text-white transition">4-Year Roadmaps (25)</a></li><li><a href="resources.html" class="hover:text-white transition">Resource Hub + Vault</a></li><li><a href="dashboard.html" class="hover:text-white transition">Dashboards + Compare</a></li></ul></div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">For Users</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li><a href="dashboard.html" onclick="switchDashboard('student');return false;" class="hover:text-white transition">Student • XP & Roadmap</a></li><li><a href="dashboard.html" onclick="switchDashboard('parent');return false;" class="hover:text-white transition">Parent • Voice Report (10 langs)</a></li><li><a href="dashboard.html" onclick="switchDashboard('teacher');return false;" class="hover:text-white transition">Teacher • Batch Analytics</a></li><li><span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-robot text-cyan-400"></i> Chatbot + Voice</span></li></ul></div>
-   <div><div class="font-bold text-sm tracking-wider uppercase text-white/90">Why us</div><ul class="mt-4 space-y-2.5 text-sm text-slate-300"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Top-3 fit • Personal roadmap</li><li>NPTEL • Coursera • YouTube</li><li>Privacy-first • Works offline</li></ul><div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> No signup • Data stays local</div></div>
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Start</div><ul class="mt-2 text-[14px]"><li><a href="quiz.html#quiz" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Quiz (3 min)</a></li><li><a href="../index.html#explorer" class="inline-flex items-center min-h-[40px]" style="color:#fff;">25 fields</a></li><li><a href="roadmap.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Roadmap</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Learn</div><ul class="mt-2 text-[14px]"><li><a href="resources.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Free videos</a></li><li><a href="dashboard.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Vault</a></li><li><a href="contact.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Help</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Trust</div><ul class="mt-2 text-[14px]" style="color:#fff;"><li class="min-h-[40px] inline-flex items-center">89% accurate</li><li class="min-h-[40px] inline-flex items-center">No signup</li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Contact</div><div class="mt-2 text-[14px]" style="color:#fff;">guidance@college.edu</div><div class="mt-3 flex gap-2">
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-github"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:guidance@college.edu" aria-label="Email" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-solid fa-envelope"></i></a>
+      </div></div>
+    </div>
+    <div class="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px]" style="border-top:1px solid #333;">
+      <div style="color:#fff;">© 2026 GuidanceAI</div>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-4 py-2 rounded-xl font-bold min-h-[44px]" style="background:#fff;color:#111827;">↑ Top</button>
+    </div>
   </div>
-  <div class="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-   <div class="text-slate-300 text-center md:text-left">© 2026 GuidanceAI • Open-source • <span class="text-white">v1.0</span></div>
-   <div class="flex items-center gap-3 text-slate-300"><span>Atlas 25 · Vault Ready · Docs</span><span class="hidden sm:inline">•</span><button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-3 py-1.5 rounded-full bg-white text-slate-900 font-semibold hover:bg-slate-100 transition">↑ Back to top</button></div>
-  </div>
- </div>
 </footer>
 <!-- COMPARE BAR -->
 <div id="compareBar" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl z-40 flex items-center gap-3 max-w-[95vw]">
@@ -317,6 +314,7 @@ html[dir="rtl"] canvas{ direction:ltr }
 
 
 <script src="../assets/js/app.js"></script>
+<script src="../assets/js/mobile-nav.js"></script>
 <script>
 // Accessibility: right-click and keyboard shortcuts enabled — no blocking (WCAG 2.1.1)
 // 10Cr focus: Start Quiz deep-links to #quiz — center card in viewport + focus first question input

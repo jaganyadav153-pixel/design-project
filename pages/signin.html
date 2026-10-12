@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Sign in — GuidanceAI</title>
 <meta name="description" content="Sign in to GuidanceAI — save quiz Top-3, vault files, roadmaps and parent reports on this device. Private by design.">
 <meta name="theme-color" content="#4F46E5">
@@ -22,6 +22,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/theme-contrast.css">
+<link rel="stylesheet" href="../assets/css/mobile-pro.css">
 <script>
 tailwind.config = {
  darkMode: 'class',
@@ -47,23 +48,23 @@ section#signinHero{background:radial-gradient(600px 300px at 15% 20%,rgba(99,102
    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center text-white font-display font-extrabold">G</div>
    <div class="font-display font-extrabold text-lg leading-none">GuidanceAI</div>
   </a>
-  <div class="hidden lg:flex items-center gap-6 text-sm font-medium" role="navigation" aria-label="Primary">
+  <div class="hidden xl:flex items-center gap-5 text-sm font-medium" role="navigation" aria-label="Primary">
    <a href="../index.html" class="hover:text-primary">Home</a>
    <a href="explorer.html" class="hover:text-primary">Atlas</a>
    <a href="quiz.html#quiz" class="hover:text-primary">Quiz</a>
    <a href="roadmap.html" class="hover:text-primary">Roadmap</a>
    <a href="resources.html" class="hover:text-primary">Resources</a>
    <a href="dashboard.html" class="hover:text-primary">Vault</a>
-   <a href="about.html" class="hover:text-primary">About</a>
-   <a href="contact.html" class="hover:text-primary">Contact</a>
+   
+   
   </div>
   <div class="flex items-center gap-2">
    <button onclick="toggleDark()" aria-label="Toggle dark mode" class="w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-regular fa-moon"></i></button>
    <a href="quiz.html#quiz" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700">Start Quiz →</a>
-   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
+   <button id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer" class="xl:hidden w-10 h-10 rounded-xl border border-slate-200 grid place-items-center hover:bg-slate-50 transition"><i class="fa-solid fa-bars"></i></button>
   </div>
  </div>
-  <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
+  <div id="mobileDrawer" class="hidden xl:hidden border-t border-slate-200 bg-white dark:bg-slate-900">
    <div class="px-4 py-4 space-y-1 text-sm font-medium">
     <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
     <a href="explorer.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800">Atlas</a>
@@ -139,16 +140,34 @@ section#signinHero{background:radial-gradient(600px 300px at 15% 20%,rgba(99,102
  <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border flex gap-3"><i class="fa-solid fa-language mt-1 text-cyan-600"></i><div><b>10 languages</b><div class="text-slate-600 dark:text-slate-400">Parent reports + voice readout.</div></div></div>
 </section>
 </main>
-<footer class="bg-slate-900 text-white">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-300">
-   <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-cyan-500 grid place-items-center font-bold text-white">G</div> GuidanceAI • Private by design</div>
-   <div class="flex gap-4"><a href="../index.html" class="hover:text-white">Home</a><a href="quiz.html#quiz" class="hover:text-white">Quiz</a><a href="dashboard.html" class="hover:text-white">Dashboard</a><span>© 2026</span></div>
+<!-- FOOTER - short, Google-style -->
+<!-- FOOTER - short, Google-style -->
+<!-- FOOTER - short, black -->
+<footer class="bg-slate-900 text-white" style="background:#000;color:#fff;border-top:1px solid #222;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 pb-5">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+      <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl grid place-items-center font-extrabold text-white text-lg" style="background:linear-gradient(135deg,#4F46E5,#0E7490);">G</div><div><span class="font-display font-bold text-lg" style="color:#fff;">GuidanceAI</span><div class="text-xs" style="color:#fff;">Top 3 Domains • Roadmap • Free videos</div></div></div>
+      <a href="quiz.html#quiz" class="sm:ml-auto inline-flex items-center justify-center px-6 py-3 rounded-2xl font-bold min-h-[48px] shadow" style="background:#fff;color:#111827;">Find my Top-3 →</a>
+    </div>
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Start</div><ul class="mt-2 text-[14px]"><li><a href="quiz.html#quiz" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Quiz (3 min)</a></li><li><a href="../index.html#explorer" class="inline-flex items-center min-h-[40px]" style="color:#fff;">25 fields</a></li><li><a href="roadmap.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Roadmap</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Learn</div><ul class="mt-2 text-[14px]"><li><a href="resources.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Free videos</a></li><li><a href="dashboard.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Vault</a></li><li><a href="contact.html" class="inline-flex items-center min-h-[40px]" style="color:#fff;">Help</a></li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Trust</div><ul class="mt-2 text-[14px]" style="color:#fff;"><li class="min-h-[40px] inline-flex items-center">89% accurate</li><li class="min-h-[40px] inline-flex items-center">No signup</li></ul></div>
+      <div><div class="font-bold text-xs tracking-wider uppercase" style="color:#fff;">Contact</div><div class="mt-2 text-[14px]" style="color:#fff;">guidance@college.edu</div><div class="mt-3 flex gap-2">
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-github"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:guidance@college.edu" aria-label="Email" class="w-10 h-10 rounded-xl grid place-items-center border" style="background:#1a1a1a;border-color:#333;color:#fff;"><i class="fa-solid fa-envelope"></i></a>
+      </div></div>
+    </div>
+    <div class="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px]" style="border-top:1px solid #333;">
+      <div style="color:#fff;">© 2026 GuidanceAI</div>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-4 py-2 rounded-xl font-bold min-h-[44px]" style="background:#fff;color:#111827;">↑ Top</button>
+    </div>
   </div>
- </div>
 </footer>
 <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm shadow-xl z-50" role="status" aria-live="polite"></div>
 <script src="../assets/js/app.js"></script>
+<script src="../assets/js/mobile-nav.js"></script>
 <script>
 function toggleDark(){document.documentElement.classList.toggle('dark');try{localStorage.setItem('dark',document.documentElement.classList.contains('dark'))}catch(e){}}
 try{if(localStorage.getItem('dark')==='true')document.documentElement.classList.add('dark')}catch(e){}
